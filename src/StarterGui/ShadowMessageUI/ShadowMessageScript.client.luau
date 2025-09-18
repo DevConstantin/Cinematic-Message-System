@@ -1,8 +1,6 @@
 
 --- // SERVICES
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local RunService = game:GetService("RunService")
-local TweenService = game:GetService("TweenService")
 
 -- Modules
 local ShadowMsgModule = require(script.Parent.ShadowMsgModule)
