@@ -7,8 +7,8 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 --- // OBJECTS
 -- RemoteEvents
 local cinematicMsgEvents = ReplicatedStorage.RemoteEvents.ShadowMsgEvents
-local msgEvent           = cinematicMsgEvents.ShadowMsg
-local msgSequenceEvent   = cinematicMsgEvents.ShadowMsgSequence
+local msgEvent = cinematicMsgEvents.ShadowMsg
+local msgSequenceEvent = cinematicMsgEvents.ShadowMsgSequence
 
 type MessageEntry = {
     message: string,
@@ -53,7 +53,7 @@ end
 --     {message = "Third message", cframe = nil, target = nil}
 -- }
 -- @param style: 'Typewriter' (letters appear one by one), or 'Fade' (text slowly fades in), "Instant" (text instantly appears) - Defaults to instant
-function CinematicMessageService.SendShadowMessageSequence(player: Player, msgTitle: string?, msgTable: {MessageEntry}, style: string?)
+function CinematicMessageService.SendShadowMessageSequence(player: Player, msgTitle: string?, msgTable: { MessageEntry }, style: string?)
 	local paramType = typeof(msgTable)
 	if paramType ~= "table" then
         warn("MessageSystem | SendShadowMessageSequence: Invalid msgTable param type:", paramType, msgTable, " - Returning.")
@@ -78,7 +78,7 @@ end
 -- @param msgText: The message text to display	
 -- @param vector3Points: A table of Vector3 points that define the curve path
 -- @param style: 'Typewriter' (letters appear one by one), 'Fade' (text slowly fades in), "Instant" (text instantly appears) - Defaults to instant
-function CinematicMessageService.SendMessageWithCurve(player: Player, msgTitle: string?, msgText: string, vector3Points : {Vector3},  style: string?)
+function CinematicMessageService.SendMessageWithCurve(player: Player, msgTitle: string?, msgText: string, vector3Points : { Vector3 },  style: string?)
 	-- Validate parameters
 	if msgText == "" or msgText == nil then
 		warn("CinematicMessageService | SendMessageWithCurve: Missing msgText param! Returning.")
