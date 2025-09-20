@@ -11,7 +11,7 @@ local msgEvent = cinematicMsgEvents.ShadowMsg
 local msgSequenceEvent = cinematicMsgEvents.ShadowMsgSequence
 
 type MessageEntry = {
-    message: string,
+    message: string?,
     cframe: CFrame?,
     target: Instance?
 }	
@@ -19,20 +19,21 @@ type MessageEntry = {
 --- // FUNCTIONS
 
 -- Sends a cinematic message to a specific player
+-- You must provide either msgText, msgCFrame, or msgTarget 
 -- @param msgTitle: If nil, title text label will be hadden in the UI on the client, otherwise displayed above the message text
 -- @param style: 'Typewriter' (letters appear one by one), 'Fade' (text slowly fades in), "Instant" (text instantly appears) - Defaults to instant
 -- @param msgCFrame: If provided, client camera will change to this CFrame in the 3D world
 -- @param msgTarget: If provided, client camera will follow this Instance in the 3D world (takes priority over msgCFrame)
-function CinematicMessageService.SendMessage(player: Player, msgTitle: string?, msgText: string, style: string?, msgCFrame: CFrame?, msgTarget: Instance?)
+function CinematicMessageService.sendCinematicMessage(player: Player, msgTitle: string?, msgText: string?, style: string?, msgCFrame: CFrame?, msgTarget: Instance?)
 	-- Validate parameters
 	if msgText == "" or msgText == nil then
-		warn("CinematicMessageService | SendMessage: Missing msgText param! Returning.")
+		warn("CinematicMessageService | SendCinematicMessage: Missing msgText param! Returning.")
 		return
 	end
 
 	local msgParamType = typeof(msgText)
 	if msgParamType ~= "string" then
-		warn("CinematicMessageService | SendMessage: Invalid msgText param type:", msgParamType, msgText, " - Returning.")
+		warn("CinematicMessageService | SendCinematicMessage: Invalid msgText param type:", msgParamType, msgText, " - Returning.")
 		return
 	end
 	
@@ -53,15 +54,15 @@ end
 --     {message = "Third message", cframe = nil, target = nil}
 -- }
 -- @param style: 'Typewriter' (letters appear one by one), or 'Fade' (text slowly fades in), "Instant" (text instantly appears) - Defaults to instant
-function CinematicMessageService.SendShadowMessageSequence(player: Player, msgTitle: string?, msgTable: { MessageEntry }, style: string?)
+function CinematicMessageService.sendCinematicMessageSequence(player: Player, msgTitle: string?, msgTable: { MessageEntry }, style: string?)
 	local paramType = typeof(msgTable)
 	if paramType ~= "table" then
-        warn("MessageSystem | SendShadowMessageSequence: Invalid msgTable param type:", paramType, msgTable, " - Returning.")
+        warn("MessageSystem | SendCinematicMessageSequence: Invalid msgTable param type:", paramType, msgTable, " - Returning.")
         return
     end
 
 	if #msgTable == 0 then
-		warn("MessageSystem | SendShadowMessageSequence: msgTable param is empty! Returning.")
+		warn("MessageSystem | SendCinematicMessageSequence: msgTable param is empty! Returning.")
 		return
 	end
 
@@ -78,27 +79,27 @@ end
 -- @param msgText: The message text to display	
 -- @param vector3Points: A table of Vector3 points that define the curve path
 -- @param style: 'Typewriter' (letters appear one by one), 'Fade' (text slowly fades in), "Instant" (text instantly appears) - Defaults to instant
-function CinematicMessageService.SendMessageWithCurve(player: Player, msgTitle: string?, msgText: string, vector3Points : { Vector3 },  style: string?)
+function CinematicMessageService.sendCinematicMessageWithCurve(player: Player, msgTitle: string?, msgText: string, vector3Points : { Vector3 },  style: string?)
 	-- Validate parameters
 	if msgText == "" or msgText == nil then
-		warn("CinematicMessageService | SendMessageWithCurve: Missing msgText param! Returning.")
+		warn("CinematicMessageService | SendCinematicMessageWithCurve: Missing msgText param! Returning.")
 		return
 	end
 
 	local msgParamType = typeof(msgText)
 	if msgParamType ~= "string" then
-		warn("CinematicMessageService | SendMessageWithCurve: Invalid msgText param type:", msgParamType, msgText, " - Returning.")
+		warn("CinematicMessageService | SendCinematicMessageWithCurve: Invalid msgText param type:", msgParamType, msgText, " - Returning.")
 		return
 	end
 
 	local pointsParamType = typeof(vector3Points)
 	if pointsParamType ~= "table" then
-		warn("CinematicMessageService | SendMessageWithCurve: Invalid vector3Points param type:", pointsParamType, vector3Points, " - Returning.")
+		warn("CinematicMessageService | SendCinematicMessageWithCurve: Invalid vector3Points param type:", pointsParamType, vector3Points, " - Returning.")
 		return
 	end
 
 	if #vector3Points < 2 then
-		warn("CinematicMessageService | SendMessageWithCurve: vector3Points param has less than 2 points! Returning.")
+		warn("CinematicMessageService | SendCinematicMessageWithCurve: vector3Points param has less than 2 points! Returning.")
 		return
 	end
 	
