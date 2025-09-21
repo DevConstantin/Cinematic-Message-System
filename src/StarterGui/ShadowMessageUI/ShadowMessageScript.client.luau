@@ -5,8 +5,8 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 --- // OBJECTS
 -- Modules
-local ShadowMsgModule = require(script.Parent.ShadowMsgModule)
--- Player 
+local CinematicMsgClientModule = require(script.Parent.ShadowMsgModule)
+-- Player
 local localPlayer = Players.LocalPlayer
 local mouse = localPlayer:GetMouse()
 
@@ -37,9 +37,9 @@ msgExitButton.Visible = false
 messageUI.Enabled = true -- Ensure the UI is enabled now that setup is done
 
 -- Connect mouse and button events to module functions
-mouse.Button1Down:Connect(ShadowMsgModule.onMouseClick)
-msgExitButton.MouseButton1Click:Connect(ShadowMsgModule.hideCinematicMessage)
+mouse.Button1Down:Connect(CinematicMsgClientModule.onMouseClick)
+msgExitButton.MouseButton1Click:Connect(CinematicMsgClientModule.hideCinematicMessage)
 
 -- Connect RemoteEvents to module functions
-msgEvent.OnClientEvent:Connect(ShadowMsgModule.showCinematicMessage)
-msgSequenceEvent.OnClientEvent:Connect(ShadowMsgModule.showCinematicMessageSequence)
+msgEvent.OnClientEvent:Connect(CinematicMsgClientModule.showCinematicMessage)
+msgSequenceEvent.OnClientEvent:Connect(CinematicMsgClientModule.showCinematicMessageSequence)

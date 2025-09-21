@@ -1,10 +1,14 @@
 local CinematicMsgClientModule = {}
 
 --- // SERVICES
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
 local SoundService = game:GetService("SoundService")
 local TweenService = game:GetService("TweenService")
 
 --- // OBJECTS
+-- Player
+local localPlayer = Players.LocalPlayer
 local camera = workspace.CurrentCamera
 -- UI Elements
 local messageUI = script.Parent
@@ -23,12 +27,16 @@ local TEXT_TWEEN_TIME = 2
 local SHADOW_FRAME_HIDDEN_POSITION = UDim2.fromScale(0, 1)
 local SHADOW_FRAME_VISIBLE_POSITION = UDim2.fromScale(0, 0.63)
 local TYPEWRITER_EFFECT_SPEED = 0.02 -- Time in seconds between each letter for typewriter effect
+local MOVE_DISTANCE_THRESHOLD = 2 -- Distance in studs before the message UI closes
+local MOVE_DISTANCE_CHECK_INTERVAL = 0.3 -- How often to check player distance in seconds
 
 --- // VARIABLES
 local previousTextLabel: TextLabel = nil -- To keep track of the previous text label for cleanup
 local currentCameraTween: Tween = nil -- To keep track of the current camera tween for cleanup do
-local typewriterActive = false -- Flag to indicate if typewriter effect is currently active
 local typeWriterSkipRequested = false -- Flag to indicate if the user has requested to skip the typewriter effect
+local msgReceivedPos = nil -- Position where the message was received, used for distance tracking
+local posChangedConnect = nil -- Connection for position changed event
+local msgChangedConnection = nil
 type MessageEntry = {
     message: string,
     cframe: CFrame?,
@@ -39,7 +47,8 @@ local showTextTweenInfo = TweenInfo.new(TEXT_TWEEN_TIME)
 local hideTextTweenInfo = TweenInfo.new(TEXT_TWEEN_TIME / 4) -- Hide faster than show
 local showTitleTween: Tween = TweenService:Create(titleTextLabel, showTextTweenInfo, {TextTransparency = 0})
 local hideTitleTween: Tween = TweenService:Create(titleTextLabel, hideTextTweenInfo, {TextTransparency = 1})
---- // FUNCTIONS
+
+
 -------------------------------- // CAMERA FUNCTIONS --------------------------------
 
 local function updateCamera(msgCFrame: CFrame?, msgTarget: Instance?)
@@ -72,6 +81,41 @@ local function resetCamera()
     if camera.CameraType ~= Enum.CameraType.Custom then
          camera.CameraType = Enum.CameraType.Custom
     end
+end
+
+--------------------------------- // POSITION TRACKING FUNCTIONS --------------------------------
+-- Clears the position changed connection if it exists
+local function clearPosChangedConnect()
+    if posChangedConnect then
+        posChangedConnect:Disconnect()
+        posChangedConnect = nil
+    end
+end
+
+-- Close the message UI when the player moves too far from the message position,
+-- or if the player's character is removed (e.g., upon death or respawn)
+local function setupPosTracking()
+    clearPosChangedConnect()
+    local char = localPlayer.Character
+    local humrp = char and char:FindFirstChild("HumanoidRootPart")
+    if not humrp then return end
+
+    msgReceivedPos = humrp.Position
+    local lastCheck = 0
+    posChangedConnect = RunService.Stepped:Connect(function(_, dt)
+        lastCheck = lastCheck + dt
+        if lastCheck < MOVE_DISTANCE_CHECK_INTERVAL then return end -- Check every 1 second (configurable)
+        lastCheck = 0
+        if not char.Parent or not humrp.Parent then
+            CinematicMsgClientModule.hideCinematicMessage()
+            clearPosChangedConnect()
+            return
+        end
+        if (humrp.Position - msgReceivedPos).Magnitude > MOVE_DISTANCE_THRESHOLD then 
+            CinematicMsgClientModule.hideCinematicMessage()
+            clearPosChangedConnect()
+        end
+    end)
 end
 
 -------------------------------- // MESSAGE DISPLAY FUNCTIONS --------------------------------
@@ -143,7 +187,6 @@ local function displayText(text: string, style: string)
 
     if style == "Typewriter" then
         -- Typewriter effect
-        typewriterActive = true
         local length = #text
         textLabel.Text = ""
         task.spawn(function()
@@ -163,7 +206,6 @@ local function displayText(text: string, style: string)
                 textLabel.Text = string.sub(text, 1, i)
                 task.wait(TYPEWRITER_EFFECT_SPEED)
             end
-            typewriterActive = false
             typeWriterSkipRequested = false
         end)
     elseif style == "Fade" then
@@ -208,6 +250,7 @@ function CinematicMsgClientModule.showCinematicMessage(msgTitle: string?, msgTex
     local success, result = pcall(function()
         if not shouldDisplayCinematicMessage(msgText, msgCFrame, msgTarget, vector3Points) then return end
 
+        setupPosTracking() -- Start tracking player position to auto-close message if they move away
         messageUI:SetAttribute("CurrentMessage", msgText)
         typeWriterSkipRequested = true
 
@@ -255,6 +298,7 @@ function CinematicMsgClientModule.hideCinematicMessage()
         end
         msgExitButton.Visible = false
         resetCamera()
+        clearPosChangedConnect()
     end)
 
     if not success then
@@ -262,60 +306,62 @@ function CinematicMsgClientModule.hideCinematicMessage()
     end
 end
 
+-- Handles mouse click events to skip typewriter effect or proceed to next message
 function CinematicMsgClientModule.onMouseClick()
-   print("CinematicMsgClientModule | onMouseClick: Mouse click detected.")
     -- If a message is currently being displayed and typewriter effect is active, request to skip it
    local currentMsg = messageUI:GetAttribute("CurrentMessage")
    if not previousTextLabel or currentMsg == nil or currentMsg == "" then
        -- No message currently displayed, ignore click
        return
    end
-   
-   -- Will later need to show next message in sequence if applicable then
+   -- Will later need to show next message in sequence if implemented
    if previousTextLabel and previousTextLabel.Text == currentMsg then
        -- Message already fully displayed, ignore click
        return
    end
-   
    typeWriterSkipRequested = true
 end
 
--- Hide the line's UIStroke when the hide title tween starts playing
-showTitleTween:GetPropertyChangedSignal("PlaybackState"):Connect(function()
-    print("Show title tween playback state changed to:", hideTitleTween.PlaybackState)
+-------------------------------- // CONNECTION FUNCTIONS -----------------------
+-- Monitor changes to the CurrentMessage attribute to reset flags
+local function currentMessageChanged()
+    local currentMsg = messageUI:GetAttribute("CurrentMessage")
+    print("CinematicMsgClientModule | CurrentMessage attribute changed to:", currentMsg)
+    if not currentMsg or currentMsg == "" then
+        -- Message cleared, reset typewriter flags
+        typeWriterSkipRequested = false
+    end
+end
+
+-- Clean up connections when the UI is destroyed
+local function uiDestroyed()
+    if msgChangedConnection then
+        msgChangedConnection:Disconnect()
+        msgChangedConnection = nil
+    end
+    clearPosChangedConnect()
+end
+
+-- Update the line's UIStroke based on showTitleTween playback state
+local function showTitleTweenStateChanged()
     if showTitleTween.PlaybackState == Enum.PlaybackState.Completed then
         lineUnderTitle.UIStroke.Enabled = true
     elseif showTitleTween.PlaybackState == Enum.PlaybackState.Cancelled then
         lineUnderTitle.UIStroke.Enabled = false
     end
-end)
+end
 
 -- Hide the line's UIStroke when the hide title tween starts playing
-hideTitleTween:GetPropertyChangedSignal("PlaybackState"):Connect(function()
-    print("Hide title tween playback state changed to:", hideTitleTween.PlaybackState)
+local function hideTitleTweenStateChanged()
     if hideTitleTween.PlaybackState == Enum.PlaybackState.Playing then
         lineUnderTitle.UIStroke.Enabled = false
     end
-end)
+end
 
--- Monitor changes to the CurrentMessage attribute to reset typewriter flags when a message is cleared
-local msgChangedConnection = nil
-msgChangedConnection = messageUI:GetAttributeChangedSignal("CurrentMessage"):Connect(function()
-    local currentMsg = messageUI:GetAttribute("CurrentMessage")
-    print("CinematicMsgClientModule | CurrentMessage attribute changed to:", currentMsg)
-    if not currentMsg or currentMsg == "" then
-        -- Message cleared, reset typewriter flags
-        typewriterActive = false
-        typeWriterSkipRequested = false
-    end
-end)
-
--- Clean up connections when the UI is destroyed
-messageUI.Destroying:Connect(function()
-    if msgChangedConnection then
-        msgChangedConnection:Disconnect()
-        msgChangedConnection = nil
-    end
-end)
+-------------------------------- // CONNECTIONS --------------------------------
+msgChangedConnection = messageUI:GetAttributeChangedSignal("CurrentMessage"):Connect(currentMessageChanged)
+messageUI.Destroying:Connect(uiDestroyed)
+showTitleTween:GetPropertyChangedSignal("PlaybackState"):Connect(showTitleTweenStateChanged)
+hideTitleTween:GetPropertyChangedSignal("PlaybackState"):Connect(hideTitleTweenStateChanged)
 
 return CinematicMsgClientModule
