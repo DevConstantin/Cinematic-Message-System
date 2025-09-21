@@ -15,7 +15,7 @@ local textLabelTemplate: TextLabel = mainFrame.TextTemplate
 local msgExitButton = mainFrame.ExitButton
 local shadowFrame: Frame = messageUI.Shadow
 
---local typeWriterSound = SoundService.UI.TypewriterDialogueSound
+--local typeWriterSound = SoundService.UI.TypewriterDialogueSound -- I am yet to find a good sound effect
 
 --- // CONFIG
 local SHADOW_FRAME_TWEEN_TIME = 1
@@ -26,7 +26,9 @@ local TYPEWRITER_EFFECT_SPEED = 0.02 -- Time in seconds between each letter for 
 
 --- // VARIABLES
 local previousTextLabel: TextLabel = nil -- To keep track of the previous text label for cleanup
-local currentCameraTween: Tween = nil -- To keep track of the current camera tween for cleanup
+local currentCameraTween: Tween = nil -- To keep track of the current camera tween for cleanup do
+local typewriterActive = false -- Flag to indicate if typewriter effect is currently active
+local typeWriterSkipRequested = false -- Flag to indicate if the user has requested to skip the typewriter effect
 type MessageEntry = {
     message: string,
     cframe: CFrame?,
@@ -141,17 +143,28 @@ local function displayText(text: string, style: string)
 
     if style == "Typewriter" then
         -- Typewriter effect
+        typewriterActive = true
         local length = #text
         textLabel.Text = ""
         task.spawn(function()
             task.wait(0.1) -- Small initial delay before starting typewriter effect
-            for i = 1, length do
-                if not textLabel.Parent then
-                    break -- Exit if the textLabel has been destroyed
+            for i = 1, length do 
+                 if typeWriterSkipRequested then
+                    print("CinematicMsgClientModule | displayText: Typewriter skip requested, displaying full text immediately.")
+                    textLabel.Text = text
+                    break
                 end
+
+                if not textLabel.Parent or messageUI:GetAttribute("CurrentMessage") ~= text then
+                    print("CinematicMsgClientModule | displayText: Text label removed or new message requested, stopping typewriter effect.")
+                    break -- Exit if the text label was removed or a new message is requested
+                end
+
                 textLabel.Text = string.sub(text, 1, i)
                 task.wait(TYPEWRITER_EFFECT_SPEED)
             end
+            typewriterActive = false
+            typeWriterSkipRequested = false
         end)
     elseif style == "Fade" then
         -- Fade in effect
@@ -163,6 +176,8 @@ local function displayText(text: string, style: string)
         -- Instant display
         textLabel.Text = text
     end
+
+    typeWriterSkipRequested = false
 end
 
 -------------------------------- // CINEMATIC MESSAGE MODULE FUNCTIONS --------------------------------
@@ -194,6 +209,7 @@ function CinematicMsgClientModule.showCinematicMessage(msgTitle: string?, msgTex
         if not shouldDisplayCinematicMessage(msgText, msgCFrame, msgTarget, vector3Points) then return end
 
         messageUI:SetAttribute("CurrentMessage", msgText)
+        typeWriterSkipRequested = true
 
         if not style or style == "" then
             style = "Instant"
@@ -230,6 +246,7 @@ end
 function CinematicMsgClientModule.hideCinematicMessage()
     local success, result = pcall(function()
         messageUI:SetAttribute("CurrentMessage", nil)
+        typeWriterSkipRequested = false
         updateShadowVisibility(false)
         updateTitle(nil)
         if previousTextLabel then
@@ -243,6 +260,24 @@ function CinematicMsgClientModule.hideCinematicMessage()
     if not success then
         warn("CinematicMsgClientModule | hideCinematicMessage: Error hiding cinematic message:", result)
     end
+end
+
+function CinematicMsgClientModule.onMouseClick()
+   print("CinematicMsgClientModule | onMouseClick: Mouse click detected.")
+    -- If a message is currently being displayed and typewriter effect is active, request to skip it
+   local currentMsg = messageUI:GetAttribute("CurrentMessage")
+   if not previousTextLabel or currentMsg == nil or currentMsg == "" then
+       -- No message currently displayed, ignore click
+       return
+   end
+   
+   -- Will later need to show next message in sequence if applicable then
+   if previousTextLabel and previousTextLabel.Text == currentMsg then
+       -- Message already fully displayed, ignore click
+       return
+   end
+   
+   typeWriterSkipRequested = true
 end
 
 -- Hide the line's UIStroke when the hide title tween starts playing
@@ -260,6 +295,26 @@ hideTitleTween:GetPropertyChangedSignal("PlaybackState"):Connect(function()
     print("Hide title tween playback state changed to:", hideTitleTween.PlaybackState)
     if hideTitleTween.PlaybackState == Enum.PlaybackState.Playing then
         lineUnderTitle.UIStroke.Enabled = false
+    end
+end)
+
+-- Monitor changes to the CurrentMessage attribute to reset typewriter flags when a message is cleared
+local msgChangedConnection = nil
+msgChangedConnection = messageUI:GetAttributeChangedSignal("CurrentMessage"):Connect(function()
+    local currentMsg = messageUI:GetAttribute("CurrentMessage")
+    print("CinematicMsgClientModule | CurrentMessage attribute changed to:", currentMsg)
+    if not currentMsg or currentMsg == "" then
+        -- Message cleared, reset typewriter flags
+        typewriterActive = false
+        typeWriterSkipRequested = false
+    end
+end)
+
+-- Clean up connections when the UI is destroyed
+messageUI.Destroying:Connect(function()
+    if msgChangedConnection then
+        msgChangedConnection:Disconnect()
+        msgChangedConnection = nil
     end
 end)
 
