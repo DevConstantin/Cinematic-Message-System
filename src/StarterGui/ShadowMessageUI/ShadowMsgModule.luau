@@ -230,7 +230,6 @@ local function shouldDisplayCinematicMessage(msgText: string?, msgCFrame: CFrame
         warn("CinematicMsgClientModule | showCinematicMsg: Missing msgText, msgCFrame, msgTarget, and vector3Points params! You must provide at least one. Returning.")
         return false
     end
-    
     -- Prevent displaying the same message again if it's already shown
     if msgText ~= nil and messageUI:GetAttribute("CurrentMessage") == msgText then
         print("CinematicMsgClientModule | showCinematicMsg: Same message already displayed, ignoring.")
@@ -284,6 +283,10 @@ end
 
 function CinematicMsgClientModule.showCinematicMessageSequence(msgTitle: string?, msgTable: { MessageEntry }, style: string?)
 	-- Might add this later
+end
+
+function CinematicMsgClientModule.showCinematicCurveMessage(msgTitle: string?, msgText: string?, style: string?, vector3Points: {Vector3})
+    CinematicMsgClientModule.showCinematicMessage(msgTitle, msgText, style, nil, nil, vector3Points)
 end
 
 -- Resets camera, hides shadow frame, and clears text labels
