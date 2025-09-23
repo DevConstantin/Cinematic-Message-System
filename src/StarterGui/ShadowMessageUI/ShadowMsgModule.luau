@@ -22,7 +22,7 @@ local shadowFrame: Frame = messageUI.Shadow
 --local typeWriterSound = SoundService.UI.TypewriterDialogueSound -- I am yet to find a good sound effect
 
 --- // CONFIG
-local SHADOW_FRAME_TWEEN_TIME = 1
+local SHADOW_FRAME_TWEEN_TIME = 0.6
 local TEXT_TWEEN_TIME = 2
 local SHADOW_FRAME_HIDDEN_POSITION = UDim2.fromScale(0, 1)
 local SHADOW_FRAME_VISIBLE_POSITION = UDim2.fromScale(0, 0.63)
@@ -230,8 +230,9 @@ local function shouldDisplayCinematicMessage(msgText: string?, msgCFrame: CFrame
         warn("CinematicMsgClientModule | showCinematicMsg: Missing msgText, msgCFrame, msgTarget, and vector3Points params! You must provide at least one. Returning.")
         return false
     end
-           -- Prevent displaying the same message again if it's already shown
-    if messageUI:GetAttribute("CurrentMessage") == msgText then
+    
+    -- Prevent displaying the same message again if it's already shown
+    if msgText ~= nil and messageUI:GetAttribute("CurrentMessage") == msgText then
         print("CinematicMsgClientModule | showCinematicMsg: Same message already displayed, ignoring.")
         return false
     end

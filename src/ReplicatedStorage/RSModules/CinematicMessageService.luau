@@ -26,14 +26,18 @@ type MessageEntry = {
 -- @param msgTarget: If provided, client camera will follow this Instance in the 3D world (takes priority over msgCFrame)
 function CinematicMessageService.sendCinematicMessage(player: Player, msgTitle: string?, msgText: string?, style: string?, msgCFrame: CFrame?, msgTarget: Instance?)
 	-- Validate parameters
-	if msgText == "" or msgText == nil then
-		warn("CinematicMessageService | SendCinematicMessage: Missing msgText param! Returning.")
+	if (msgText == nil or msgText == "") and msgCFrame == nil and msgTarget == nil then
+		warn("CinematicMessageService | SendCinematicMessage: Missing msgText, msgCFrame, and msgTarget params! Returning.")
 		return
 	end
 
-	local msgParamType = typeof(msgText)
-	if msgParamType ~= "string" then
-		warn("CinematicMessageService | SendCinematicMessage: Invalid msgText param type:", msgParamType, msgText, " - Returning.")
+	if msgTitle ~= nil and typeof(msgTitle) ~= "string" then
+		warn("CinematicMessageService | SendCinematicMessage: Invalid msgTitle param type:", typeof(msgTitle), msgTitle, " - Returning.")
+		return
+	end
+
+	if msgText ~= nil and typeof(msgText) ~= "string" then
+		warn("CinematicMessageService | SendCinematicMessage: Invalid msgText param type:", typeof(msgText), msgText, " - Returning.")
 		return
 	end
 	
@@ -55,6 +59,11 @@ end
 -- }
 -- @param style: 'Typewriter' (letters appear one by one), or 'Fade' (text slowly fades in), "Instant" (text instantly appears) - Defaults to instant
 function CinematicMessageService.sendCinematicMessageSequence(player: Player, msgTitle: string?, msgTable: { MessageEntry }, style: string?)
+	if msgTitle ~= nil and typeof(msgTitle) ~= "string" then
+		warn("MessageSystem | SendCinematicMessageSequence: Invalid msgTitle param type:", typeof(msgTitle), msgTitle, " - Returning.")
+		return
+	end
+	
 	local paramType = typeof(msgTable)
 	if paramType ~= "table" then
         warn("MessageSystem | SendCinematicMessageSequence: Invalid msgTable param type:", paramType, msgTable, " - Returning.")

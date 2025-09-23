@@ -102,18 +102,18 @@
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<CoordinateFrame name="CFrame">
-					<X>1.40291345</X>
-					<Y>14.372468</Y>
-					<Z>24.4885216</Z>
-					<R00>0.996664822</R00>
-					<R01>-0.0282163434</R01>
-					<R02>0.0765714347</R02>
-					<R10>1.86264515e-09</R10>
-					<R11>0.9383201</R11>
-					<R12>0.345768094</R12>
-					<R20>-0.081604816</R20>
-					<R21>-0.344614893</R21>
-					<R22>0.935190558</R22>
+					<X>20.8890095</X>
+					<Y>17.6748714</Y>
+					<Z>40.5845337</Z>
+					<R00>0.927961349</R00>
+					<R01>-0.18875362</R01>
+					<R02>0.32134077</R02>
+					<R10>-0</R10>
+					<R11>0.862251103</R11>
+					<R12>0.506481051</R12>
+					<R20>-0.372676581</R20>
+					<R21>-0.469994843</R21>
+					<R22>0.800135612</R22>
 				</CoordinateFrame>
 				<Ref name="CameraSubject">null</Ref>
 				<token name="CameraType">0</token>
@@ -122,9 +122,9 @@
 				<float name="FieldOfView">70</float>
 				<token name="FieldOfViewMode">0</token>
 				<CoordinateFrame name="Focus">
-					<X>1.24977064</X>
-					<Y>13.680932</Y>
-					<Z>22.6181412</Z>
+					<X>20.2463303</X>
+					<Y>16.6619129</Y>
+					<Z>38.9842682</Z>
 					<R00>1</R00>
 					<R01>0</R01>
 					<R02>0</R02>
@@ -59809,11 +59809,15 @@ end)]]></ProtectedString>
 					<string name="ScriptGuid">{B62675AA-AD8D-4FA3-8E7B-7CE66CECFF04}</string>
 					<ProtectedString name="Source"><![CDATA[
 --- // SERVICES
+local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 --- // OBJECTS
 -- Modules
-local ShadowMsgModule = require(script.Parent.ShadowMsgModule)
+local CinematicMsgClientModule = require(script.Parent.ShadowMsgModule)
+-- Player
+local localPlayer = Players.LocalPlayer
+local mouse = localPlayer:GetMouse()
 
 -- UI Elements
 local messageUI = script.Parent
@@ -59821,7 +59825,7 @@ local mainFrame = messageUI.MainFrame
 local titleTextLabel: TextLabel = mainFrame.TitleText
 local textLabelTemplate: TextLabel = mainFrame.TextTemplate
 local titleLine: ImageLabel = mainFrame.LineUnderTitle
-local msgExitButton = mainFrame.ExitButton
+local msgExitButton: TextButton = mainFrame.ExitButton
 local shadowFrame: Frame = messageUI.Shadow
 
 -- Remote Events
@@ -59841,10 +59845,13 @@ shadowFrame.Position = UDim2.fromScale(0, 1) -- Start hidden
 msgExitButton.Visible = false
 messageUI.Enabled = true -- Ensure the UI is enabled now that setup is done
 
+-- Connect mouse and button events to module functions
+mouse.Button1Down:Connect(CinematicMsgClientModule.onMouseClick)
+msgExitButton.MouseButton1Click:Connect(CinematicMsgClientModule.hideCinematicMessage)
+
 -- Connect RemoteEvents to module functions
-msgEvent.OnClientEvent:Connect(ShadowMsgModule.showCinematicMessage)
-msgSequenceEvent.OnClientEvent:Connect(ShadowMsgModule.showCinematicMessageSequence)
-msgExitButton.MouseButton1Click:Connect(ShadowMsgModule.hideCinematicMessage)]]></ProtectedString>
+msgEvent.OnClientEvent:Connect(CinematicMsgClientModule.showCinematicMessage)
+msgSequenceEvent.OnClientEvent:Connect(CinematicMsgClientModule.showCinematicMessageSequence)]]></ProtectedString>
 					<int64 name="SourceAssetId">-1</int64>
 					<BinaryString name="Tags"></BinaryString>
 					<UniqueId name="UniqueId">2682dfb9766cc07c08dceab800003982</UniqueId>
@@ -59862,10 +59869,14 @@ msgExitButton.MouseButton1Click:Connect(ShadowMsgModule.hideCinematicMessage)]]>
 					<ProtectedString name="Source"><![CDATA[local CinematicMsgClientModule = {}
 
 --- // SERVICES
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
 local SoundService = game:GetService("SoundService")
 local TweenService = game:GetService("TweenService")
 
 --- // OBJECTS
+-- Player
+local localPlayer = Players.LocalPlayer
 local camera = workspace.CurrentCamera
 -- UI Elements
 local messageUI = script.Parent
@@ -59876,18 +59887,24 @@ local textLabelTemplate: TextLabel = mainFrame.TextTemplate
 local msgExitButton = mainFrame.ExitButton
 local shadowFrame: Frame = messageUI.Shadow
 
---local typeWriterSound = SoundService.UI.TypewriterDialogueSound
+--local typeWriterSound = SoundService.UI.TypewriterDialogueSound -- I am yet to find a good sound effect
 
 --- // CONFIG
-local SHADOW_FRAME_TWEEN_TIME = 1
+local SHADOW_FRAME_TWEEN_TIME = 0.6
 local TEXT_TWEEN_TIME = 2
 local SHADOW_FRAME_HIDDEN_POSITION = UDim2.fromScale(0, 1)
 local SHADOW_FRAME_VISIBLE_POSITION = UDim2.fromScale(0, 0.63)
 local TYPEWRITER_EFFECT_SPEED = 0.02 -- Time in seconds between each letter for typewriter effect
+local MOVE_DISTANCE_THRESHOLD = 2 -- Distance in studs before the message UI closes
+local MOVE_DISTANCE_CHECK_INTERVAL = 0.3 -- How often to check player distance in seconds
 
 --- // VARIABLES
 local previousTextLabel: TextLabel = nil -- To keep track of the previous text label for cleanup
-local currentCameraTween: Tween = nil -- To keep track of the current camera tween for cleanup
+local currentCameraTween: Tween = nil -- To keep track of the current camera tween for cleanup do
+local typeWriterSkipRequested = false -- Flag to indicate if the user has requested to skip the typewriter effect
+local msgReceivedPos = nil -- Position where the message was received, used for distance tracking
+local posChangedConnect = nil -- Connection for position changed event
+local msgChangedConnection = nil
 type MessageEntry = {
     message: string,
     cframe: CFrame?,
@@ -59898,7 +59915,8 @@ local showTextTweenInfo = TweenInfo.new(TEXT_TWEEN_TIME)
 local hideTextTweenInfo = TweenInfo.new(TEXT_TWEEN_TIME / 4) -- Hide faster than show
 local showTitleTween: Tween = TweenService:Create(titleTextLabel, showTextTweenInfo, {TextTransparency = 0})
 local hideTitleTween: Tween = TweenService:Create(titleTextLabel, hideTextTweenInfo, {TextTransparency = 1})
---- // FUNCTIONS
+
+
 -------------------------------- // CAMERA FUNCTIONS --------------------------------
 
 local function updateCamera(msgCFrame: CFrame?, msgTarget: Instance?)
@@ -59931,6 +59949,41 @@ local function resetCamera()
     if camera.CameraType ~= Enum.CameraType.Custom then
          camera.CameraType = Enum.CameraType.Custom
     end
+end
+
+--------------------------------- // POSITION TRACKING FUNCTIONS --------------------------------
+-- Clears the position changed connection if it exists
+local function clearPosChangedConnect()
+    if posChangedConnect then
+        posChangedConnect:Disconnect()
+        posChangedConnect = nil
+    end
+end
+
+-- Close the message UI when the player moves too far from the message position,
+-- or if the player's character is removed (e.g., upon death or respawn)
+local function setupPosTracking()
+    clearPosChangedConnect()
+    local char = localPlayer.Character
+    local humrp = char and char:FindFirstChild("HumanoidRootPart")
+    if not humrp then return end
+
+    msgReceivedPos = humrp.Position
+    local lastCheck = 0
+    posChangedConnect = RunService.Stepped:Connect(function(_, dt)
+        lastCheck = lastCheck + dt
+        if lastCheck < MOVE_DISTANCE_CHECK_INTERVAL then return end -- Check every 1 second (configurable)
+        lastCheck = 0
+        if not char.Parent or not humrp.Parent then
+            CinematicMsgClientModule.hideCinematicMessage()
+            clearPosChangedConnect()
+            return
+        end
+        if (humrp.Position - msgReceivedPos).Magnitude > MOVE_DISTANCE_THRESHOLD then 
+            CinematicMsgClientModule.hideCinematicMessage()
+            clearPosChangedConnect()
+        end
+    end)
 end
 
 -------------------------------- // MESSAGE DISPLAY FUNCTIONS --------------------------------
@@ -60006,13 +60059,22 @@ local function displayText(text: string, style: string)
         textLabel.Text = ""
         task.spawn(function()
             task.wait(0.1) -- Small initial delay before starting typewriter effect
-            for i = 1, length do
-                if not textLabel.Parent then
-                    break -- Exit if the textLabel has been destroyed
+            for i = 1, length do 
+                 if typeWriterSkipRequested then
+                    print("CinematicMsgClientModule | displayText: Typewriter skip requested, displaying full text immediately.")
+                    textLabel.Text = text
+                    break
                 end
+
+                if not textLabel.Parent or messageUI:GetAttribute("CurrentMessage") ~= text then
+                    print("CinematicMsgClientModule | displayText: Text label removed or new message requested, stopping typewriter effect.")
+                    break -- Exit if the text label was removed or a new message is requested
+                end
+
                 textLabel.Text = string.sub(text, 1, i)
                 task.wait(TYPEWRITER_EFFECT_SPEED)
             end
+            typeWriterSkipRequested = false
         end)
     elseif style == "Fade" then
         -- Fade in effect
@@ -60024,6 +60086,8 @@ local function displayText(text: string, style: string)
         -- Instant display
         textLabel.Text = text
     end
+
+    typeWriterSkipRequested = false
 end
 
 -------------------------------- // CINEMATIC MESSAGE MODULE FUNCTIONS --------------------------------
@@ -60054,7 +60118,9 @@ function CinematicMsgClientModule.showCinematicMessage(msgTitle: string?, msgTex
     local success, result = pcall(function()
         if not shouldDisplayCinematicMessage(msgText, msgCFrame, msgTarget, vector3Points) then return end
 
+        setupPosTracking() -- Start tracking player position to auto-close message if they move away
         messageUI:SetAttribute("CurrentMessage", msgText)
+        typeWriterSkipRequested = true
 
         if not style or style == "" then
             style = "Instant"
@@ -60091,6 +60157,7 @@ end
 function CinematicMsgClientModule.hideCinematicMessage()
     local success, result = pcall(function()
         messageUI:SetAttribute("CurrentMessage", nil)
+        typeWriterSkipRequested = false
         updateShadowVisibility(false)
         updateTitle(nil)
         if previousTextLabel then
@@ -60099,6 +60166,7 @@ function CinematicMsgClientModule.hideCinematicMessage()
         end
         msgExitButton.Visible = false
         resetCamera()
+        clearPosChangedConnect()
     end)
 
     if not success then
@@ -60106,26 +60174,65 @@ function CinematicMsgClientModule.hideCinematicMessage()
     end
 end
 
--- Hide the line's UIStroke when the hide title tween starts playing
-showTitleTween:GetPropertyChangedSignal("PlaybackState"):Connect(function()
-    print("Show title tween playback state changed to:", hideTitleTween.PlaybackState)
+-- Handles mouse click events to skip typewriter effect or proceed to next message
+function CinematicMsgClientModule.onMouseClick()
+    -- If a message is currently being displayed and typewriter effect is active, request to skip it
+   local currentMsg = messageUI:GetAttribute("CurrentMessage")
+   if not previousTextLabel or currentMsg == nil or currentMsg == "" then
+       -- No message currently displayed, ignore click
+       return
+   end
+   -- Will later need to show next message in sequence if implemented
+   if previousTextLabel and previousTextLabel.Text == currentMsg then
+       -- Message already fully displayed, ignore click
+       return
+   end
+   typeWriterSkipRequested = true
+end
+
+-------------------------------- // CONNECTION FUNCTIONS -----------------------
+-- Monitor changes to the CurrentMessage attribute to reset flags
+local function currentMessageChanged()
+    local currentMsg = messageUI:GetAttribute("CurrentMessage")
+    print("CinematicMsgClientModule | CurrentMessage attribute changed to:", currentMsg)
+    if not currentMsg or currentMsg == "" then
+        -- Message cleared, reset typewriter flags
+        typeWriterSkipRequested = false
+    end
+end
+
+-- Clean up connections when the UI is destroyed
+local function uiDestroyed()
+    if msgChangedConnection then
+        msgChangedConnection:Disconnect()
+        msgChangedConnection = nil
+    end
+    clearPosChangedConnect()
+end
+
+-- Update the line's UIStroke based on showTitleTween playback state
+local function showTitleTweenStateChanged()
     if showTitleTween.PlaybackState == Enum.PlaybackState.Completed then
         lineUnderTitle.UIStroke.Enabled = true
     elseif showTitleTween.PlaybackState == Enum.PlaybackState.Cancelled then
         lineUnderTitle.UIStroke.Enabled = false
     end
-end)
+end
 
 -- Hide the line's UIStroke when the hide title tween starts playing
-hideTitleTween:GetPropertyChangedSignal("PlaybackState"):Connect(function()
-    print("Hide title tween playback state changed to:", hideTitleTween.PlaybackState)
+local function hideTitleTweenStateChanged()
     if hideTitleTween.PlaybackState == Enum.PlaybackState.Playing then
         lineUnderTitle.UIStroke.Enabled = false
     end
-end)
+end
 
-return CinematicMsgClientModule
-]]></ProtectedString>
+-------------------------------- // CONNECTIONS --------------------------------
+msgChangedConnection = messageUI:GetAttributeChangedSignal("CurrentMessage"):Connect(currentMessageChanged)
+messageUI.Destroying:Connect(uiDestroyed)
+showTitleTween:GetPropertyChangedSignal("PlaybackState"):Connect(showTitleTweenStateChanged)
+hideTitleTween:GetPropertyChangedSignal("PlaybackState"):Connect(hideTitleTweenStateChanged)
+
+return CinematicMsgClientModule]]></ProtectedString>
 					<int64 name="SourceAssetId">-1</int64>
 					<BinaryString name="Tags"></BinaryString>
 					<UniqueId name="UniqueId">2682dfb9766cc07c08dceab800003983</UniqueId>
@@ -60167,9 +60274,9 @@ return CinematicMsgClientModule
 					<Ref name="NextSelectionRight">null</Ref>
 					<Ref name="NextSelectionUp">null</Ref>
 					<UDim2 name="Position">
-						<XS>-5.38369059e-05</XS>
+						<XS>-5.38528802e-05</XS>
 						<XO>0</XO>
-						<YS>0.630044401</YS>
+						<YS>0.593875825</YS>
 						<YO>0</YO>
 					</UDim2>
 					<Ref name="RootLocalizationTable">null</Ref>
@@ -60183,9 +60290,9 @@ return CinematicMsgClientModule
 					<Ref name="SelectionImageObject">null</Ref>
 					<int name="SelectionOrder">0</int>
 					<UDim2 name="Size">
-						<XS>1.01663864</XS>
+						<XS>1</XS>
 						<XO>0</XO>
-						<YS>0.368862629</YS>
+						<YS>0.405168504</YS>
 						<YO>0</YO>
 					</UDim2>
 					<token name="SizeConstraint">0</token>
@@ -60889,10 +60996,10 @@ return CinematicMsgClientModule
 						<Ref name="SelectionImageObject">null</Ref>
 						<int name="SelectionOrder">0</int>
 						<UDim2 name="Size">
-							<XS>0</XS>
-							<XO>171</XO>
-							<YS>0</YS>
-							<YO>35</YO>
+							<XS>0.092790693</XS>
+							<XO>0</XO>
+							<YS>0.0486883968</YS>
+							<YO>0</YO>
 						</UDim2>
 						<token name="SizeConstraint">0</token>
 						<int64 name="SourceAssetId">-1</int64>
@@ -62070,6 +62177,21 @@ return DebugService
 			<UniqueId name="UniqueId">1930a1d8fa28276808d3971e00000399</UniqueId>
 		</Properties>
 	</Item>
+	<Item class="ProximityPromptService" referent="RBX975E44E7BB03438B9E2CEED550F6339E">
+		<Properties>
+			<BinaryString name="AttributesSerialize"></BinaryString>
+			<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
+			<bool name="DefinesCapabilities">false</bool>
+			<bool name="Enabled">true</bool>
+			<UniqueId name="HistoryId">00000000000000000000000000000000</UniqueId>
+			<int name="MaxIndicatorsVisible">16</int>
+			<int name="MaxPromptsVisible">16</int>
+			<string name="Name">ProximityPromptService</string>
+			<int64 name="SourceAssetId">-1</int64>
+			<BinaryString name="Tags"></BinaryString>
+			<UniqueId name="UniqueId">1930a1d8fa28276808d3971e0000039f</UniqueId>
+		</Properties>
+	</Item>
 	<Item class="DataStoreService" referent="RBX46C88B1AEE0D4FF3ABDD9659FE6FD93A">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
@@ -62250,21 +62372,6 @@ WF9PcmlnaW5hbFRlY2hub2xvZ3lPbkZpbGVMb2FkBAMAAAA=]]></BinaryString>
 			<int64 name="SourceAssetId">-1</int64>
 			<BinaryString name="Tags"></BinaryString>
 			<UniqueId name="UniqueId">1930a1d8fa28276808d3971e0000039e</UniqueId>
-		</Properties>
-	</Item>
-	<Item class="ProximityPromptService" referent="RBX975E44E7BB03438B9E2CEED550F6339E">
-		<Properties>
-			<BinaryString name="AttributesSerialize"></BinaryString>
-			<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
-			<bool name="DefinesCapabilities">false</bool>
-			<bool name="Enabled">true</bool>
-			<UniqueId name="HistoryId">00000000000000000000000000000000</UniqueId>
-			<int name="MaxIndicatorsVisible">16</int>
-			<int name="MaxPromptsVisible">16</int>
-			<string name="Name">ProximityPromptService</string>
-			<int64 name="SourceAssetId">-1</int64>
-			<BinaryString name="Tags"></BinaryString>
-			<UniqueId name="UniqueId">1930a1d8fa28276808d3971e0000039f</UniqueId>
 		</Properties>
 	</Item>
 	<Item class="Teams" referent="RBXC097D6B8BC6C4D93A0B7F661664C92E3">
