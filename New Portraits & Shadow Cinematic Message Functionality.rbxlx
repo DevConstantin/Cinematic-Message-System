@@ -102,18 +102,18 @@
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<CoordinateFrame name="CFrame">
-					<X>-55.6524849</X>
-					<Y>223.770782</Y>
-					<Z>90.8921127</Z>
-					<R00>0.563243806</R00>
-					<R01>0.667011261</R01>
-					<R02>-0.487701237</R02>
+					<X>-3.31021285</X>
+					<Y>229.797089</Y>
+					<Z>147.238892</Z>
+					<R00>0.996672273</R00>
+					<R01>0.0142636839</R01>
+					<R02>0.0802552626</R02>
 					<R10>-0</R10>
-					<R11>0.59022963</R11>
-					<R12>0.80723542</R12>
-					<R20>0.826290846</R20>
-					<R21>-0.45467034</R21>
-					<R22>0.332443118</R22>
+					<R11>0.984570742</R11>
+					<R12>-0.174986735</R12>
+					<R20>-0.0815129429</R20>
+					<R21>0.174404427</R21>
+					<R22>0.981294394</R22>
 				</CoordinateFrame>
 				<Ref name="CameraSubject">null</Ref>
 				<token name="CameraType">0</token>
@@ -122,9 +122,9 @@
 				<float name="FieldOfView">70</float>
 				<token name="FieldOfViewMode">0</token>
 				<CoordinateFrame name="Focus">
-					<X>-54.6770821</X>
-					<Y>222.156311</Y>
-					<Z>90.2272263</Z>
+					<X>-3.47072434</X>
+					<Y>230.147064</Y>
+					<Z>145.276291</Z>
 					<R00>1</R00>
 					<R01>0</R01>
 					<R02>0</R02>
@@ -51093,8 +51093,7 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 					<string name="Name">PaintingCDScript</string>
 					<token name="RunContext">0</token>
 					<string name="ScriptGuid">{32587066-8A23-41EF-92B3-BC6951E37B87}</string>
-					<ProtectedString name="Source"><![CDATA[
---- // SERVICES
+					<ProtectedString name="Source"><![CDATA[--- // SERVICES
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local UserService = game:GetService("UserService")
@@ -51110,16 +51109,39 @@ local portraits = script.Parent
 --- // VARIABLES
 local portraitInfo = {
 	-- Texture ID for portrait image    -- Table setup allows for multiple authors
-	["rbxassetid://86979555973590"]   = {{5435230355}, ""},  -- Girl in dress
-	["rbxassetid://93624278334526"]   = {{3454078988}, ""},  -- Goblet
-	["rbxassetid://114494434639918"]  = {{90598134},   "Professor McGonagall walking through the Hogwarts grounds on a hot summers day."}, -- McG
-	["rbxassetid://115683740988825"]  = {{3201271604}, "Or yet in wise old Ravenclaw, If you've a ready mind, Where those of wit and learning, Will always find their kind;"}, -- Raven
-	["rbxassetid://75691649380406"]   = {{507284241},  "Portrait of Remus Lupin - It is the quality of one's convictions that determines success, not the number of followers."},  -- Remus 
-	["rbxassetid://94307842972882"]   = {{1645753175}, "Portrait of the late Severus Snape."},  -- Snape 
-	["rbxassetid://139483694575933"]  = {{272184352, 3183025317} , "Two professors sitting on the porch together- Oh they’re saying hello!"}, -- Two staff 
+	["rbxassetid://86979555973590"] = { 
+		{ 5435230355 },
+		""
+	}, -- Girl in dress
+	["rbxassetid://93624278334526"] = { 
+		{ 3454078988 },
+		"" 
+	}, -- Goblet
+	["rbxassetid://114494434639918"] = {
+		{ 90598134 },
+		"Professor McGonagall walking through the Hogwarts grounds on a hot summers day.",
+	}, -- McG
+	["rbxassetid://115683740988825"] = {
+		{ 3201271604 },
+		"Or yet in wise old Ravenclaw, If you've a ready mind, Where those of wit and learning, Will always find their kind;",
+	}, -- Raven
+	["rbxassetid://75691649380406"] = {
+		{ 507284241 },
+		"Portrait of Remus Lupin - It is the quality of one's convictions that determines success, not the number of followers.",
+	}, -- Remus
+	["rbxassetid://94307842972882"] = { 
+		{ 1645753175 }, 
+		"Portrait of the late Severus Snape." }, -- Snape
+	["rbxassetid://139483694575933"] = {
+		{ 272184352, 3183025317 },
+		"Two professors sitting on the porch together- Oh they’re saying hello!",
+	}, -- Two staff
 	-- Rowena
 }
 
+local creditsIds = CreditsModule.getCreditsIds() -- A table of user IDs of everyone who contributed to the game
+local fullIDsList = {}
+local idToName = {}
 local db = {}
 
 --- // CONFIG
@@ -51127,6 +51149,8 @@ local DELAY = 2
 local PORTRAIT_VIEW_OFFSET_DEFAULT = 10 -- How far in front of the portrait the camera should zoom to. A more robust solution would be to calculate the size of the portrait & adjust the offset based on that, but this is good enough for now
 local CD_RANGE = 70 -- ClickDetector max activation distance
 local INCLUDE_USERNAME = true -- Should we display username + display name? Ex: Constantin (PhysicallyConstant), EpicDev (AnEpicDev6416)
+local CAPTION_INDENT = "    " -- Configurable indent for caption text
+local HM_PORTRAIT_IMAGE_MAX_DISTANCE = 100
 
 --- // FUNCTIONS
 
@@ -51139,63 +51163,25 @@ local function createPortraitCD(framePart)
 end
 
 local function getFramePart(portraitModel)
-	for _, framePart in ipairs(portraitModel:GetDescendants()) do 
-		if string.find(string.lower(framePart.Name), "frame") then 
+	for _, framePart in ipairs(portraitModel:GetDescendants()) do
+		if string.find(string.lower(framePart.Name), "frame") then
 			return framePart
 		end
 	end
 end
 
--- Use ROBLOX API to get a formatted player display name string
--- If INCLUDE_USERNAME config is true, will also return the username. Ex: Constantin (PhysicallyConstant)
-local function getNameStr(userID: number) : string
-	local success, result = pcall(function()
-		return UserService:GetUserInfosByUserIdsAsync({ userID })
-	end)
-
-	if success then
-		local userInfo = result[1]
-		if not userInfo then
-			warn("No user info found for ID:", userID) 
-			return tostring(userID)
-		end
-
-		if not (userInfo.Username and userInfo.DisplayName) then 
-			warn("Missing a username or displayname value for", userID, "Username:", userInfo.Username, "DisplayName:", userInfo.DisplayName)
-			return tostring(userID)
-		end
-
-		if INCLUDE_USERNAME then 
-			if userInfo.Username == userInfo.DisplayName then 
-				return userInfo.DisplayName
-			else
-				return userInfo.DisplayName .. " (" .. userInfo.Username .. ")"
-			end
-		else
-			return userInfo.DisplayName
-		end
-	else
-		warn("Failed to get user info for ID:", userID, "Error:", result)
-		local success2, res2 = pcall(function()
-			return Players:GetNameFromUserIdAsync(userID)
-		end)
-		if success2 then
-			return res2
-		else
-			warn("Failed to fetch name using PlayerService for ID"  .. userID .. " Error: " .. res2)
-			return tostring(userID)
-		end
-	end
+local function getNameStr(userId)
+	return idToName[userId] or tostring(userId)
 end
 
--- Receives a table of user IDs & returns a formatted string of author display names & usernames 
+-- Receives a table of user IDs & returns a formatted string of author display names & usernames
 -- @param authorsTable: A list of IDs of portrait authors. Usually just 1 ID
 local function formatAuthorsStr(authorsTable)
-	if not authorsTable then 
-        error("Missing authors table param!") 
-    end
+	if not authorsTable then
+		error("Missing authors table param!")
+	end
 	local authors = ""
-	for i, authorId in ipairs(authorsTable) do 
+	for i, authorId in ipairs(authorsTable) do
 		local authorName = getNameStr(authorId)
 		if not authorName or authorName == "" then
 			warn("Failed to get name string for userID:", authorId)
@@ -51205,49 +51191,66 @@ local function formatAuthorsStr(authorsTable)
 		authors ..= authorName .. (i ~= #authorsTable and ", " or "")
 	end
 	if authors == "" then
-        warn("Authors string is empty! Intentional?")
-    end
+		warn("Authors string is empty! Intentional?")
+	end
 	return authors
 end
 
-local function portraitCdClicked(player, msgTitle: string?, msgText: string?, style: string?, portraitZoomCFrame: CFrame?)
+local function portraitCdClicked(
+	player,
+	msgTitle: string?,
+	msgText: string?,
+	style: string?,
+	portraitZoomCFrame: CFrame?
+)
 	-- Basic debounce to prevent server spam
-	if db[player.UserId] then return end 
+	if db[player.UserId] then
+		return
+	end
 	db[player.UserId] = true
 	task.delay(DELAY, function()
-        db[player.UserId] = nil
-    end)
-
-    CinematicMessageService.sendCinematicMessage(player, msgTitle, msgText, style, portraitZoomCFrame)
+		db[player.UserId] = nil
+	end)
+	if msgText and msgText ~= "" then
+		msgText = CAPTION_INDENT .. msgText -- Indent caption text for better readability
+	end
+	CinematicMessageService.sendCinematicMessage(player, msgTitle, msgText, style, portraitZoomCFrame)
 end
 
 local function setupRegularPortrait(portraitModel)
-	if not portraitModel:IsA("Model") then return end -- All portraits are models 
+	if not portraitModel:IsA("Model") then
+		return
+	end -- All portraits are models
 
 	local framePart = getFramePart(portraitModel)
 	if not framePart then
-        warn("Failed to find a frame part within " .. portraitModel:GetFullName())
+		warn("Failed to find a frame part within " .. portraitModel:GetFullName())
 		return
-    end
+	end
 
 	-- Calculate a CFrame in front of the portrait to zoom the camera to
 	-- Offset distance is based on the PORTRAIT_VIEW_OFFSET_DEFAULT config variable
 	-- A more robust solution would be to calculate the size of the portrait & adjust the offset based on that, but this is good enough for now
-	local portraitZoomCFrame = CFrame.new(framePart.Position + framePart.CFrame.LookVector * PORTRAIT_VIEW_OFFSET_DEFAULT, framePart.Position)
+	local portraitZoomCFrame =
+		CFrame.new(framePart.Position + framePart.CFrame.LookVector * PORTRAIT_VIEW_OFFSET_DEFAULT, framePart.Position)
 	DebugService:placeNode(portraitZoomCFrame, nil, nil, 100000)
 
 	local _portraitInfo, authors, caption
 	for _, decal in ipairs(portraitModel:GetDescendants()) do
-		if not decal:IsA("Decal") then continue end
+		if not decal:IsA("Decal") then
+			continue
+		end
 
-		-- Get portrait info from the table above, including the portrait's authors & caption 
+		-- Get portrait info from the table above, including the portrait's authors & caption
 		_portraitInfo = portraitInfo[decal.Texture]
-		if not _portraitInfo then continue end
+		if not _portraitInfo then
+			continue
+		end
 
 		authors = formatAuthorsStr(_portraitInfo[1])
 		caption = _portraitInfo[2]
 
-		-- If there's no caption, hide the title on the client (since authors param will be nil) & change caption to the authors. This will look nicer 
+		-- If there's no caption, hide the title on the client (since authors param will be nil) & change caption to the authors. This will look nicer
 		if caption == "" then
 			caption = "Artwork by " .. authors
 			authors = nil
@@ -51256,9 +51259,15 @@ local function setupRegularPortrait(portraitModel)
 		end
 
 		if (not authors or authors == "") and (not caption or caption == "") then
-            warn("Failed to get author & caption for:", portraitModel:GetFullName(), tostring(decal.Texture), tostring(authors), tostring(caption))
+			warn(
+				"Failed to get author & caption for:",
+				portraitModel:GetFullName(),
+				tostring(decal.Texture),
+				tostring(authors),
+				tostring(caption)
+			)
 			return
-        end
+		end
 	end
 
 	createPortraitCD(framePart).MouseClick:Connect(function(player)
@@ -51267,26 +51276,98 @@ local function setupRegularPortrait(portraitModel)
 	end)
 end
 
+local function getPortraitPart(portraitModel)
+	local portraitPart
+	for _, d in ipairs(portraitModel:GetDescendants()) do
+		if d.Name == "PortraitPart" then
+			portraitPart = d
+			break
+		end
+	end
+	if portraitPart then
+		return portraitPart
+	else
+		warn("Failed to get portrait part within", portraitModel:GetFullName())
+		return nil
+	end
+end
+
+local function getImageLabel(portraitPart) : ImageLabel
+	local surfaceGui = Instance.new("SurfaceGui")
+	surfaceGui.Name = "HM_Portrait_SurfaceGui"
+	surfaceGui.Face = Enum.NormalId.Front
+	surfaceGui.MaxDistance = HM_PORTRAIT_IMAGE_MAX_DISTANCE
+
+	local portraitImage = Instance.new("ImageLabel")
+	portraitImage.Name = "HM_Portrait_Image"
+	portraitImage.Size = UDim2.fromScale(1, 1)
+	portraitImage.BackgroundTransparency = 1
+	portraitImage.Parent = surfaceGui
+	surfaceGui.Parent = portraitPart
+
+	return portraitImage
+end
+
 -- Function to set up a headmaster portrait
 -- Uses  CreditsModule to get a developer's name & contribution to the game
 local function setupHeadmasterPortrait(portraitModel, framePart)
-	local creditsId = portraitModel:GetAttribute("CreditsId") -- Assign CreditsId number attribute to a portrait for a deveoper to be shown on it 
-	if not creditsId then 
-        warn("Missing credits ID for a headmaster portrait!")
-        return
-    end
+	local creditsId = portraitModel:GetAttribute("CreditsId") -- Assign CreditsId number attribute to a portrait for a deveoper to be shown on it
+	if not creditsId or creditsId == 0 then
+		-- warn("Missing credits ID for a headmaster portrait!")
+		return
+	end
 
-	DebugService:placeNode(framePart.Position + framePart.CFrame.LookVector * PORTRAIT_VIEW_OFFSET_DEFAULT, nil, nil, 100000)
+	local portraitPart = getPortraitPart(portraitModel)
+	print("Setting up headmaster portrait for:", getNameStr(creditsId), creditsId)
 
-	-- show player image on portrait
+	local PLACEHOLDER_IMAGE = "rbxassetid://0" -- replace with placeholder image
+	
+	-- fetch the thumbnail
+	local userId = creditsId
+	local thumbType = Enum.ThumbnailType.HeadShot
+	local thumbSize = Enum.ThumbnailSize.Size420x420
+	
+	local success, result = pcall(function()
+		local content, isReady = Players:GetUserThumbnailAsync(userId, thumbType, thumbSize)
+		-- set the ImageLabel's content to the user thumbnail
+		local imageLabel = getImageLabel(portraitPart)
+		imageLabel.Image = (isReady and content) or PLACEHOLDER_IMAGE
+	end)
+	
+	if not success then
+		warn("Error:", result)
+	end
+	-- Calculate a CFrame in front of the portrait to zoom the camera to
+	-- Offset distance is based on the PORTRAIT_VIEW_OFFSET_DEFAULT config variable
+	-- A more robust solution would be to calculate the size of the portrait & adjust the offset based on that, but this is good enough for now
+	local portraitZoomCFrame = CFrame.new(framePart.Position + framePart.CFrame.LookVector * PORTRAIT_VIEW_OFFSET_DEFAULT, framePart.Position)
+	DebugService:placeNode(portraitZoomCFrame, nil, nil, 100000)
 
-	local contributorName, contribution = CreditsModule.getContribution(creditsId)
+	local contributorName = getNameStr(creditsId)
+	local contribution = CreditsModule.getContribution(creditsId)
 	createPortraitCD(framePart).MouseClick:Connect(function(player)
-		portraitCdClicked(player, contributorName, contribution, "Fade")
+		portraitCdClicked(player, contributorName, contribution, "Fade", portraitZoomCFrame)
+	end)
+
+	createPortraitCD(portraitPart).MouseClick:Connect(function(player)
+		portraitCdClicked(player, contributorName, contribution, "Fade", portraitZoomCFrame)
 	end)
 end
 
 --- // MAIN
+-- Initialize full ID list to not overload ROBLOX services with multiple requests
+for _, creditsId in ipairs(creditsIds) do
+	table.insert(fullIDsList, creditsId)
+end
+
+for _, _portraitInfo in pairs(portraitInfo) do 
+	local authorsTable = _portraitInfo[1]
+	for _, artistId in ipairs(authorsTable) do
+		table.insert(fullIDsList, artistId)
+	end
+end
+
+print("Full ID list:", fullIDsList)
 
 for _, portraitModel in ipairs(portraits:GetChildren()) do
 	setupRegularPortrait(portraitModel)
@@ -51297,16 +51378,19 @@ for _, portraitModel in ipairs(portraits.AI_Portraits:GetChildren()) do
 end
 
 for _, portraitModel in ipairs(portraits.HeadmasterPortraits:GetChildren()) do
-	if not portraitModel:IsA("Model") then continue end -- All portraits are models
+	if not portraitModel:IsA("Model") then
+		continue
+	end -- All portraits are models
 
 	local framePart = getFramePart(portraitModel)
-	if not framePart then 
-        warn("Failed to find a frame part within " .. portraitModel:GetFullName())
+	if not framePart then
+		warn("Failed to find a frame part within " .. portraitModel:GetFullName())
 		continue
-    end
+	end
 
 	setupHeadmasterPortrait(portraitModel, framePart)
-end]]></ProtectedString>
+end
+]]></ProtectedString>
 					<int64 name="SourceAssetId">-1</int64>
 					<BinaryString name="Tags"></BinaryString>
 					<UniqueId name="UniqueId">1930a1d8fa28276808d3971e000034f8</UniqueId>
@@ -51325,7 +51409,7 @@ end]]></ProtectedString>
 				</Properties>
 				<Item class="Model" referent="RBX6D9459DBB4A14414A05C3F3D85BFC27A">
 					<Properties>
-						<BinaryString name="AttributesSerialize">AQAAAA8AAABPY2NsdXNpb25SZWdpb24CEwAAAEhlYWRtYXN0ZXIncyBPZmZpY2U=</BinaryString>
+						<BinaryString name="AttributesSerialize">AQAAAAkAAABDcmVkaXRzSWQGAAAAIFbypEE=</BinaryString>
 						<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
 						<bool name="DefinesCapabilities">false</bool>
 						<UniqueId name="HistoryId">00000000000000000000000000000000</UniqueId>
@@ -51614,45 +51698,11 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 								<Z>0.00122771529</Z>
 							</Vector3>
 						</Properties>
-						<Item class="Decal" referent="RBXB8620F5B1852432F98FF231F065314EA">
-							<Properties>
-								<BinaryString name="AttributesSerialize"></BinaryString>
-								<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
-								<Color3 name="Color3">
-									<R>1</R>
-									<G>1</G>
-									<B>1</B>
-								</Color3>
-								<bool name="DefinesCapabilities">false</bool>
-								<token name="Face">5</token>
-								<UniqueId name="HistoryId">00000000000000000000000000000000</UniqueId>
-								<Content name="MetalnessMap"><null></null></Content>
-								<string name="Name">Decal</string>
-								<Content name="NormalMap"><null></null></Content>
-								<Content name="RoughnessMap"><null></null></Content>
-								<int64 name="SourceAssetId">-1</int64>
-								<BinaryString name="Tags"></BinaryString>
-								<Content name="Texture"><url>rbxassetid://12316234006</url></Content>
-								<Content name="TexturePack"><null></null></Content>
-								<string name="TexturePackMetadata"></string>
-								<float name="Transparency">0</float>
-								<Vector2 name="UVOffset">
-									<X>0</X>
-									<Y>0</Y>
-								</Vector2>
-								<Vector2 name="UVScale">
-									<X>1</X>
-									<Y>1</Y>
-								</Vector2>
-								<UniqueId name="UniqueId">1930a1d8fa28276808d3971e0000394e</UniqueId>
-								<int name="ZIndex">1</int>
-							</Properties>
-						</Item>
 					</Item>
 				</Item>
 				<Item class="Model" referent="RBX9FE0498F2C75499F885B524EE2546A85">
 					<Properties>
-						<BinaryString name="AttributesSerialize">AQAAAA8AAABPY2NsdXNpb25SZWdpb24CEwAAAEhlYWRtYXN0ZXIncyBPZmZpY2U=</BinaryString>
+						<BinaryString name="AttributesSerialize">AQAAAAkAAABDcmVkaXRzSWQGAAAAAD1UOUE=</BinaryString>
 						<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
 						<bool name="DefinesCapabilities">false</bool>
 						<UniqueId name="HistoryId">00000000000000000000000000000000</UniqueId>
@@ -51941,45 +51991,11 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 								<Z>0.00107090035</Z>
 							</Vector3>
 						</Properties>
-						<Item class="Decal" referent="RBX7EDA011B6A2B4587952356EF3A3021CF">
-							<Properties>
-								<BinaryString name="AttributesSerialize"></BinaryString>
-								<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
-								<Color3 name="Color3">
-									<R>1</R>
-									<G>1</G>
-									<B>1</B>
-								</Color3>
-								<bool name="DefinesCapabilities">false</bool>
-								<token name="Face">5</token>
-								<UniqueId name="HistoryId">00000000000000000000000000000000</UniqueId>
-								<Content name="MetalnessMap"><null></null></Content>
-								<string name="Name">Decal</string>
-								<Content name="NormalMap"><null></null></Content>
-								<Content name="RoughnessMap"><null></null></Content>
-								<int64 name="SourceAssetId">-1</int64>
-								<BinaryString name="Tags"></BinaryString>
-								<Content name="Texture"><url>rbxassetid://12316236620</url></Content>
-								<Content name="TexturePack"><null></null></Content>
-								<string name="TexturePackMetadata"></string>
-								<float name="Transparency">0</float>
-								<Vector2 name="UVOffset">
-									<X>0</X>
-									<Y>0</Y>
-								</Vector2>
-								<Vector2 name="UVScale">
-									<X>1</X>
-									<Y>1</Y>
-								</Vector2>
-								<UniqueId name="UniqueId">1930a1d8fa28276808d3971e00003953</UniqueId>
-								<int name="ZIndex">1</int>
-							</Properties>
-						</Item>
 					</Item>
 				</Item>
 				<Item class="Model" referent="RBX4C4938F57061495495F720B942FD9C7E">
 					<Properties>
-						<BinaryString name="AttributesSerialize">AQAAAA8AAABPY2NsdXNpb25SZWdpb24CEwAAAEhlYWRtYXN0ZXIncyBPZmZpY2U=</BinaryString>
+						<BinaryString name="AttributesSerialize">AQAAAAkAAABDcmVkaXRzSWQGAAAAhrlWp0E=</BinaryString>
 						<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
 						<bool name="DefinesCapabilities">false</bool>
 						<UniqueId name="HistoryId">00000000000000000000000000000000</UniqueId>
@@ -52029,6 +52045,144 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</CFrame>
 						</OptionalCoordinateFrame>
 					</Properties>
+					<Item class="MeshPart" referent="RBX39009C1391804734A5EEF73A6347607D">
+						<Properties>
+							<SharedString name="AeroMeshData">yuZpQdnvvUBOTYh1jqZ2cA==</SharedString>
+							<bool name="Anchored">true</bool>
+							<BinaryString name="AttributesSerialize"><![CDATA[AgAAABsAAABJbml0aWFsQ2FuQ29sbGlkZV9PY2NsdXNpb24DAR0AAABJbml0aWFsVHJhbnNw
+YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
+							<bool name="AudioCanCollide">true</bool>
+							<float name="BackParamA">-0.5</float>
+							<float name="BackParamB">0.5</float>
+							<token name="BackSurface">0</token>
+							<token name="BackSurfaceInput">0</token>
+							<float name="BottomParamA">-0.5</float>
+							<float name="BottomParamB">0.5</float>
+							<token name="BottomSurface">0</token>
+							<token name="BottomSurfaceInput">0</token>
+							<CoordinateFrame name="CFrame">
+								<X>6.85362244</X>
+								<Y>231.405365</Y>
+								<Z>119.616615</Z>
+								<R00>-0.774952412</R00>
+								<R01>-0.0440882407</R01>
+								<R02>0.630479932</R02>
+								<R10>-3.06555876e-07</R10>
+								<R11>0.997564018</R11>
+								<R12>0.0697573349</R12>
+								<R20>-0.632019579</R20>
+								<R21>0.0540584214</R21>
+								<R22>-0.773064673</R22>
+							</CoordinateFrame>
+							<bool name="CanCollide">true</bool>
+							<bool name="CanQuery">true</bool>
+							<bool name="CanTouch">true</bool>
+							<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
+							<bool name="CastShadow">false</bool>
+							<string name="CollisionGroup">Default</string>
+							<int name="CollisionGroupId">0</int>
+							<Color3uint8 name="Color3uint8">4287986039</Color3uint8>
+							<PhysicalProperties name="CustomPhysicalProperties">
+								<CustomPhysics>false</CustomPhysics>
+							</PhysicalProperties>
+							<bool name="DefinesCapabilities">false</bool>
+							<bool name="DoubleSided">false</bool>
+							<bool name="EnableFluidForces">false</bool>
+							<token name="FluidFidelityInternal">0</token>
+							<float name="FrontParamA">-0.5</float>
+							<float name="FrontParamB">0.5</float>
+							<token name="FrontSurface">0</token>
+							<token name="FrontSurfaceInput">0</token>
+							<bool name="HasJointOffset">false</bool>
+							<bool name="HasSkinnedMesh">false</bool>
+							<UniqueId name="HistoryId">00000000000000000000000000000000</UniqueId>
+							<bool name="InertiaMigrated">true</bool>
+							<Vector3 name="InitialSize">
+								<X>1.83199215</X>
+								<Y>3.87061691</Y>
+								<Z>0.338547051</Z>
+							</Vector3>
+							<Vector3 name="JointOffset">
+								<X>0</X>
+								<Y>0</Y>
+								<Z>0</Z>
+							</Vector3>
+							<float name="LeftParamA">-0.5</float>
+							<float name="LeftParamB">0.5</float>
+							<token name="LeftSurface">0</token>
+							<token name="LeftSurfaceInput">0</token>
+							<bool name="Locked">false</bool>
+							<bool name="Massless">false</bool>
+							<token name="Material">1088</token>
+							<string name="MaterialVariantSerialized"></string>
+							<Content name="MeshId"><url>rbxassetid://9755290946</url></Content>
+							<string name="Name">Frame</string>
+							<SharedString name="PhysicalConfigData">TLqsiVInNR80pr0x23QjbA==</SharedString>
+							<BinaryString name="PhysicsData"></BinaryString>
+							<CoordinateFrame name="PivotOffset">
+								<X>0</X>
+								<Y>0</Y>
+								<Z>0</Z>
+								<R00>1</R00>
+								<R01>0</R01>
+								<R02>0</R02>
+								<R10>0</R10>
+								<R11>1</R11>
+								<R12>0</R12>
+								<R20>0</R20>
+								<R21>0</R21>
+								<R22>1</R22>
+							</CoordinateFrame>
+							<float name="Reflectance">0</float>
+							<token name="RenderFidelity">2</token>
+							<float name="RightParamA">-0.5</float>
+							<float name="RightParamB">0.5</float>
+							<token name="RightSurface">0</token>
+							<token name="RightSurfaceInput">0</token>
+							<int name="RootPriority">0</int>
+							<Vector3 name="RotVelocity">
+								<X>0</X>
+								<Y>0</Y>
+								<Z>0</Z>
+							</Vector3>
+							<int64 name="SourceAssetId">-1</int64>
+							<BinaryString name="Tags"></BinaryString>
+							<Content name="TextureID"><null></null></Content>
+							<float name="TopParamA">-0.5</float>
+							<float name="TopParamB">0.5</float>
+							<token name="TopSurface">0</token>
+							<token name="TopSurfaceInput">0</token>
+							<float name="Transparency">0</float>
+							<UniqueId name="UniqueId">1930a1d8fa28276808d3971e00003958</UniqueId>
+							<Vector3 name="UnscaledCofm">
+								<X>0.000272335194</X>
+								<Y>-0.287153751</Y>
+								<Z>-0.0884896666</Z>
+							</Vector3>
+							<Vector3 name="UnscaledVolInertiaDiags">
+								<X>0.347247958</X>
+								<Y>0.130933553</Y>
+								<Z>0.47720629</Z>
+							</Vector3>
+							<Vector3 name="UnscaledVolInertiaOffDiags">
+								<X>-0.000145717524</X>
+								<Y>1.29453838e-06</Y>
+								<Z>-0.00193769182</Z>
+							</Vector3>
+							<float name="UnscaledVolume">0.309475124</float>
+							<Vector3 name="Velocity">
+								<X>0</X>
+								<Y>0</Y>
+								<Z>0</Z>
+							</Vector3>
+							<int name="VertexCount">292</int>
+							<Vector3 name="size">
+								<X>7.48806715</X>
+								<Y>11.3784943</Y>
+								<Z>1.65166497</Z>
+							</Vector3>
+						</Properties>
+					</Item>
 					<Item class="MeshPart" referent="RBX153954D894914442B976CEEC2A99B1D9">
 						<Properties>
 							<SharedString name="AeroMeshData">yuZpQdnvvUBOTYh1jqZ2cA==</SharedString>
@@ -52184,7 +52338,7 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 								<Content name="RoughnessMap"><null></null></Content>
 								<int64 name="SourceAssetId">-1</int64>
 								<BinaryString name="Tags"></BinaryString>
-								<Content name="Texture"><url>rbxassetid://12316235149</url></Content>
+								<Content name="Texture"><null></null></Content>
 								<Content name="TexturePack"><null></null></Content>
 								<string name="TexturePackMetadata"></string>
 								<float name="Transparency">0</float>
@@ -52201,148 +52355,10 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Properties>
 						</Item>
 					</Item>
-					<Item class="MeshPart" referent="RBX39009C1391804734A5EEF73A6347607D">
-						<Properties>
-							<SharedString name="AeroMeshData">yuZpQdnvvUBOTYh1jqZ2cA==</SharedString>
-							<bool name="Anchored">true</bool>
-							<BinaryString name="AttributesSerialize"><![CDATA[AgAAABsAAABJbml0aWFsQ2FuQ29sbGlkZV9PY2NsdXNpb24DAR0AAABJbml0aWFsVHJhbnNw
-YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
-							<bool name="AudioCanCollide">true</bool>
-							<float name="BackParamA">-0.5</float>
-							<float name="BackParamB">0.5</float>
-							<token name="BackSurface">0</token>
-							<token name="BackSurfaceInput">0</token>
-							<float name="BottomParamA">-0.5</float>
-							<float name="BottomParamB">0.5</float>
-							<token name="BottomSurface">0</token>
-							<token name="BottomSurfaceInput">0</token>
-							<CoordinateFrame name="CFrame">
-								<X>6.85362244</X>
-								<Y>231.405365</Y>
-								<Z>119.616615</Z>
-								<R00>-0.774952412</R00>
-								<R01>-0.0440882407</R01>
-								<R02>0.630479932</R02>
-								<R10>-3.06555876e-07</R10>
-								<R11>0.997564018</R11>
-								<R12>0.0697573349</R12>
-								<R20>-0.632019579</R20>
-								<R21>0.0540584214</R21>
-								<R22>-0.773064673</R22>
-							</CoordinateFrame>
-							<bool name="CanCollide">true</bool>
-							<bool name="CanQuery">true</bool>
-							<bool name="CanTouch">true</bool>
-							<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
-							<bool name="CastShadow">false</bool>
-							<string name="CollisionGroup">Default</string>
-							<int name="CollisionGroupId">0</int>
-							<Color3uint8 name="Color3uint8">4287986039</Color3uint8>
-							<PhysicalProperties name="CustomPhysicalProperties">
-								<CustomPhysics>false</CustomPhysics>
-							</PhysicalProperties>
-							<bool name="DefinesCapabilities">false</bool>
-							<bool name="DoubleSided">false</bool>
-							<bool name="EnableFluidForces">false</bool>
-							<token name="FluidFidelityInternal">0</token>
-							<float name="FrontParamA">-0.5</float>
-							<float name="FrontParamB">0.5</float>
-							<token name="FrontSurface">0</token>
-							<token name="FrontSurfaceInput">0</token>
-							<bool name="HasJointOffset">false</bool>
-							<bool name="HasSkinnedMesh">false</bool>
-							<UniqueId name="HistoryId">00000000000000000000000000000000</UniqueId>
-							<bool name="InertiaMigrated">true</bool>
-							<Vector3 name="InitialSize">
-								<X>1.83199215</X>
-								<Y>3.87061691</Y>
-								<Z>0.338547051</Z>
-							</Vector3>
-							<Vector3 name="JointOffset">
-								<X>0</X>
-								<Y>0</Y>
-								<Z>0</Z>
-							</Vector3>
-							<float name="LeftParamA">-0.5</float>
-							<float name="LeftParamB">0.5</float>
-							<token name="LeftSurface">0</token>
-							<token name="LeftSurfaceInput">0</token>
-							<bool name="Locked">false</bool>
-							<bool name="Massless">false</bool>
-							<token name="Material">1088</token>
-							<string name="MaterialVariantSerialized"></string>
-							<Content name="MeshId"><url>rbxassetid://9755290946</url></Content>
-							<string name="Name">Frame</string>
-							<SharedString name="PhysicalConfigData">TLqsiVInNR80pr0x23QjbA==</SharedString>
-							<BinaryString name="PhysicsData"></BinaryString>
-							<CoordinateFrame name="PivotOffset">
-								<X>0</X>
-								<Y>0</Y>
-								<Z>0</Z>
-								<R00>1</R00>
-								<R01>0</R01>
-								<R02>0</R02>
-								<R10>0</R10>
-								<R11>1</R11>
-								<R12>0</R12>
-								<R20>0</R20>
-								<R21>0</R21>
-								<R22>1</R22>
-							</CoordinateFrame>
-							<float name="Reflectance">0</float>
-							<token name="RenderFidelity">2</token>
-							<float name="RightParamA">-0.5</float>
-							<float name="RightParamB">0.5</float>
-							<token name="RightSurface">0</token>
-							<token name="RightSurfaceInput">0</token>
-							<int name="RootPriority">0</int>
-							<Vector3 name="RotVelocity">
-								<X>0</X>
-								<Y>0</Y>
-								<Z>0</Z>
-							</Vector3>
-							<int64 name="SourceAssetId">-1</int64>
-							<BinaryString name="Tags"></BinaryString>
-							<Content name="TextureID"><null></null></Content>
-							<float name="TopParamA">-0.5</float>
-							<float name="TopParamB">0.5</float>
-							<token name="TopSurface">0</token>
-							<token name="TopSurfaceInput">0</token>
-							<float name="Transparency">0</float>
-							<UniqueId name="UniqueId">1930a1d8fa28276808d3971e00003958</UniqueId>
-							<Vector3 name="UnscaledCofm">
-								<X>0.000272335194</X>
-								<Y>-0.287153751</Y>
-								<Z>-0.0884896666</Z>
-							</Vector3>
-							<Vector3 name="UnscaledVolInertiaDiags">
-								<X>0.347247958</X>
-								<Y>0.130933553</Y>
-								<Z>0.47720629</Z>
-							</Vector3>
-							<Vector3 name="UnscaledVolInertiaOffDiags">
-								<X>-0.000145717524</X>
-								<Y>1.29453838e-06</Y>
-								<Z>-0.00193769182</Z>
-							</Vector3>
-							<float name="UnscaledVolume">0.309475124</float>
-							<Vector3 name="Velocity">
-								<X>0</X>
-								<Y>0</Y>
-								<Z>0</Z>
-							</Vector3>
-							<int name="VertexCount">292</int>
-							<Vector3 name="size">
-								<X>7.48806715</X>
-								<Y>11.3784943</Y>
-								<Z>1.65166497</Z>
-							</Vector3>
-						</Properties>
-					</Item>
 				</Item>
 				<Item class="Model" referent="RBXC9CF94E2FF3643389BC956E5FF5FA419">
 					<Properties>
-						<BinaryString name="AttributesSerialize">AQAAAA8AAABPY2NsdXNpb25SZWdpb24CEwAAAEhlYWRtYXN0ZXIncyBPZmZpY2U=</BinaryString>
+						<BinaryString name="AttributesSerialize">AQAAAAkAAABDcmVkaXRzSWQGAAAATO9ZkEE=</BinaryString>
 						<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
 						<bool name="DefinesCapabilities">false</bool>
 						<UniqueId name="HistoryId">00000000000000000000000000000000</UniqueId>
@@ -52631,45 +52647,11 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 								<Z>0.00131283677</Z>
 							</Vector3>
 						</Properties>
-						<Item class="Decal" referent="RBX139BCB9C703849A1A0BB85D30826A13C">
-							<Properties>
-								<BinaryString name="AttributesSerialize"></BinaryString>
-								<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
-								<Color3 name="Color3">
-									<R>1</R>
-									<G>1</G>
-									<B>1</B>
-								</Color3>
-								<bool name="DefinesCapabilities">false</bool>
-								<token name="Face">5</token>
-								<UniqueId name="HistoryId">00000000000000000000000000000000</UniqueId>
-								<Content name="MetalnessMap"><null></null></Content>
-								<string name="Name">Decal</string>
-								<Content name="NormalMap"><null></null></Content>
-								<Content name="RoughnessMap"><null></null></Content>
-								<int64 name="SourceAssetId">-1</int64>
-								<BinaryString name="Tags"></BinaryString>
-								<Content name="Texture"><url>rbxassetid://12316295553</url></Content>
-								<Content name="TexturePack"><null></null></Content>
-								<string name="TexturePackMetadata"></string>
-								<float name="Transparency">0</float>
-								<Vector2 name="UVOffset">
-									<X>0</X>
-									<Y>0</Y>
-								</Vector2>
-								<Vector2 name="UVScale">
-									<X>1</X>
-									<Y>1</Y>
-								</Vector2>
-								<UniqueId name="UniqueId">1930a1d8fa28276808d3971e0000395d</UniqueId>
-								<int name="ZIndex">1</int>
-							</Properties>
-						</Item>
 					</Item>
 				</Item>
 				<Item class="Model" referent="RBX4600762288384194A2A247E74762B912">
 					<Properties>
-						<BinaryString name="AttributesSerialize">AQAAAA8AAABPY2NsdXNpb25SZWdpb24CEwAAAEhlYWRtYXN0ZXIncyBPZmZpY2U=</BinaryString>
+						<BinaryString name="AttributesSerialize">AQAAAAkAAABDcmVkaXRzSWQGAAAA4KLAZUE=</BinaryString>
 						<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
 						<bool name="DefinesCapabilities">false</bool>
 						<UniqueId name="HistoryId">00000000000000000000000000000000</UniqueId>
@@ -52958,45 +52940,11 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 								<Z>0.00141557108</Z>
 							</Vector3>
 						</Properties>
-						<Item class="Decal" referent="RBX850E92DC60FC4EE19668B47EF4B60788">
-							<Properties>
-								<BinaryString name="AttributesSerialize"></BinaryString>
-								<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
-								<Color3 name="Color3">
-									<R>1</R>
-									<G>1</G>
-									<B>1</B>
-								</Color3>
-								<bool name="DefinesCapabilities">false</bool>
-								<token name="Face">5</token>
-								<UniqueId name="HistoryId">00000000000000000000000000000000</UniqueId>
-								<Content name="MetalnessMap"><null></null></Content>
-								<string name="Name">Decal</string>
-								<Content name="NormalMap"><null></null></Content>
-								<Content name="RoughnessMap"><null></null></Content>
-								<int64 name="SourceAssetId">-1</int64>
-								<BinaryString name="Tags"></BinaryString>
-								<Content name="Texture"><url>rbxassetid://12316236356</url></Content>
-								<Content name="TexturePack"><null></null></Content>
-								<string name="TexturePackMetadata"></string>
-								<float name="Transparency">0</float>
-								<Vector2 name="UVOffset">
-									<X>0</X>
-									<Y>0</Y>
-								</Vector2>
-								<Vector2 name="UVScale">
-									<X>1</X>
-									<Y>1</Y>
-								</Vector2>
-								<UniqueId name="UniqueId">1930a1d8fa28276808d3971e00003962</UniqueId>
-								<int name="ZIndex">1</int>
-							</Properties>
-						</Item>
 					</Item>
 				</Item>
 				<Item class="Model" referent="RBXD920395316C6454EA5B3EE27EBDA25C5">
 					<Properties>
-						<BinaryString name="AttributesSerialize">AQAAAA8AAABPY2NsdXNpb25SZWdpb24CEwAAAEhlYWRtYXN0ZXIncyBPZmZpY2U=</BinaryString>
+						<BinaryString name="AttributesSerialize">AQAAAAkAAABDcmVkaXRzSWQFAAAAAA==</BinaryString>
 						<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
 						<bool name="DefinesCapabilities">false</bool>
 						<UniqueId name="HistoryId">00000000000000000000000000000000</UniqueId>
@@ -53289,7 +53237,7 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAADwPw==]]></BinaryString>
 				</Item>
 				<Item class="Model" referent="RBX537D4F9E904C4D1C9637D192CF9F42B0">
 					<Properties>
-						<BinaryString name="AttributesSerialize">AQAAAA8AAABPY2NsdXNpb25SZWdpb24CEwAAAEhlYWRtYXN0ZXIncyBPZmZpY2U=</BinaryString>
+						<BinaryString name="AttributesSerialize">AQAAAAkAAABDcmVkaXRzSWQFAAAAAA==</BinaryString>
 						<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
 						<bool name="DefinesCapabilities">false</bool>
 						<UniqueId name="HistoryId">00000000000000000000000000000000</UniqueId>
@@ -53618,7 +53566,7 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAADwPw==]]></BinaryString>
 				</Item>
 				<Item class="Model" referent="RBX8DA6A643103541C4942F9EA885948E98">
 					<Properties>
-						<BinaryString name="AttributesSerialize">AQAAAA8AAABPY2NsdXNpb25SZWdpb24CEwAAAEhlYWRtYXN0ZXIncyBPZmZpY2U=</BinaryString>
+						<BinaryString name="AttributesSerialize">AQAAAAkAAABDcmVkaXRzSWQGAAAAgAZnXUE=</BinaryString>
 						<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
 						<bool name="DefinesCapabilities">false</bool>
 						<UniqueId name="HistoryId">00000000000000000000000000000000</UniqueId>
@@ -53907,45 +53855,11 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 								<Z>0.001501619</Z>
 							</Vector3>
 						</Properties>
-						<Item class="Decal" referent="RBXD17B59E90E9B42CB9E11069217A66283">
-							<Properties>
-								<BinaryString name="AttributesSerialize"></BinaryString>
-								<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
-								<Color3 name="Color3">
-									<R>1</R>
-									<G>1</G>
-									<B>1</B>
-								</Color3>
-								<bool name="DefinesCapabilities">false</bool>
-								<token name="Face">5</token>
-								<UniqueId name="HistoryId">00000000000000000000000000000000</UniqueId>
-								<Content name="MetalnessMap"><null></null></Content>
-								<string name="Name">Decal</string>
-								<Content name="NormalMap"><null></null></Content>
-								<Content name="RoughnessMap"><null></null></Content>
-								<int64 name="SourceAssetId">-1</int64>
-								<BinaryString name="Tags"></BinaryString>
-								<Content name="Texture"><url>rbxassetid://12316233297</url></Content>
-								<Content name="TexturePack"><null></null></Content>
-								<string name="TexturePackMetadata"></string>
-								<float name="Transparency">0</float>
-								<Vector2 name="UVOffset">
-									<X>0</X>
-									<Y>0</Y>
-								</Vector2>
-								<Vector2 name="UVScale">
-									<X>1</X>
-									<Y>1</Y>
-								</Vector2>
-								<UniqueId name="UniqueId">1930a1d8fa28276808d3971e0000396f</UniqueId>
-								<int name="ZIndex">1</int>
-							</Properties>
-						</Item>
 					</Item>
 				</Item>
 				<Item class="Model" referent="RBX748E7AACCC434B77A7C15E9685C79131">
 					<Properties>
-						<BinaryString name="AttributesSerialize">AQAAAA8AAABPY2NsdXNpb25SZWdpb24CEwAAAEhlYWRtYXN0ZXIncyBPZmZpY2U=</BinaryString>
+						<BinaryString name="AttributesSerialize">AQAAAAkAAABDcmVkaXRzSWQFAAAAAA==</BinaryString>
 						<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
 						<bool name="DefinesCapabilities">false</bool>
 						<UniqueId name="HistoryId">00000000000000000000000000000000</UniqueId>
@@ -54274,7 +54188,7 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAADwPw==]]></BinaryString>
 				</Item>
 				<Item class="Model" referent="RBX98F1A2D777144FEBA582DDA00731C158">
 					<Properties>
-						<BinaryString name="AttributesSerialize">AQAAAA8AAABPY2NsdXNpb25SZWdpb24CEwAAAEhlYWRtYXN0ZXIncyBPZmZpY2U=</BinaryString>
+						<BinaryString name="AttributesSerialize">AQAAAAkAAABDcmVkaXRzSWQGAACAjX3A0kE=</BinaryString>
 						<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
 						<bool name="DefinesCapabilities">false</bool>
 						<UniqueId name="HistoryId">00000000000000000000000000000000</UniqueId>
@@ -54461,40 +54375,6 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 								<Z>0.205015734</Z>
 							</Vector3>
 						</Properties>
-						<Item class="Decal" referent="RBX5844346AE1134C77802128BB4CADD484">
-							<Properties>
-								<BinaryString name="AttributesSerialize"></BinaryString>
-								<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
-								<Color3 name="Color3">
-									<R>1</R>
-									<G>1</G>
-									<B>1</B>
-								</Color3>
-								<bool name="DefinesCapabilities">false</bool>
-								<token name="Face">5</token>
-								<UniqueId name="HistoryId">00000000000000000000000000000000</UniqueId>
-								<Content name="MetalnessMap"><null></null></Content>
-								<string name="Name">Decal</string>
-								<Content name="NormalMap"><null></null></Content>
-								<Content name="RoughnessMap"><null></null></Content>
-								<int64 name="SourceAssetId">-1</int64>
-								<BinaryString name="Tags"></BinaryString>
-								<Content name="Texture"><url>rbxassetid://12316234327</url></Content>
-								<Content name="TexturePack"><null></null></Content>
-								<string name="TexturePackMetadata"></string>
-								<float name="Transparency">0</float>
-								<Vector2 name="UVOffset">
-									<X>0</X>
-									<Y>0</Y>
-								</Vector2>
-								<Vector2 name="UVScale">
-									<X>1</X>
-									<Y>1</Y>
-								</Vector2>
-								<UniqueId name="UniqueId">1930a1d8fa28276808d3971e00003977</UniqueId>
-								<int name="ZIndex">1</int>
-							</Properties>
-						</Item>
 					</Item>
 					<Item class="MeshPart" referent="RBX9BCDA07F841B421DB40C019B493BC22F">
 						<Properties>
@@ -54637,7 +54517,7 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 				</Item>
 				<Item class="Model" referent="RBX45FD11A3F6D24E2BBAD16B7252CA9B1D">
 					<Properties>
-						<BinaryString name="AttributesSerialize">AQAAAA8AAABPY2NsdXNpb25SZWdpb24CEwAAAEhlYWRtYXN0ZXIncyBPZmZpY2U=</BinaryString>
+						<BinaryString name="AttributesSerialize">AQAAAAkAAABDcmVkaXRzSWQGAACgD1/94EE=</BinaryString>
 						<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
 						<bool name="DefinesCapabilities">false</bool>
 						<UniqueId name="HistoryId">00000000000000000000000000000000</UniqueId>
@@ -54926,45 +54806,11 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 								<Z>0.00109727541</Z>
 							</Vector3>
 						</Properties>
-						<Item class="Decal" referent="RBX752F89C4EC3D424B9EEA9E9480AF51B5">
-							<Properties>
-								<BinaryString name="AttributesSerialize"></BinaryString>
-								<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
-								<Color3 name="Color3">
-									<R>1</R>
-									<G>1</G>
-									<B>1</B>
-								</Color3>
-								<bool name="DefinesCapabilities">false</bool>
-								<token name="Face">5</token>
-								<UniqueId name="HistoryId">00000000000000000000000000000000</UniqueId>
-								<Content name="MetalnessMap"><null></null></Content>
-								<string name="Name">Decal</string>
-								<Content name="NormalMap"><null></null></Content>
-								<Content name="RoughnessMap"><null></null></Content>
-								<int64 name="SourceAssetId">-1</int64>
-								<BinaryString name="Tags"></BinaryString>
-								<Content name="Texture"><url>rbxassetid://12316234774</url></Content>
-								<Content name="TexturePack"><null></null></Content>
-								<string name="TexturePackMetadata"></string>
-								<float name="Transparency">0</float>
-								<Vector2 name="UVOffset">
-									<X>0</X>
-									<Y>0</Y>
-								</Vector2>
-								<Vector2 name="UVScale">
-									<X>1</X>
-									<Y>1</Y>
-								</Vector2>
-								<UniqueId name="UniqueId">1930a1d8fa28276808d3971e0000397d</UniqueId>
-								<int name="ZIndex">1</int>
-							</Properties>
-						</Item>
 					</Item>
 				</Item>
 				<Item class="Model" referent="RBX9DC4532882414A66A9768C5CA845EF9B">
 					<Properties>
-						<BinaryString name="AttributesSerialize">AQAAAA8AAABPY2NsdXNpb25SZWdpb24CEwAAAEhlYWRtYXN0ZXIncyBPZmZpY2U=</BinaryString>
+						<BinaryString name="AttributesSerialize">AQAAAAkAAABDcmVkaXRzSWQFAAAAAA==</BinaryString>
 						<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
 						<bool name="DefinesCapabilities">false</bool>
 						<UniqueId name="HistoryId">00000000000000000000000000000000</UniqueId>
@@ -55253,45 +55099,11 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 								<Z>0.001501619</Z>
 							</Vector3>
 						</Properties>
-						<Item class="Decal" referent="RBXC033B96860A240A5B5D7A3C86DA56443">
-							<Properties>
-								<BinaryString name="AttributesSerialize"></BinaryString>
-								<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
-								<Color3 name="Color3">
-									<R>1</R>
-									<G>1</G>
-									<B>1</B>
-								</Color3>
-								<bool name="DefinesCapabilities">false</bool>
-								<token name="Face">5</token>
-								<UniqueId name="HistoryId">00000000000000000000000000000000</UniqueId>
-								<Content name="MetalnessMap"><null></null></Content>
-								<string name="Name">Decal</string>
-								<Content name="NormalMap"><null></null></Content>
-								<Content name="RoughnessMap"><null></null></Content>
-								<int64 name="SourceAssetId">-1</int64>
-								<BinaryString name="Tags"></BinaryString>
-								<Content name="Texture"><url>rbxassetid://12316237256</url></Content>
-								<Content name="TexturePack"><null></null></Content>
-								<string name="TexturePackMetadata"></string>
-								<float name="Transparency">0</float>
-								<Vector2 name="UVOffset">
-									<X>0</X>
-									<Y>0</Y>
-								</Vector2>
-								<Vector2 name="UVScale">
-									<X>1</X>
-									<Y>1</Y>
-								</Vector2>
-								<UniqueId name="UniqueId">1930a1d8fa28276808d3971e00003982</UniqueId>
-								<int name="ZIndex">1</int>
-							</Properties>
-						</Item>
 					</Item>
 				</Item>
 				<Item class="Model" referent="RBX36FB96D3DEB04DDC983CC49CDB322D4D">
 					<Properties>
-						<BinaryString name="AttributesSerialize">AQAAAA8AAABPY2NsdXNpb25SZWdpb24CEwAAAEhlYWRtYXN0ZXIncyBPZmZpY2U=</BinaryString>
+						<BinaryString name="AttributesSerialize">AQAAAAkAAABDcmVkaXRzSWQFAAAAAA==</BinaryString>
 						<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
 						<bool name="DefinesCapabilities">false</bool>
 						<UniqueId name="HistoryId">00000000000000000000000000000000</UniqueId>
@@ -55580,45 +55392,11 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 								<Z>0.00100000005</Z>
 							</Vector3>
 						</Properties>
-						<Item class="Decal" referent="RBXAADF5604DDD845FFB5F99159F6FC7DF7">
-							<Properties>
-								<BinaryString name="AttributesSerialize"></BinaryString>
-								<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
-								<Color3 name="Color3">
-									<R>1</R>
-									<G>1</G>
-									<B>1</B>
-								</Color3>
-								<bool name="DefinesCapabilities">false</bool>
-								<token name="Face">5</token>
-								<UniqueId name="HistoryId">00000000000000000000000000000000</UniqueId>
-								<Content name="MetalnessMap"><null></null></Content>
-								<string name="Name">Decal</string>
-								<Content name="NormalMap"><null></null></Content>
-								<Content name="RoughnessMap"><null></null></Content>
-								<int64 name="SourceAssetId">-1</int64>
-								<BinaryString name="Tags"></BinaryString>
-								<Content name="Texture"><url>rbxassetid://12316235997</url></Content>
-								<Content name="TexturePack"><null></null></Content>
-								<string name="TexturePackMetadata"></string>
-								<float name="Transparency">0</float>
-								<Vector2 name="UVOffset">
-									<X>0</X>
-									<Y>0</Y>
-								</Vector2>
-								<Vector2 name="UVScale">
-									<X>1</X>
-									<Y>1</Y>
-								</Vector2>
-								<UniqueId name="UniqueId">1930a1d8fa28276808d3971e00003987</UniqueId>
-								<int name="ZIndex">1</int>
-							</Properties>
-						</Item>
 					</Item>
 				</Item>
 				<Item class="Model" referent="RBX300E583557554BB2B4243204765F7E6C">
 					<Properties>
-						<BinaryString name="AttributesSerialize">AQAAAA8AAABPY2NsdXNpb25SZWdpb24CEwAAAEhlYWRtYXN0ZXIncyBPZmZpY2U=</BinaryString>
+						<BinaryString name="AttributesSerialize">AQAAAAkAAABDcmVkaXRzSWQFAAAAAA==</BinaryString>
 						<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
 						<bool name="DefinesCapabilities">false</bool>
 						<UniqueId name="HistoryId">00000000000000000000000000000000</UniqueId>
@@ -55907,45 +55685,11 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 								<Z>0.00100000005</Z>
 							</Vector3>
 						</Properties>
-						<Item class="Decal" referent="RBXC8369B0344E64FC3A702A92956A0D2B6">
-							<Properties>
-								<BinaryString name="AttributesSerialize"></BinaryString>
-								<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
-								<Color3 name="Color3">
-									<R>1</R>
-									<G>1</G>
-									<B>1</B>
-								</Color3>
-								<bool name="DefinesCapabilities">false</bool>
-								<token name="Face">5</token>
-								<UniqueId name="HistoryId">00000000000000000000000000000000</UniqueId>
-								<Content name="MetalnessMap"><null></null></Content>
-								<string name="Name">Decal</string>
-								<Content name="NormalMap"><null></null></Content>
-								<Content name="RoughnessMap"><null></null></Content>
-								<int64 name="SourceAssetId">-1</int64>
-								<BinaryString name="Tags"></BinaryString>
-								<Content name="Texture"><url>rbxassetid://12316233640</url></Content>
-								<Content name="TexturePack"><null></null></Content>
-								<string name="TexturePackMetadata"></string>
-								<float name="Transparency">0</float>
-								<Vector2 name="UVOffset">
-									<X>0</X>
-									<Y>0</Y>
-								</Vector2>
-								<Vector2 name="UVScale">
-									<X>1</X>
-									<Y>1</Y>
-								</Vector2>
-								<UniqueId name="UniqueId">1930a1d8fa28276808d3971e0000398c</UniqueId>
-								<int name="ZIndex">1</int>
-							</Properties>
-						</Item>
 					</Item>
 				</Item>
 				<Item class="Model" referent="RBXD6F056D862894EB388A7F444D71175FC">
 					<Properties>
-						<BinaryString name="AttributesSerialize">AQAAAA8AAABPY2NsdXNpb25SZWdpb24CEwAAAEhlYWRtYXN0ZXIncyBPZmZpY2U=</BinaryString>
+						<BinaryString name="AttributesSerialize">AQAAAAkAAABDcmVkaXRzSWQFAAAAAA==</BinaryString>
 						<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
 						<bool name="DefinesCapabilities">false</bool>
 						<UniqueId name="HistoryId">00000000000000000000000000000000</UniqueId>
@@ -56238,7 +55982,7 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAADwPw==]]></BinaryString>
 				</Item>
 				<Item class="Model" referent="RBX5E29B21CDB17486588D06AAE11A8CE63">
 					<Properties>
-						<BinaryString name="AttributesSerialize">AQAAAA8AAABPY2NsdXNpb25SZWdpb24CEwAAAEhlYWRtYXN0ZXIncyBPZmZpY2U=</BinaryString>
+						<BinaryString name="AttributesSerialize">AQAAAAkAAABDcmVkaXRzSWQGAAAArm4MpkE=</BinaryString>
 						<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
 						<bool name="DefinesCapabilities">false</bool>
 						<UniqueId name="HistoryId">00000000000000000000000000000000</UniqueId>
@@ -56527,45 +56271,11 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 								<Z>0.001501619</Z>
 							</Vector3>
 						</Properties>
-						<Item class="Decal" referent="RBXAEE0EA8B63084784A7EB38C5DE8E1857">
-							<Properties>
-								<BinaryString name="AttributesSerialize"></BinaryString>
-								<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
-								<Color3 name="Color3">
-									<R>1</R>
-									<G>1</G>
-									<B>1</B>
-								</Color3>
-								<bool name="DefinesCapabilities">false</bool>
-								<token name="Face">5</token>
-								<UniqueId name="HistoryId">00000000000000000000000000000000</UniqueId>
-								<Content name="MetalnessMap"><null></null></Content>
-								<string name="Name">Decal</string>
-								<Content name="NormalMap"><null></null></Content>
-								<Content name="RoughnessMap"><null></null></Content>
-								<int64 name="SourceAssetId">-1</int64>
-								<BinaryString name="Tags"></BinaryString>
-								<Content name="Texture"><url>rbxassetid://12316296115</url></Content>
-								<Content name="TexturePack"><null></null></Content>
-								<string name="TexturePackMetadata"></string>
-								<float name="Transparency">0</float>
-								<Vector2 name="UVOffset">
-									<X>0</X>
-									<Y>0</Y>
-								</Vector2>
-								<Vector2 name="UVScale">
-									<X>1</X>
-									<Y>1</Y>
-								</Vector2>
-								<UniqueId name="UniqueId">1930a1d8fa28276808d3971e00003995</UniqueId>
-								<int name="ZIndex">1</int>
-							</Properties>
-						</Item>
 					</Item>
 				</Item>
 				<Item class="Model" referent="RBXBF3AA50BF25F4132A1926ED9D581084B">
 					<Properties>
-						<BinaryString name="AttributesSerialize">AQAAAA8AAABPY2NsdXNpb25SZWdpb24CEwAAAEhlYWRtYXN0ZXIncyBPZmZpY2U=</BinaryString>
+						<BinaryString name="AttributesSerialize">AQAAAAkAAABDcmVkaXRzSWQGAAAAEnsUu0E=</BinaryString>
 						<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
 						<bool name="DefinesCapabilities">false</bool>
 						<UniqueId name="HistoryId">00000000000000000000000000000000</UniqueId>
@@ -56854,45 +56564,11 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 								<Z>0.00131283677</Z>
 							</Vector3>
 						</Properties>
-						<Item class="Decal" referent="RBX83A028BA2AF14AA99FCE9C566C3BAD12">
-							<Properties>
-								<BinaryString name="AttributesSerialize"></BinaryString>
-								<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
-								<Color3 name="Color3">
-									<R>1</R>
-									<G>1</G>
-									<B>1</B>
-								</Color3>
-								<bool name="DefinesCapabilities">false</bool>
-								<token name="Face">5</token>
-								<UniqueId name="HistoryId">00000000000000000000000000000000</UniqueId>
-								<Content name="MetalnessMap"><null></null></Content>
-								<string name="Name">Decal</string>
-								<Content name="NormalMap"><null></null></Content>
-								<Content name="RoughnessMap"><null></null></Content>
-								<int64 name="SourceAssetId">-1</int64>
-								<BinaryString name="Tags"></BinaryString>
-								<Content name="Texture"><url>rbxassetid://12316236953</url></Content>
-								<Content name="TexturePack"><null></null></Content>
-								<string name="TexturePackMetadata"></string>
-								<float name="Transparency">0</float>
-								<Vector2 name="UVOffset">
-									<X>0</X>
-									<Y>0</Y>
-								</Vector2>
-								<Vector2 name="UVScale">
-									<X>1</X>
-									<Y>1</Y>
-								</Vector2>
-								<UniqueId name="UniqueId">1930a1d8fa28276808d3971e0000399a</UniqueId>
-								<int name="ZIndex">1</int>
-							</Properties>
-						</Item>
 					</Item>
 				</Item>
 				<Item class="Model" referent="RBX561E82982A464F4E94260AFEB425B2F8">
 					<Properties>
-						<BinaryString name="AttributesSerialize">AQAAAA8AAABPY2NsdXNpb25SZWdpb24CEwAAAEhlYWRtYXN0ZXIncyBPZmZpY2U=</BinaryString>
+						<BinaryString name="AttributesSerialize">AQAAAAkAAABDcmVkaXRzSWQFAAAAAA==</BinaryString>
 						<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
 						<bool name="DefinesCapabilities">false</bool>
 						<UniqueId name="HistoryId">00000000000000000000000000000000</UniqueId>
@@ -57079,40 +56755,6 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAADwPw==]]></BinaryString>
 								<Z>0.144942582</Z>
 							</Vector3>
 						</Properties>
-						<Item class="Decal" referent="RBXD69B3926328A46CE8E5DA47473862266">
-							<Properties>
-								<BinaryString name="AttributesSerialize"></BinaryString>
-								<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
-								<Color3 name="Color3">
-									<R>1</R>
-									<G>1</G>
-									<B>1</B>
-								</Color3>
-								<bool name="DefinesCapabilities">false</bool>
-								<token name="Face">5</token>
-								<UniqueId name="HistoryId">00000000000000000000000000000000</UniqueId>
-								<Content name="MetalnessMap"><null></null></Content>
-								<string name="Name">Decal</string>
-								<Content name="NormalMap"><null></null></Content>
-								<Content name="RoughnessMap"><null></null></Content>
-								<int64 name="SourceAssetId">-1</int64>
-								<BinaryString name="Tags"></BinaryString>
-								<Content name="Texture"><url>rbxassetid://12316235997</url></Content>
-								<Content name="TexturePack"><null></null></Content>
-								<string name="TexturePackMetadata"></string>
-								<float name="Transparency">1</float>
-								<Vector2 name="UVOffset">
-									<X>0</X>
-									<Y>0</Y>
-								</Vector2>
-								<Vector2 name="UVScale">
-									<X>1</X>
-									<Y>1</Y>
-								</Vector2>
-								<UniqueId name="UniqueId">1930a1d8fa28276808d3971e0000399e</UniqueId>
-								<int name="ZIndex">1</int>
-							</Properties>
-						</Item>
 					</Item>
 					<Item class="MeshPart" referent="RBX61B378BA1CCC4CA3BF1E5BBA55E34C01">
 						<Properties>
@@ -57255,7 +56897,7 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAADwPw==]]></BinaryString>
 				</Item>
 				<Item class="Model" referent="RBX73D5825DD92C43F7A9856232EB2E2776">
 					<Properties>
-						<BinaryString name="AttributesSerialize">AQAAAA8AAABPY2NsdXNpb25SZWdpb24CEwAAAEhlYWRtYXN0ZXIncyBPZmZpY2U=</BinaryString>
+						<BinaryString name="AttributesSerialize">AQAAAAkAAABDcmVkaXRzSWQFAAAAAA==</BinaryString>
 						<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
 						<bool name="DefinesCapabilities">false</bool>
 						<UniqueId name="HistoryId">00000000000000000000000000000000</UniqueId>
@@ -57548,7 +57190,7 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAADwPw==]]></BinaryString>
 				</Item>
 				<Item class="Model" referent="RBX5A7B21C107074ECD820BDBAC9CAF8FB7">
 					<Properties>
-						<BinaryString name="AttributesSerialize">AQAAAA8AAABPY2NsdXNpb25SZWdpb24CEwAAAEhlYWRtYXN0ZXIncyBPZmZpY2U=</BinaryString>
+						<BinaryString name="AttributesSerialize">AQAAAAkAAABDcmVkaXRzSWQGAAAAJuAGvkE=</BinaryString>
 						<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
 						<bool name="DefinesCapabilities">false</bool>
 						<UniqueId name="HistoryId">00000000000000000000000000000000</UniqueId>
@@ -57735,40 +57377,6 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 								<Z>0.174327582</Z>
 							</Vector3>
 						</Properties>
-						<Item class="Decal" referent="RBX6BEFE0E099484AE196AFA40384315A81">
-							<Properties>
-								<BinaryString name="AttributesSerialize"></BinaryString>
-								<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
-								<Color3 name="Color3">
-									<R>1</R>
-									<G>1</G>
-									<B>1</B>
-								</Color3>
-								<bool name="DefinesCapabilities">false</bool>
-								<token name="Face">5</token>
-								<UniqueId name="HistoryId">00000000000000000000000000000000</UniqueId>
-								<Content name="MetalnessMap"><null></null></Content>
-								<string name="Name">Decal</string>
-								<Content name="NormalMap"><null></null></Content>
-								<Content name="RoughnessMap"><null></null></Content>
-								<int64 name="SourceAssetId">-1</int64>
-								<BinaryString name="Tags"></BinaryString>
-								<Content name="Texture"><url>rbxassetid://12316235563</url></Content>
-								<Content name="TexturePack"><null></null></Content>
-								<string name="TexturePackMetadata"></string>
-								<float name="Transparency">0</float>
-								<Vector2 name="UVOffset">
-									<X>0</X>
-									<Y>0</Y>
-								</Vector2>
-								<Vector2 name="UVScale">
-									<X>1</X>
-									<Y>1</Y>
-								</Vector2>
-								<UniqueId name="UniqueId">1930a1d8fa28276808d3971e000039a7</UniqueId>
-								<int name="ZIndex">1</int>
-							</Properties>
-						</Item>
 					</Item>
 					<Item class="MeshPart" referent="RBXD81F794FDAF2491CB05E0BE5357C3DF1">
 						<Properties>
@@ -59488,6 +59096,19 @@ end)]]></ProtectedString>
 				</Properties>
 			</Item>
 		</Item>
+		<Item class="ObjectValue" referent="RBXD37B18F777674BBA92BF76BE06AC92F8">
+			<Properties>
+				<BinaryString name="AttributesSerialize"></BinaryString>
+				<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
+				<bool name="DefinesCapabilities">false</bool>
+				<UniqueId name="HistoryId">00000000000000000000000000000000</UniqueId>
+				<string name="Name">Value</string>
+				<int64 name="SourceAssetId">-1</int64>
+				<BinaryString name="Tags"></BinaryString>
+				<UniqueId name="UniqueId">08b022e657d6669808e4c6be00005713</UniqueId>
+				<Ref name="Value">RBXEB6020B87F4144A3B31F36F7772F37A9</Ref>
+			</Properties>
+		</Item>
 	</Item>
 	<Item class="TimerService" referent="RBX0916FBE0FD994273B4E7825C2C5D4612">
 		<Properties>
@@ -61086,7 +60707,7 @@ return CinematicMsgClientModule]]></ProtectedString>
 							<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
 							<bool name="DefinesCapabilities">false</bool>
 							<UniqueId name="HistoryId">00000000000000000000000000000000</UniqueId>
-							<int name="MaxTextSize">25</int>
+							<int name="MaxTextSize">21</int>
 							<int name="MinTextSize">1</int>
 							<string name="Name">UITextSizeConstraint</string>
 							<int64 name="SourceAssetId">-1</int64>
@@ -61873,6 +61494,154 @@ return CinematicMsgClientModule]]></ProtectedString>
 				</Item>
 			</Item>
 		</Item>
+		<Item class="ScreenGui" referent="RBXB1CBBBBB8AF94ABAAF84A6455CECB57F">
+			<Properties>
+				<BinaryString name="AttributesSerialize"></BinaryString>
+				<bool name="AutoLocalize">true</bool>
+				<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
+				<bool name="ClipToDeviceSafeArea">true</bool>
+				<bool name="DefinesCapabilities">false</bool>
+				<int name="DisplayOrder">0</int>
+				<bool name="Enabled">false</bool>
+				<UniqueId name="HistoryId">00000000000000000000000000000000</UniqueId>
+				<string name="Name">ScreenGui</string>
+				<bool name="ResetOnSpawn">true</bool>
+				<Ref name="RootLocalizationTable">null</Ref>
+				<token name="SafeAreaCompatibility">1</token>
+				<token name="ScreenInsets">2</token>
+				<token name="SelectionBehaviorDown">0</token>
+				<token name="SelectionBehaviorLeft">0</token>
+				<token name="SelectionBehaviorRight">0</token>
+				<token name="SelectionBehaviorUp">0</token>
+				<bool name="SelectionGroup">false</bool>
+				<int64 name="SourceAssetId">-1</int64>
+				<BinaryString name="Tags"></BinaryString>
+				<UniqueId name="UniqueId">08b022e657d6669808e4c6be00004c6b</UniqueId>
+				<token name="ZIndexBehavior">1</token>
+			</Properties>
+			<Item class="ImageLabel" referent="RBX94194EDF416B401D8E46113686542AFD">
+				<Properties>
+					<bool name="Active">false</bool>
+					<Vector2 name="AnchorPoint">
+						<X>0</X>
+						<Y>0</Y>
+					</Vector2>
+					<BinaryString name="AttributesSerialize"></BinaryString>
+					<bool name="AutoLocalize">true</bool>
+					<token name="AutomaticSize">0</token>
+					<Color3 name="BackgroundColor3">
+						<R>1</R>
+						<G>1</G>
+						<B>1</B>
+					</Color3>
+					<float name="BackgroundTransparency">0</float>
+					<Color3 name="BorderColor3">
+						<R>0</R>
+						<G>0</G>
+						<B>0</B>
+					</Color3>
+					<token name="BorderMode">0</token>
+					<int name="BorderSizePixel">0</int>
+					<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
+					<bool name="ClipsDescendants">false</bool>
+					<bool name="DefinesCapabilities">false</bool>
+					<bool name="Draggable">false</bool>
+					<UniqueId name="HistoryId">00000000000000000000000000000000</UniqueId>
+					<Content name="Image"><url>rbxasset://textures/ui/GuiImagePlaceholder.png</url></Content>
+					<Color3 name="ImageColor3">
+						<R>1</R>
+						<G>1</G>
+						<B>1</B>
+					</Color3>
+					<Vector2 name="ImageRectOffset">
+						<X>0</X>
+						<Y>0</Y>
+					</Vector2>
+					<Vector2 name="ImageRectSize">
+						<X>0</X>
+						<Y>0</Y>
+					</Vector2>
+					<float name="ImageTransparency">0</float>
+					<bool name="Interactable">true</bool>
+					<int name="LayoutOrder">0</int>
+					<string name="Name">ImageLabel</string>
+					<Ref name="NextSelectionDown">null</Ref>
+					<Ref name="NextSelectionLeft">null</Ref>
+					<Ref name="NextSelectionRight">null</Ref>
+					<Ref name="NextSelectionUp">null</Ref>
+					<UDim2 name="Position">
+						<XS>0.0419594869</XS>
+						<XO>0</XO>
+						<YS>0.286261082</YS>
+						<YO>0</YO>
+					</UDim2>
+					<token name="ResampleMode">0</token>
+					<Ref name="RootLocalizationTable">null</Ref>
+					<float name="Rotation">0</float>
+					<token name="ScaleType">0</token>
+					<bool name="Selectable">false</bool>
+					<token name="SelectionBehaviorDown">0</token>
+					<token name="SelectionBehaviorLeft">0</token>
+					<token name="SelectionBehaviorRight">0</token>
+					<token name="SelectionBehaviorUp">0</token>
+					<bool name="SelectionGroup">false</bool>
+					<Ref name="SelectionImageObject">null</Ref>
+					<int name="SelectionOrder">0</int>
+					<UDim2 name="Size">
+						<XS>0</XS>
+						<XO>196</XO>
+						<YS>0</YS>
+						<YO>186</YO>
+					</UDim2>
+					<token name="SizeConstraint">0</token>
+					<Rect2D name="SliceCenter">
+						<min>
+							<X>0</X>
+							<Y>0</Y>
+						</min>
+						<max>
+							<X>0</X>
+							<Y>0</Y>
+						</max>
+					</Rect2D>
+					<float name="SliceScale">1</float>
+					<int64 name="SourceAssetId">-1</int64>
+					<BinaryString name="Tags"></BinaryString>
+					<UDim2 name="TileSize">
+						<XS>1</XS>
+						<XO>0</XO>
+						<YS>1</YS>
+						<YO>0</YO>
+					</UDim2>
+					<UniqueId name="UniqueId">08b022e657d6669808e4c6be00004c8c</UniqueId>
+					<bool name="Visible">true</bool>
+					<int name="ZIndex">1</int>
+				</Properties>
+				<Item class="LocalScript" referent="RBX857F558D99C8428FA48FCF5E4938D2C4">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
+						<bool name="DefinesCapabilities">false</bool>
+						<bool name="Disabled">false</bool>
+						<UniqueId name="HistoryId">00000000000000000000000000000000</UniqueId>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">LocalScript</string>
+						<token name="RunContext">0</token>
+						<string name="ScriptGuid">{392FA1E7-45F8-464C-BE72-CE3729918EAC}</string>
+						<ProtectedString name="Source"><![CDATA[-- Apply player thumbnail as the portrait decal texture
+local imageType = Enum.ThumbnailType.HeadShot
+local imageSize = Enum.ThumbnailSize.Size420x420
+local content, isReady: boolean = game.Players:GetUserThumbnailAsync(2280323197, imageType, imageSize)
+
+
+script.Parent.Image = content]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">08b022e657d6669808e4c6be00004d22</UniqueId>
+					</Properties>
+				</Item>
+			</Item>
+		</Item>
 	</Item>
 	<Item class="LocalizationService" referent="RBXBCB47A82C1304F2CB1226F20C9B71D9E">
 		<Properties>
@@ -62391,6 +62160,7 @@ return CinematicMessageService
 					<ProtectedString name="Source"><![CDATA[
 local Credits = {}
 
+local creditsIds = nil
 local creditsData = {
 	[1] = {
 		name = "Development",
@@ -62414,9 +62184,11 @@ local creditsData = {
 			-- Idosium
 			[454327058] = {"Underpass. Luchino Caffe. Boiling Cauldron rooms."},
 			-- Secretary
-			[2280323197] = {"Reworked banner textures. Contributed to the Architect statue."} 
+			[2280323197] = {"Reworked banner textures. Contributed to the Architect statue."}, 
 			
-			-- Aspect
+			-- Azure
+			[1258419766] = {"Sleep improvements."}, -- Memory cabinet, bio systme TBD
+			-- Spacebar
 		}
 	},
 	
@@ -62450,6 +62222,29 @@ local creditsData = {
 	-- Adding a new category? Ensure that you update the .getContribution function to accomodate it!
 }
 
+-- Return a table consisting of all the contributor IDs
+function Credits.getCreditsIds() : { number }
+	if creditsIds ~= nil then 
+		return creditsIds 
+	end 
+	
+	creditsIds = {}
+	for category, creditsInfo in ipairs(creditsData) do 
+		-- Devs/contributors
+		if category == 1 then 
+			for id, _ in pairs(creditsInfo.members) do 
+				table.insert(creditsIds, id)
+			end
+		elseif category == 2 then  		
+			for _, id in ipairs(creditsInfo.members) do 
+				table.insert(creditsIds, id)
+			end
+		end
+	end
+	
+	return creditsIds
+end
+
 function Credits.getCreditsData()
 	return creditsData
 end
@@ -62458,9 +62253,11 @@ end
 function Credits.getContribution(userId : number)
 	local contribution = nil
 	for category, creditsInfo in ipairs(creditsData) do 
+		-- Devs/contributors
 		if category == 1 and creditsInfo.members[userId] then 
-			contribution = creditsInfo.members[userId]
+			contribution = creditsInfo.members[userId][1]
 			break
+		-- Mods/admins
 		elseif category == 2 and table.find(creditsInfo.members, userId) then  
 			contribution = "Admin"
 			break

@@ -1,3 +1,4 @@
+-- This script initializes the cinematic message UI, and initializes events to receive message requests from the server
 
 --- // SERVICES
 local Players = game:GetService("Players")

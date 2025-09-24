@@ -1,3 +1,4 @@
+-- This module fires events to the client, allowing the client to see cinematic messages. It also performs a variety of input validation to ensure that message events are fired correctly
 
 local CinematicMessageService = {}
 

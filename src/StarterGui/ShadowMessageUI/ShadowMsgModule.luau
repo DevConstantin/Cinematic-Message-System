@@ -1,3 +1,5 @@
+-- This module script handles actual cinematic message functionality for the client
+
 local CinematicMsgClientModule = {}
 
 --- // SERVICES
