@@ -6,7 +6,7 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 --- // OBJECTS
 -- Modules
-local CinematicMsgClientModule = require(script.Parent.ShadowMsgModule)
+local CinematicMsgClientModule = require(script.Parent.CinematicMsgModule)
 -- Player
 local localPlayer = Players.LocalPlayer
 local mouse = localPlayer:GetMouse()
@@ -21,9 +21,9 @@ local msgExitButton: TextButton = mainFrame.ExitButton
 local shadowFrame: Frame = messageUI.Shadow
 
 -- Remote Events
-local shadowMsgEvents = ReplicatedStorage.RemoteEvents.ShadowMsgEvents
-local msgEvent = shadowMsgEvents.ShadowMsg
-local msgSequenceEvent = shadowMsgEvents.ShadowMsgSequence
+local shadowMsgEvents = ReplicatedStorage.RemoteEvents.CinematicMsgEvents
+local msgEvent = shadowMsgEvents.CinematicMsg
+local msgSequenceEvent = shadowMsgEvents.CinematicMsgSequence
 
 --- // MAIN
 -- Initial UI setup - hide elements until needed, ensuring smooth appearance when first used

@@ -1,4 +1,14 @@
--- This module fires events to the client, allowing the client to see cinematic messages. It also performs a variety of input validation to ensure that message events are fired correctly
+-- ABOUT
+-- This module fires events to the client, allowing them to see cinematic messages. It also performs a variety of input validation to ensure that message events are fired correctly
+-- MessageSequence & MessageCurve functionality are not implemented on the client as they are not currently needed, but may be added later
+
+-- REQUIRED INSTANCES
+-- ReplicatedStorage: RSModules.CinematicMessageService, RemoteEvents.CinematicMsgEvents
+-- StarterGui: CinematicMessageUI
+
+-- USAGE
+-- Server: Reference CinematicMessageService module on the server, then call the functions within
+-- Client: Reference ShadowMsgModule under CinematicMessageUI, then call its message functions directly
 
 local CinematicMessageService = {}
 
@@ -7,9 +17,9 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 --- // OBJECTS
 -- RemoteEvents
-local cinematicMsgEvents = ReplicatedStorage.RemoteEvents.ShadowMsgEvents
-local msgEvent = cinematicMsgEvents.ShadowMsg
-local msgSequenceEvent = cinematicMsgEvents.ShadowMsgSequence
+local cinematicMsgEvents = ReplicatedStorage.RemoteEvents.CinematicMsgEvents
+local msgEvent = cinematicMsgEvents.CinematicMsg
+local msgSequenceEvent = cinematicMsgEvents.CinematicMsgSequence
 
 type MessageEntry = {
     message: string?,
