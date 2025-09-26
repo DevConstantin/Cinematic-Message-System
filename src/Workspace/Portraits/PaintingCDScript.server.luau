@@ -45,6 +45,10 @@ local portraitInfo = {
 		"Two professors sitting on the porch together- Oh they’re saying hello!",
 	}, -- Two staff
 	-- Rowena
+	["rbxassetid://133783983306577"] = {
+		{ 2644025530 },
+		"Painting of Young Rowena Ravenclaw.",
+	},
 }
 
 local creditsIds = CreditsModule.getCreditsIds() -- A table of user IDs of everyone who contributed to the game

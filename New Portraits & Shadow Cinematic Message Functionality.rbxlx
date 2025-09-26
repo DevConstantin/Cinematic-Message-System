@@ -98,22 +98,159 @@
 				</CFrame>
 			</OptionalCoordinateFrame>
 		</Properties>
+		<Item class="MeshPart" referent="RBXE5DA575ECFA94DE2A6E47EE66FAD12B9">
+			<Properties>
+				<SharedString name="AeroMeshData">yuZpQdnvvUBOTYh1jqZ2cA==</SharedString>
+				<bool name="Anchored">true</bool>
+				<BinaryString name="AttributesSerialize"></BinaryString>
+				<bool name="AudioCanCollide">true</bool>
+				<float name="BackParamA">-0.5</float>
+				<float name="BackParamB">0.5</float>
+				<token name="BackSurface">0</token>
+				<token name="BackSurfaceInput">0</token>
+				<float name="BottomParamA">-0.5</float>
+				<float name="BottomParamB">0.5</float>
+				<token name="BottomSurface">0</token>
+				<token name="BottomSurfaceInput">0</token>
+				<CoordinateFrame name="CFrame">
+					<X>-180.814285</X>
+					<Y>96.7265091</Y>
+					<Z>264.788208</Z>
+					<R00>0.933578134</R00>
+					<R01>-4.46773711e-08</R01>
+					<R02>0.358374834</R02>
+					<R10>9.17686904e-08</R10>
+					<R11>1</R11>
+					<R12>-1.1439468e-07</R12>
+					<R20>-0.358374834</R20>
+					<R21>1.39683721e-07</R21>
+					<R22>0.933576643</R22>
+				</CoordinateFrame>
+				<bool name="CanCollide">true</bool>
+				<bool name="CanQuery">false</bool>
+				<bool name="CanTouch">false</bool>
+				<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
+				<bool name="CastShadow">true</bool>
+				<string name="CollisionGroup">Default</string>
+				<int name="CollisionGroupId">0</int>
+				<Color3uint8 name="Color3uint8">4293057724</Color3uint8>
+				<PhysicalProperties name="CustomPhysicalProperties">
+					<CustomPhysics>false</CustomPhysics>
+				</PhysicalProperties>
+				<bool name="DefinesCapabilities">false</bool>
+				<bool name="DoubleSided">false</bool>
+				<bool name="EnableFluidForces">false</bool>
+				<token name="FluidFidelityInternal">0</token>
+				<float name="FrontParamA">-0.5</float>
+				<float name="FrontParamB">0.5</float>
+				<token name="FrontSurface">0</token>
+				<token name="FrontSurfaceInput">0</token>
+				<bool name="HasJointOffset">false</bool>
+				<bool name="HasSkinnedMesh">false</bool>
+				<UniqueId name="HistoryId">00000000000000000000000000000000</UniqueId>
+				<bool name="InertiaMigrated">true</bool>
+				<Vector3 name="InitialSize">
+					<X>14.9679041</X>
+					<Y>9.19825172</Y>
+					<Z>26.1614532</Z>
+				</Vector3>
+				<Vector3 name="JointOffset">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<float name="LeftParamA">-0.5</float>
+				<float name="LeftParamB">0.5</float>
+				<token name="LeftSurface">0</token>
+				<token name="LeftSurfaceInput">0</token>
+				<bool name="Locked">false</bool>
+				<bool name="Massless">false</bool>
+				<token name="Material">848</token>
+				<string name="MaterialVariantSerialized">bricks-1k</string>
+				<Content name="MeshId"><url>rbxassetid://9719527624</url></Content>
+				<string name="Name">MeshPart</string>
+				<SharedString name="PhysicalConfigData">n4Hn80v6X0a/GWvMdv/FQg==</SharedString>
+				<BinaryString name="PhysicsData"></BinaryString>
+				<CoordinateFrame name="PivotOffset">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+					<R00>1</R00>
+					<R01>0</R01>
+					<R02>0</R02>
+					<R10>0</R10>
+					<R11>1</R11>
+					<R12>0</R12>
+					<R20>0</R20>
+					<R21>0</R21>
+					<R22>1</R22>
+				</CoordinateFrame>
+				<float name="Reflectance">0</float>
+				<token name="RenderFidelity">2</token>
+				<float name="RightParamA">-0.5</float>
+				<float name="RightParamB">0.5</float>
+				<token name="RightSurface">0</token>
+				<token name="RightSurfaceInput">0</token>
+				<int name="RootPriority">0</int>
+				<Vector3 name="RotVelocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<int64 name="SourceAssetId">-1</int64>
+				<BinaryString name="Tags"></BinaryString>
+				<Content name="TextureID"><null></null></Content>
+				<float name="TopParamA">-0.5</float>
+				<float name="TopParamB">0.5</float>
+				<token name="TopSurface">0</token>
+				<token name="TopSurfaceInput">0</token>
+				<float name="Transparency">0</float>
+				<UniqueId name="UniqueId">6c9f5e9fe1483d7508e50a4100007c3e</UniqueId>
+				<Vector3 name="UnscaledCofm">
+					<X>0.0005603889</X>
+					<Y>-0.648165286</Y>
+					<Z>-0.351314187</Z>
+				</Vector3>
+				<Vector3 name="UnscaledVolInertiaDiags">
+					<X>7326.52393</X>
+					<Y>8613.87598</Y>
+					<Z>3190.43018</Z>
+				</Vector3>
+				<Vector3 name="UnscaledVolInertiaOffDiags">
+					<X>0.135861397</X>
+					<Y>-0.525726318</Y>
+					<Z>1382.85144</Z>
+				</Vector3>
+				<float name="UnscaledVolume">181.072357</float>
+				<Vector3 name="Velocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<int name="VertexCount">1570</int>
+				<Vector3 name="size">
+					<X>47.9986649</X>
+					<Y>18.4967041</Y>
+					<Z>83.893837</Z>
+				</Vector3>
+			</Properties>
+		</Item>
 		<Item class="Camera" referent="RBXAD473DE7797A4B61ABB66492EC0A9D50">
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<CoordinateFrame name="CFrame">
-					<X>-195.045135</X>
-					<Y>73.8388062</Y>
-					<Z>237.703384</Z>
-					<R00>-0.695670843</R00>
-					<R01>0.108314827</R01>
-					<R02>-0.710147917</R02>
-					<R10>-0</R10>
-					<R11>0.988567352</R11>
-					<R12>0.150780544</R12>
-					<R20>0.718360782</R20>
-					<R21>0.104893625</R21>
-					<R22>-0.687717378</R22>
+					<X>-95.3213806</X>
+					<Y>65.5331955</Y>
+					<Z>207.306229</Z>
+					<R00>0.86884445</R00>
+					<R01>0.0179097001</R01>
+					<R02>-0.494761318</R02>
+					<R10>9.31322686e-10</R10>
+					<R11>0.999345601</R11>
+					<R12>0.0361749716</R12>
+					<R20>0.495085418</R20>
+					<R21>-0.0314304233</R21>
+					<R22>0.868275642</R22>
 				</CoordinateFrame>
 				<Ref name="CameraSubject">null</Ref>
 				<token name="CameraType">0</token>
@@ -122,9 +259,9 @@
 				<float name="FieldOfView">70</float>
 				<token name="FieldOfViewMode">0</token>
 				<CoordinateFrame name="Focus">
-					<X>-193.624847</X>
-					<Y>73.5372467</Y>
-					<Z>239.078812</Z>
+					<X>-94.3318634</X>
+					<Y>65.4608459</Y>
+					<Z>205.569687</Z>
 					<R00>1</R00>
 					<R01>0</R01>
 					<R02>0</R02>
@@ -680,6 +817,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><null></null></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc259000062a9</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_Natural_SA</string>
@@ -1093,6 +1239,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><url>rbxassetid://8648261631</url></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">00000000000000000000000000000000</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_White_Paint_SA</string>
@@ -1254,6 +1409,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><url>rbxassetid://8193075597</url></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">00000000000000000000000000000000</UniqueId>
 							<Content name="MetalnessMap"><null></null></Content>
 							<string name="Name">Stowing Sail_SA</string>
@@ -1855,6 +2019,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc259000062a9</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_Natural_SA</string>
@@ -2240,6 +2413,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc2590000629a</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_Natural_SA</string>
@@ -2626,6 +2808,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><null></null></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc259000062a9</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_Natural_SA</string>
@@ -3012,6 +3203,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><url>rbxassetid://8193076758</url></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">00000000000000000000000000000000</UniqueId>
 							<Content name="MetalnessMap"><null></null></Content>
 							<string name="Name">Meekness_SA</string>
@@ -3200,6 +3400,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">00000000000000000000000000000000</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_Natural_SA</string>
@@ -3548,6 +3757,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc259000062dc</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_Natural_SA</string>
@@ -3761,6 +3979,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc259000062a9</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_Natural_SA</string>
@@ -4509,6 +4736,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><null></null></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc259000062a9</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_Natural_SA</string>
@@ -4922,6 +5158,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc25900006277</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_Natural_SA</string>
@@ -5272,6 +5517,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><null></null></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc259000062a9</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_Natural_SA</string>
@@ -5658,6 +5912,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc259000062e1</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_Natural_SA</string>
@@ -6070,6 +6333,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><null></null></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc259000062a9</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_Natural_SA</string>
@@ -6618,6 +6890,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><url>rbxassetid://8648261631</url></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc25900006284</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_White_Paint_SA</string>
@@ -6831,6 +7112,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><null></null></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc259000062a9</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_Natural_SA</string>
@@ -7216,6 +7506,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc259000062e1</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_Natural_SA</string>
@@ -7628,6 +7927,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><null></null></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc259000062a9</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_Natural_SA</string>
@@ -8013,6 +8321,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc259000062a9</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_Natural_SA</string>
@@ -8426,6 +8743,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc25900006313</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_Natural_SA</string>
@@ -9156,6 +9482,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc25900006297</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_Natural_SA</string>
@@ -9533,6 +9868,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><url>rbxassetid://8648261631</url></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc25900006284</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_White_Paint_SA</string>
@@ -9746,6 +10090,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><null></null></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc259000062a9</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_Natural_SA</string>
@@ -10130,6 +10483,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><null></null></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc259000062bd</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_Natural_SA</string>
@@ -10514,6 +10876,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><null></null></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc259000062a9</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_Natural_SA</string>
@@ -10925,6 +11296,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc2590000629a</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_Natural_SA</string>
@@ -11310,6 +11690,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><null></null></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc259000062a9</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_Natural_SA</string>
@@ -11696,6 +12085,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><null></null></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc259000062a9</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_Natural_SA</string>
@@ -12082,6 +12480,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc2590000627b</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_Natural_SA</string>
@@ -12431,6 +12838,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><url>rbxassetid://8648261631</url></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc25900006327</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_White_Paint_SA</string>
@@ -12842,6 +13258,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><null></null></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc259000062a9</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_Natural_SA</string>
@@ -13254,6 +13679,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><url>rbxassetid://8648261631</url></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc25900006282</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_White_Paint_SA</string>
@@ -13603,6 +14037,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc2590000629f</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_Natural_SA</string>
@@ -13987,6 +14430,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc259000062a9</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_Natural_SA</string>
@@ -14371,6 +14823,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><url>rbxassetid://8648261631</url></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc25900006345</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_White_Paint_SA</string>
@@ -14755,6 +15216,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc259000062a9</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_Natural_SA</string>
@@ -15140,6 +15610,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc259000062dc</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_Natural_SA</string>
@@ -15525,6 +16004,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">00000000000000000000000000000000</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_Natural_SA</string>
@@ -16299,6 +16787,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><null></null></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc259000062dc</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_Natural_SA</string>
@@ -16684,6 +17181,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc259000062bd</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_Natural_SA</string>
@@ -17677,6 +18183,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 								</Color3>
 								<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 								<bool name="DefinesCapabilities">false</bool>
+								<Content name="EmissiveMaskContent">
+									<null></null>
+								</Content>
+								<float name="EmissiveStrength">1</float>
+								<Color3 name="EmissiveTint">
+									<R>1</R>
+									<G>1</G>
+									<B>1</B>
+								</Color3>
 								<UniqueId name="HistoryId">41bac2f92c2835bf03fcc25900006338</UniqueId>
 								<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 								<string name="Name">Wood_Molding_Natural_SA</string>
@@ -18028,6 +18543,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><null></null></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc259000062a9</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_Natural_SA</string>
@@ -18413,6 +18937,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc259000062a9</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_Natural_SA</string>
@@ -18797,6 +19330,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc25900006277</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_Natural_SA</string>
@@ -19145,6 +19687,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><url>rbxassetid://9172303045</url></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc25900006336</UniqueId>
 							<Content name="MetalnessMap"><null></null></Content>
 							<string name="Name">The Witches&#226;&#128;&#153; Cauldron or Incantation_SA</string>
@@ -19339,6 +19890,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc25900006338</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_Natural_SA</string>
@@ -19943,6 +20503,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc259000062b3</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_Natural_SA</string>
@@ -20691,6 +21260,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc259000062a9</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_Natural_SA</string>
@@ -21076,6 +21654,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc259000062dc</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_Natural_SA</string>
@@ -21462,6 +22049,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc259000062a9</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_Natural_SA</string>
@@ -22536,6 +23132,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><null></null></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc259000062bd</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_Natural_SA</string>
@@ -23282,6 +23887,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc25900006313</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_Natural_SA</string>
@@ -23837,6 +24451,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><null></null></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc259000062a9</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_Natural_SA</string>
@@ -25080,6 +25703,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc25900006279</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_Natural_SA</string>
@@ -25294,6 +25926,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc259000062b8</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_Natural_SA</string>
@@ -26429,6 +27070,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc259000062b3</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_Natural_SA</string>
@@ -26815,6 +27465,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><null></null></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc259000062a9</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_Natural_SA</string>
@@ -27255,6 +27914,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><null></null></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc259000062a9</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_Natural_SA</string>
@@ -27640,6 +28308,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><url>rbxassetid://8648261631</url></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc25900006327</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_White_Paint_SA</string>
@@ -28025,6 +28702,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc2590000627d</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_Natural_SA</string>
@@ -28402,6 +29088,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><url>rbxassetid://8648261631</url></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc25900006282</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_White_Paint_SA</string>
@@ -29139,6 +29834,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><null></null></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc259000062bd</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_Natural_SA</string>
@@ -29885,6 +30589,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc259000062dc</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_Natural_SA</string>
@@ -30443,6 +31156,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc259000062e8</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_Natural_SA</string>
@@ -31063,6 +31785,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 								</Color3>
 								<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 								<bool name="DefinesCapabilities">false</bool>
+								<Content name="EmissiveMaskContent">
+									<null></null>
+								</Content>
+								<float name="EmissiveStrength">1</float>
+								<Color3 name="EmissiveTint">
+									<R>1</R>
+									<G>1</G>
+									<B>1</B>
+								</Color3>
 								<UniqueId name="HistoryId">41bac2f92c2835bf03fcc2590000633b</UniqueId>
 								<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 								<string name="Name">Wood_Molding_Natural_SA</string>
@@ -32536,6 +33267,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 								</Color3>
 								<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 								<bool name="DefinesCapabilities">false</bool>
+								<Content name="EmissiveMaskContent">
+									<null></null>
+								</Content>
+								<float name="EmissiveStrength">1</float>
+								<Color3 name="EmissiveTint">
+									<R>1</R>
+									<G>1</G>
+									<B>1</B>
+								</Color3>
 								<UniqueId name="HistoryId">41bac2f92c2835bf03fcc259000062b8</UniqueId>
 								<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 								<string name="Name">Wood_Molding_Natural_SA</string>
@@ -32921,6 +33661,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 								</Color3>
 								<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 								<bool name="DefinesCapabilities">false</bool>
+								<Content name="EmissiveMaskContent">
+									<null></null>
+								</Content>
+								<float name="EmissiveStrength">1</float>
+								<Color3 name="EmissiveTint">
+									<R>1</R>
+									<G>1</G>
+									<B>1</B>
+								</Color3>
 								<UniqueId name="HistoryId">41bac2f92c2835bf03fcc259000062eb</UniqueId>
 								<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 								<string name="Name">Wood_Molding_Natural_SA</string>
@@ -33305,6 +34054,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 								</Color3>
 								<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 								<bool name="DefinesCapabilities">false</bool>
+								<Content name="EmissiveMaskContent">
+									<null></null>
+								</Content>
+								<float name="EmissiveStrength">1</float>
+								<Color3 name="EmissiveTint">
+									<R>1</R>
+									<G>1</G>
+									<B>1</B>
+								</Color3>
 								<UniqueId name="HistoryId">41bac2f92c2835bf03fcc259000062dc</UniqueId>
 								<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 								<string name="Name">Wood_Molding_Natural_SA</string>
@@ -33690,6 +34448,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 								</Color3>
 								<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 								<bool name="DefinesCapabilities">false</bool>
+								<Content name="EmissiveMaskContent">
+									<null></null>
+								</Content>
+								<float name="EmissiveStrength">1</float>
+								<Color3 name="EmissiveTint">
+									<R>1</R>
+									<G>1</G>
+									<B>1</B>
+								</Color3>
 								<UniqueId name="HistoryId">41bac2f92c2835bf03fcc259000062dc</UniqueId>
 								<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 								<string name="Name">Wood_Molding_Natural_SA</string>
@@ -34076,6 +34843,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 								</Color3>
 								<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 								<bool name="DefinesCapabilities">false</bool>
+								<Content name="EmissiveMaskContent">
+									<null></null>
+								</Content>
+								<float name="EmissiveStrength">1</float>
+								<Color3 name="EmissiveTint">
+									<R>1</R>
+									<G>1</G>
+									<B>1</B>
+								</Color3>
 								<UniqueId name="HistoryId">41bac2f92c2835bf03fcc259000062dc</UniqueId>
 								<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 								<string name="Name">Wood_Molding_Natural_SA</string>
@@ -35876,6 +36652,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 								</Color3>
 								<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 								<bool name="DefinesCapabilities">false</bool>
+								<Content name="EmissiveMaskContent">
+									<null></null>
+								</Content>
+								<float name="EmissiveStrength">1</float>
+								<Color3 name="EmissiveTint">
+									<R>1</R>
+									<G>1</G>
+									<B>1</B>
+								</Color3>
 								<UniqueId name="HistoryId">41bac2f92c2835bf03fcc2590000627d</UniqueId>
 								<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 								<string name="Name">Wood_Molding_Natural_SA</string>
@@ -36616,6 +37401,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 								</Color3>
 								<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 								<bool name="DefinesCapabilities">false</bool>
+								<Content name="EmissiveMaskContent">
+									<null></null>
+								</Content>
+								<float name="EmissiveStrength">1</float>
+								<Color3 name="EmissiveTint">
+									<R>1</R>
+									<G>1</G>
+									<B>1</B>
+								</Color3>
 								<UniqueId name="HistoryId">41bac2f92c2835bf03fcc2590000627b</UniqueId>
 								<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 								<string name="Name">Wood_Molding_Natural_SA</string>
@@ -38617,6 +39411,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 								</Color3>
 								<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 								<bool name="DefinesCapabilities">false</bool>
+								<Content name="EmissiveMaskContent">
+									<null></null>
+								</Content>
+								<float name="EmissiveStrength">1</float>
+								<Color3 name="EmissiveTint">
+									<R>1</R>
+									<G>1</G>
+									<B>1</B>
+								</Color3>
 								<UniqueId name="HistoryId">41bac2f92c2835bf03fcc259000062e8</UniqueId>
 								<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 								<string name="Name">Wood_Molding_Natural_SA</string>
@@ -39485,6 +40288,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 								</Color3>
 								<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 								<bool name="DefinesCapabilities">false</bool>
+								<Content name="EmissiveMaskContent">
+									<null></null>
+								</Content>
+								<float name="EmissiveStrength">1</float>
+								<Color3 name="EmissiveTint">
+									<R>1</R>
+									<G>1</G>
+									<B>1</B>
+								</Color3>
 								<UniqueId name="HistoryId">41bac2f92c2835bf03fcc25900006338</UniqueId>
 								<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 								<string name="Name">Wood_Molding_Natural_SA</string>
@@ -39835,6 +40647,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 								</Color3>
 								<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 								<bool name="DefinesCapabilities">false</bool>
+								<Content name="EmissiveMaskContent">
+									<null></null>
+								</Content>
+								<float name="EmissiveStrength">1</float>
+								<Color3 name="EmissiveTint">
+									<R>1</R>
+									<G>1</G>
+									<B>1</B>
+								</Color3>
 								<UniqueId name="HistoryId">41bac2f92c2835bf03fcc25900006309</UniqueId>
 								<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 								<string name="Name">Wood_Molding_Natural_SA</string>
@@ -40221,6 +41042,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 								</Color3>
 								<Content name="ColorMap"><url>rbxassetid://8193402086</url></Content>
 								<bool name="DefinesCapabilities">false</bool>
+								<Content name="EmissiveMaskContent">
+									<null></null>
+								</Content>
+								<float name="EmissiveStrength">1</float>
+								<Color3 name="EmissiveTint">
+									<R>1</R>
+									<G>1</G>
+									<B>1</B>
+								</Color3>
 								<UniqueId name="HistoryId">41bac2f92c2835bf03fcc25900006295</UniqueId>
 								<Content name="MetalnessMap"><null></null></Content>
 								<string name="Name">A Mounted Officer_SA</string>
@@ -40416,6 +41246,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 								</Color3>
 								<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 								<bool name="DefinesCapabilities">false</bool>
+								<Content name="EmissiveMaskContent">
+									<null></null>
+								</Content>
+								<float name="EmissiveStrength">1</float>
+								<Color3 name="EmissiveTint">
+									<R>1</R>
+									<G>1</G>
+									<B>1</B>
+								</Color3>
 								<UniqueId name="HistoryId">41bac2f92c2835bf03fcc25900006297</UniqueId>
 								<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 								<string name="Name">Wood_Molding_Natural_SA</string>
@@ -40630,6 +41469,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 								</Color3>
 								<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 								<bool name="DefinesCapabilities">false</bool>
+								<Content name="EmissiveMaskContent">
+									<null></null>
+								</Content>
+								<float name="EmissiveStrength">1</float>
+								<Color3 name="EmissiveTint">
+									<R>1</R>
+									<G>1</G>
+									<B>1</B>
+								</Color3>
 								<UniqueId name="HistoryId">41bac2f92c2835bf03fcc259000062dc</UniqueId>
 								<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 								<string name="Name">Wood_Molding_Natural_SA</string>
@@ -41404,6 +42252,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 								</Color3>
 								<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 								<bool name="DefinesCapabilities">false</bool>
+								<Content name="EmissiveMaskContent">
+									<null></null>
+								</Content>
+								<float name="EmissiveStrength">1</float>
+								<Color3 name="EmissiveTint">
+									<R>1</R>
+									<G>1</G>
+									<B>1</B>
+								</Color3>
 								<UniqueId name="HistoryId">41bac2f92c2835bf03fcc259000062eb</UniqueId>
 								<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 								<string name="Name">Wood_Molding_Natural_SA</string>
@@ -41790,6 +42647,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 								</Color3>
 								<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 								<bool name="DefinesCapabilities">false</bool>
+								<Content name="EmissiveMaskContent">
+									<null></null>
+								</Content>
+								<float name="EmissiveStrength">1</float>
+								<Color3 name="EmissiveTint">
+									<R>1</R>
+									<G>1</G>
+									<B>1</B>
+								</Color3>
 								<UniqueId name="HistoryId">41bac2f92c2835bf03fcc259000062b8</UniqueId>
 								<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 								<string name="Name">Wood_Molding_Natural_SA</string>
@@ -42539,6 +43405,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 								</Color3>
 								<Content name="ColorMap"><url>rbxassetid://8193402086</url></Content>
 								<bool name="DefinesCapabilities">false</bool>
+								<Content name="EmissiveMaskContent">
+									<null></null>
+								</Content>
+								<float name="EmissiveStrength">1</float>
+								<Color3 name="EmissiveTint">
+									<R>1</R>
+									<G>1</G>
+									<B>1</B>
+								</Color3>
 								<UniqueId name="HistoryId">41bac2f92c2835bf03fcc25900006295</UniqueId>
 								<Content name="MetalnessMap"><null></null></Content>
 								<string name="Name">A Mounted Officer_SA</string>
@@ -42734,6 +43609,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 								</Color3>
 								<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 								<bool name="DefinesCapabilities">false</bool>
+								<Content name="EmissiveMaskContent">
+									<null></null>
+								</Content>
+								<float name="EmissiveStrength">1</float>
+								<Color3 name="EmissiveTint">
+									<R>1</R>
+									<G>1</G>
+									<B>1</B>
+								</Color3>
 								<UniqueId name="HistoryId">41bac2f92c2835bf03fcc25900006297</UniqueId>
 								<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 								<string name="Name">Wood_Molding_Natural_SA</string>
@@ -42948,6 +43832,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 								</Color3>
 								<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 								<bool name="DefinesCapabilities">false</bool>
+								<Content name="EmissiveMaskContent">
+									<null></null>
+								</Content>
+								<float name="EmissiveStrength">1</float>
+								<Color3 name="EmissiveTint">
+									<R>1</R>
+									<G>1</G>
+									<B>1</B>
+								</Color3>
 								<UniqueId name="HistoryId">41bac2f92c2835bf03fcc259000062a9</UniqueId>
 								<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 								<string name="Name">Wood_Molding_Natural_SA</string>
@@ -43708,6 +44601,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 								</Color3>
 								<Content name="ColorMap"><url>rbxassetid://8648261631</url></Content>
 								<bool name="DefinesCapabilities">false</bool>
+								<Content name="EmissiveMaskContent">
+									<null></null>
+								</Content>
+								<float name="EmissiveStrength">1</float>
+								<Color3 name="EmissiveTint">
+									<R>1</R>
+									<G>1</G>
+									<B>1</B>
+								</Color3>
 								<UniqueId name="HistoryId">41bac2f92c2835bf03fcc25900006280</UniqueId>
 								<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 								<string name="Name">Wood_Molding_White_Paint_SA</string>
@@ -43922,6 +44824,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 								</Color3>
 								<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 								<bool name="DefinesCapabilities">false</bool>
+								<Content name="EmissiveMaskContent">
+									<null></null>
+								</Content>
+								<float name="EmissiveStrength">1</float>
+								<Color3 name="EmissiveTint">
+									<R>1</R>
+									<G>1</G>
+									<B>1</B>
+								</Color3>
 								<UniqueId name="HistoryId">41bac2f92c2835bf03fcc259000062a9</UniqueId>
 								<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 								<string name="Name">Wood_Molding_Natural_SA</string>
@@ -44307,6 +45218,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 								</Color3>
 								<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 								<bool name="DefinesCapabilities">false</bool>
+								<Content name="EmissiveMaskContent">
+									<null></null>
+								</Content>
+								<float name="EmissiveStrength">1</float>
+								<Color3 name="EmissiveTint">
+									<R>1</R>
+									<G>1</G>
+									<B>1</B>
+								</Color3>
 								<UniqueId name="HistoryId">41bac2f92c2835bf03fcc259000062a9</UniqueId>
 								<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 								<string name="Name">Wood_Molding_Natural_SA</string>
@@ -44692,6 +45612,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 								</Color3>
 								<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 								<bool name="DefinesCapabilities">false</bool>
+								<Content name="EmissiveMaskContent">
+									<null></null>
+								</Content>
+								<float name="EmissiveStrength">1</float>
+								<Color3 name="EmissiveTint">
+									<R>1</R>
+									<G>1</G>
+									<B>1</B>
+								</Color3>
 								<UniqueId name="HistoryId">41bac2f92c2835bf03fcc2590000627b</UniqueId>
 								<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 								<string name="Name">Wood_Molding_Natural_SA</string>
@@ -45405,6 +46334,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAABAMzPjPw==]]></BinaryString>
 								</Color3>
 								<Content name="ColorMap"><url>rbxassetid://8648261631</url></Content>
 								<bool name="DefinesCapabilities">false</bool>
+								<Content name="EmissiveMaskContent">
+									<null></null>
+								</Content>
+								<float name="EmissiveStrength">1</float>
+								<Color3 name="EmissiveTint">
+									<R>1</R>
+									<G>1</G>
+									<B>1</B>
+								</Color3>
 								<UniqueId name="HistoryId">41bac2f92c2835bf03fcc25900006284</UniqueId>
 								<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 								<string name="Name">Wood_Molding_White_Paint_SA</string>
@@ -46233,6 +47171,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 								</Color3>
 								<Content name="ColorMap"><url>rbxassetid://8648261631</url></Content>
 								<bool name="DefinesCapabilities">false</bool>
+								<Content name="EmissiveMaskContent">
+									<null></null>
+								</Content>
+								<float name="EmissiveStrength">1</float>
+								<Color3 name="EmissiveTint">
+									<R>1</R>
+									<G>1</G>
+									<B>1</B>
+								</Color3>
 								<UniqueId name="HistoryId">41bac2f92c2835bf03fcc25900006280</UniqueId>
 								<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 								<string name="Name">Wood_Molding_White_Paint_SA</string>
@@ -46774,6 +47721,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 								</Color3>
 								<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 								<bool name="DefinesCapabilities">false</bool>
+								<Content name="EmissiveMaskContent">
+									<null></null>
+								</Content>
+								<float name="EmissiveStrength">1</float>
+								<Color3 name="EmissiveTint">
+									<R>1</R>
+									<G>1</G>
+									<B>1</B>
+								</Color3>
 								<UniqueId name="HistoryId">41bac2f92c2835bf03fcc25900006309</UniqueId>
 								<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 								<string name="Name">Wood_Molding_Natural_SA</string>
@@ -47848,6 +48804,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 								</Color3>
 								<Content name="ColorMap"><url>rbxassetid://8648261631</url></Content>
 								<bool name="DefinesCapabilities">false</bool>
+								<Content name="EmissiveMaskContent">
+									<null></null>
+								</Content>
+								<float name="EmissiveStrength">1</float>
+								<Color3 name="EmissiveTint">
+									<R>1</R>
+									<G>1</G>
+									<B>1</B>
+								</Color3>
 								<UniqueId name="HistoryId">41bac2f92c2835bf03fcc25900006282</UniqueId>
 								<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 								<string name="Name">Wood_Molding_White_Paint_SA</string>
@@ -48198,6 +49163,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 								</Color3>
 								<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 								<bool name="DefinesCapabilities">false</bool>
+								<Content name="EmissiveMaskContent">
+									<null></null>
+								</Content>
+								<float name="EmissiveStrength">1</float>
+								<Color3 name="EmissiveTint">
+									<R>1</R>
+									<G>1</G>
+									<B>1</B>
+								</Color3>
 								<UniqueId name="HistoryId">41bac2f92c2835bf03fcc2590000629a</UniqueId>
 								<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 								<string name="Name">Wood_Molding_Natural_SA</string>
@@ -49084,6 +50058,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 								</Color3>
 								<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 								<bool name="DefinesCapabilities">false</bool>
+								<Content name="EmissiveMaskContent">
+									<null></null>
+								</Content>
+								<float name="EmissiveStrength">1</float>
+								<Color3 name="EmissiveTint">
+									<R>1</R>
+									<G>1</G>
+									<B>1</B>
+								</Color3>
 								<UniqueId name="HistoryId">41bac2f92c2835bf03fcc25900006309</UniqueId>
 								<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 								<string name="Name">Wood_Molding_Natural_SA</string>
@@ -49468,6 +50451,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 								</Color3>
 								<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 								<bool name="DefinesCapabilities">false</bool>
+								<Content name="EmissiveMaskContent">
+									<null></null>
+								</Content>
+								<float name="EmissiveStrength">1</float>
+								<Color3 name="EmissiveTint">
+									<R>1</R>
+									<G>1</G>
+									<B>1</B>
+								</Color3>
 								<UniqueId name="HistoryId">41bac2f92c2835bf03fcc25900006338</UniqueId>
 								<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 								<string name="Name">Wood_Molding_Natural_SA</string>
@@ -49954,6 +50946,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 								</Color3>
 								<Content name="ColorMap"><null></null></Content>
 								<bool name="DefinesCapabilities">false</bool>
+								<Content name="EmissiveMaskContent">
+									<null></null>
+								</Content>
+								<float name="EmissiveStrength">1</float>
+								<Color3 name="EmissiveTint">
+									<R>1</R>
+									<G>1</G>
+									<B>1</B>
+								</Color3>
 								<UniqueId name="HistoryId">41bac2f92c2835bf03fcc259000062bd</UniqueId>
 								<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 								<string name="Name">Wood_Molding_Natural_SA</string>
@@ -50512,6 +51513,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 								</Color3>
 								<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 								<bool name="DefinesCapabilities">false</bool>
+								<Content name="EmissiveMaskContent">
+									<null></null>
+								</Content>
+								<float name="EmissiveStrength">1</float>
+								<Color3 name="EmissiveTint">
+									<R>1</R>
+									<G>1</G>
+									<B>1</B>
+								</Color3>
 								<UniqueId name="HistoryId">41bac2f92c2835bf03fcc259000062f2</UniqueId>
 								<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 								<string name="Name">Wood_Molding_Natural_SA</string>
@@ -50897,6 +51907,15 @@ YXJlbmN5X09jY2x1c2lvbgYAAAAAAAAAAA==]]></BinaryString>
 							</Color3>
 							<Content name="ColorMap"><url>rbxassetid://8540754425</url></Content>
 							<bool name="DefinesCapabilities">false</bool>
+							<Content name="EmissiveMaskContent">
+								<null></null>
+							</Content>
+							<float name="EmissiveStrength">1</float>
+							<Color3 name="EmissiveTint">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
 							<UniqueId name="HistoryId">41bac2f92c2835bf03fcc259000062a9</UniqueId>
 							<Content name="MetalnessMap"><url>rbxassetid://8378675659</url></Content>
 							<string name="Name">Wood_Molding_Natural_SA</string>
@@ -61458,143 +62477,6 @@ end)]]></ProtectedString>
 				</Vector3>
 			</Properties>
 		</Item>
-		<Item class="MeshPart" referent="RBXE5DA575ECFA94DE2A6E47EE66FAD12B9">
-			<Properties>
-				<SharedString name="AeroMeshData">yuZpQdnvvUBOTYh1jqZ2cA==</SharedString>
-				<bool name="Anchored">true</bool>
-				<BinaryString name="AttributesSerialize"></BinaryString>
-				<bool name="AudioCanCollide">true</bool>
-				<float name="BackParamA">-0.5</float>
-				<float name="BackParamB">0.5</float>
-				<token name="BackSurface">0</token>
-				<token name="BackSurfaceInput">0</token>
-				<float name="BottomParamA">-0.5</float>
-				<float name="BottomParamB">0.5</float>
-				<token name="BottomSurface">0</token>
-				<token name="BottomSurfaceInput">0</token>
-				<CoordinateFrame name="CFrame">
-					<X>-180.814285</X>
-					<Y>96.7265091</Y>
-					<Z>264.788208</Z>
-					<R00>0.933578134</R00>
-					<R01>-4.46773711e-08</R01>
-					<R02>0.358374834</R02>
-					<R10>9.17686904e-08</R10>
-					<R11>1</R11>
-					<R12>-1.1439468e-07</R12>
-					<R20>-0.358374834</R20>
-					<R21>1.39683721e-07</R21>
-					<R22>0.933576643</R22>
-				</CoordinateFrame>
-				<bool name="CanCollide">true</bool>
-				<bool name="CanQuery">false</bool>
-				<bool name="CanTouch">false</bool>
-				<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
-				<bool name="CastShadow">true</bool>
-				<string name="CollisionGroup">Default</string>
-				<int name="CollisionGroupId">0</int>
-				<Color3uint8 name="Color3uint8">4293057724</Color3uint8>
-				<PhysicalProperties name="CustomPhysicalProperties">
-					<CustomPhysics>false</CustomPhysics>
-				</PhysicalProperties>
-				<bool name="DefinesCapabilities">false</bool>
-				<bool name="DoubleSided">false</bool>
-				<bool name="EnableFluidForces">false</bool>
-				<token name="FluidFidelityInternal">0</token>
-				<float name="FrontParamA">-0.5</float>
-				<float name="FrontParamB">0.5</float>
-				<token name="FrontSurface">0</token>
-				<token name="FrontSurfaceInput">0</token>
-				<bool name="HasJointOffset">false</bool>
-				<bool name="HasSkinnedMesh">false</bool>
-				<UniqueId name="HistoryId">00000000000000000000000000000000</UniqueId>
-				<bool name="InertiaMigrated">true</bool>
-				<Vector3 name="InitialSize">
-					<X>14.9679041</X>
-					<Y>9.19825172</Y>
-					<Z>26.1614532</Z>
-				</Vector3>
-				<Vector3 name="JointOffset">
-					<X>0</X>
-					<Y>0</Y>
-					<Z>0</Z>
-				</Vector3>
-				<float name="LeftParamA">-0.5</float>
-				<float name="LeftParamB">0.5</float>
-				<token name="LeftSurface">0</token>
-				<token name="LeftSurfaceInput">0</token>
-				<bool name="Locked">false</bool>
-				<bool name="Massless">false</bool>
-				<token name="Material">848</token>
-				<string name="MaterialVariantSerialized">bricks-1k</string>
-				<Content name="MeshId"><url>rbxassetid://9719527624</url></Content>
-				<string name="Name">MeshPart</string>
-				<SharedString name="PhysicalConfigData">n4Hn80v6X0a/GWvMdv/FQg==</SharedString>
-				<BinaryString name="PhysicsData"></BinaryString>
-				<CoordinateFrame name="PivotOffset">
-					<X>0</X>
-					<Y>0</Y>
-					<Z>0</Z>
-					<R00>1</R00>
-					<R01>0</R01>
-					<R02>0</R02>
-					<R10>0</R10>
-					<R11>1</R11>
-					<R12>0</R12>
-					<R20>0</R20>
-					<R21>0</R21>
-					<R22>1</R22>
-				</CoordinateFrame>
-				<float name="Reflectance">0</float>
-				<token name="RenderFidelity">2</token>
-				<float name="RightParamA">-0.5</float>
-				<float name="RightParamB">0.5</float>
-				<token name="RightSurface">0</token>
-				<token name="RightSurfaceInput">0</token>
-				<int name="RootPriority">0</int>
-				<Vector3 name="RotVelocity">
-					<X>0</X>
-					<Y>0</Y>
-					<Z>0</Z>
-				</Vector3>
-				<int64 name="SourceAssetId">-1</int64>
-				<BinaryString name="Tags"></BinaryString>
-				<Content name="TextureID"><null></null></Content>
-				<float name="TopParamA">-0.5</float>
-				<float name="TopParamB">0.5</float>
-				<token name="TopSurface">0</token>
-				<token name="TopSurfaceInput">0</token>
-				<float name="Transparency">0</float>
-				<UniqueId name="UniqueId">6c9f5e9fe1483d7508e50a4100007c3e</UniqueId>
-				<Vector3 name="UnscaledCofm">
-					<X>0.0005603889</X>
-					<Y>-0.648165286</Y>
-					<Z>-0.351314187</Z>
-				</Vector3>
-				<Vector3 name="UnscaledVolInertiaDiags">
-					<X>7326.52393</X>
-					<Y>8613.87598</Y>
-					<Z>3190.43018</Z>
-				</Vector3>
-				<Vector3 name="UnscaledVolInertiaOffDiags">
-					<X>0.135861397</X>
-					<Y>-0.525726318</Y>
-					<Z>1382.85144</Z>
-				</Vector3>
-				<float name="UnscaledVolume">181.072357</float>
-				<Vector3 name="Velocity">
-					<X>0</X>
-					<Y>0</Y>
-					<Z>0</Z>
-				</Vector3>
-				<int name="VertexCount">1570</int>
-				<Vector3 name="size">
-					<X>47.9986649</X>
-					<Y>18.4967041</Y>
-					<Z>83.893837</Z>
-				</Vector3>
-			</Properties>
-		</Item>
 	</Item>
 	<Item class="TimerService" referent="RBX0916FBE0FD994273B4E7825C2C5D4612">
 		<Properties>
@@ -62313,7 +63195,7 @@ end)]]></ProtectedString>
 				<int name="DisplayOrder">0</int>
 				<bool name="Enabled">true</bool>
 				<UniqueId name="HistoryId">00000000000000000000000000000000</UniqueId>
-				<string name="Name">ShadowMessageUI</string>
+				<string name="Name">CinematicMessageUI</string>
 				<bool name="ResetOnSpawn">true</bool>
 				<Ref name="RootLocalizationTable">null</Ref>
 				<token name="SafeAreaCompatibility">1</token>
@@ -62328,455 +63210,6 @@ end)]]></ProtectedString>
 				<UniqueId name="UniqueId">2682dfb9766cc07c08dceab800003981</UniqueId>
 				<token name="ZIndexBehavior">0</token>
 			</Properties>
-			<Item class="LocalScript" referent="RBX1BEBE8A174C941D2AC2E771C91095F11">
-				<Properties>
-					<BinaryString name="AttributesSerialize"></BinaryString>
-					<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
-					<bool name="DefinesCapabilities">false</bool>
-					<bool name="Disabled">false</bool>
-					<UniqueId name="HistoryId">00000000000000000000000000000000</UniqueId>
-					<Content name="LinkedSource"><null></null></Content>
-					<string name="Name">ShadowMessageScript</string>
-					<token name="RunContext">0</token>
-					<string name="ScriptGuid">{B62675AA-AD8D-4FA3-8E7B-7CE66CECFF04}</string>
-					<ProtectedString name="Source"><![CDATA[-- This script initializes the cinematic message UI, and initializes events to receive message requests from the server
-
---- // SERVICES
-local Players = game:GetService("Players")
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
-
---- // OBJECTS
--- Modules
-local CinematicMsgClientModule = require(script.Parent.ShadowMsgModule)
--- Player
-local localPlayer = Players.LocalPlayer
-local mouse = localPlayer:GetMouse()
-
--- UI Elements
-local messageUI = script.Parent
-local mainFrame = messageUI.MainFrame
-local titleTextLabel: TextLabel = mainFrame.TitleText
-local textLabelTemplate: TextLabel = mainFrame.TextTemplate
-local titleLine: ImageLabel = mainFrame.LineUnderTitle
-local msgExitButton: TextButton = mainFrame.ExitButton
-local shadowFrame: Frame = messageUI.Shadow
-
--- Remote Events
-local shadowMsgEvents = ReplicatedStorage.RemoteEvents.ShadowMsgEvents
-local msgEvent = shadowMsgEvents.ShadowMsg
-local msgSequenceEvent = shadowMsgEvents.ShadowMsgSequence
-
---- // MAIN
--- Initial UI setup - hide elements until needed, ensuring smooth appearance when first used
-textLabelTemplate.Text = "" -- Hide the template label
-titleTextLabel.Text = ""
-titleLine.BackgroundTransparency = 1
-titleLine.UIStroke.Enabled = false
-titleLine.ImageLabel.ImageTransparency = 1
-titleLine.ImageLabel2.ImageTransparency = 1
-shadowFrame.Position = UDim2.fromScale(0, 1) -- Start hidden
-msgExitButton.Visible = false
-messageUI.Enabled = true -- Ensure the UI is enabled now that setup is done
-
--- Connect mouse and button events to module functions
-mouse.Button1Down:Connect(CinematicMsgClientModule.onMouseClick)
-msgExitButton.MouseButton1Click:Connect(CinematicMsgClientModule.hideCinematicMessage)
-
--- Connect RemoteEvents to module functions
-msgEvent.OnClientEvent:Connect(CinematicMsgClientModule.showCinematicMessage)
-msgSequenceEvent.OnClientEvent:Connect(CinematicMsgClientModule.showCinematicMessageSequence)]]></ProtectedString>
-					<int64 name="SourceAssetId">-1</int64>
-					<BinaryString name="Tags"></BinaryString>
-					<UniqueId name="UniqueId">2682dfb9766cc07c08dceab800003982</UniqueId>
-				</Properties>
-			</Item>
-			<Item class="ModuleScript" referent="RBX889D9858F606429EA57733E8A72D04CF">
-				<Properties>
-					<BinaryString name="AttributesSerialize"></BinaryString>
-					<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
-					<bool name="DefinesCapabilities">false</bool>
-					<UniqueId name="HistoryId">00000000000000000000000000000000</UniqueId>
-					<Content name="LinkedSource"><null></null></Content>
-					<string name="Name">ShadowMsgModule</string>
-					<string name="ScriptGuid">{FC2D8E63-53BB-4B15-8F54-7A5289361F1B}</string>
-					<ProtectedString name="Source"><![CDATA[-- This module script handles actual cinematic message functionality for the client
-
-local CinematicMsgClientModule = {}
-
---- // SERVICES
-local Players = game:GetService("Players")
-local RunService = game:GetService("RunService")
-local SoundService = game:GetService("SoundService")
-local TweenService = game:GetService("TweenService")
-
---- // OBJECTS
--- Player
-local localPlayer = Players.LocalPlayer
-local camera = workspace.CurrentCamera
--- UI Elements
-local messageUI = script.Parent
-local mainFrame = messageUI.MainFrame
-local titleTextLabel: TextLabel = mainFrame.TitleText
-local lineUnderTitle: ImageLabel = mainFrame.LineUnderTitle
-local textLabelTemplate: TextLabel = mainFrame.TextTemplate
-local msgExitButton = mainFrame.ExitButton
-local shadowFrame: Frame = messageUI.Shadow
-
---local typeWriterSound = SoundService.UI.TypewriterDialogueSound -- I am yet to find a good sound effect
-
---- // CONFIG
-local SHADOW_FRAME_TWEEN_TIME = 0.6
-local TEXT_TWEEN_TIME = 2
-local SHADOW_FRAME_HIDDEN_POSITION = UDim2.fromScale(0, 1)
-local SHADOW_FRAME_VISIBLE_POSITION = UDim2.fromScale(0, 0.63)
-local TYPEWRITER_EFFECT_SPEED = 0.02 -- Time in seconds between each letter for typewriter effect
-local MOVE_DISTANCE_THRESHOLD = 2 -- Distance in studs before the message UI closes
-local MOVE_DISTANCE_CHECK_INTERVAL = 0.3 -- How often to check player distance in seconds
-
---- // VARIABLES
-local previousTextLabel: TextLabel = nil -- To keep track of the previous text label for cleanup
-local currentCameraTween: Tween = nil -- To keep track of the current camera tween for cleanup do
-local typeWriterSkipRequested = false -- Flag to indicate if the user has requested to skip the typewriter effect
-local msgReceivedPos = nil -- Position where the message was received, used for distance tracking
-local posChangedConnect = nil -- Connection for position changed event
-local msgChangedConnection = nil
-type MessageEntry = {
-    message: string,
-    cframe: CFrame?,
-    target: Instance?
-}	
-
-local showTextTweenInfo = TweenInfo.new(TEXT_TWEEN_TIME)
-local hideTextTweenInfo = TweenInfo.new(TEXT_TWEEN_TIME / 4) -- Hide faster than show
-local showTitleTween: Tween = TweenService:Create(titleTextLabel, showTextTweenInfo, {TextTransparency = 0})
-local hideTitleTween: Tween = TweenService:Create(titleTextLabel, hideTextTweenInfo, {TextTransparency = 1})
-
-
--------------------------------- // CAMERA FUNCTIONS --------------------------------
-
-local function updateCamera(msgCFrame: CFrame?, msgTarget: Instance?)
-    if currentCameraTween then
-        currentCameraTween:Cancel()
-        currentCameraTween = nil
-    end
-
-    if msgTarget and msgTarget:IsA("Instance") then
-        camera.CameraSubject = msgTarget
-        camera.CameraType = Enum.CameraType.Attach
-    elseif msgCFrame and typeof(msgCFrame) == "CFrame" then
-        local currentCameraCFrame = camera.CFrame
-        camera.CameraType = Enum.CameraType.Scriptable
-        camera.CFrame = currentCameraCFrame -- Prevents sudden jump to new CFrame
-        local camTweenLength = math.clamp((currentCameraCFrame.Position - msgCFrame.Position).Magnitude / 50, 0.5, 3) -- Duration based on distance, clamped between 0.5 and 3 seconds to avoid too fast/slow tweens
-        currentCameraTween = TweenService:Create(camera, TweenInfo.new(camTweenLength, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {CFrame = msgCFrame})
-        currentCameraTween:Play()
-    elseif camera.CameraType ~= Enum.CameraType.Custom then
-        -- Reset to default camera behavior if no valid CFrame or target is provided
-        camera.CameraType = Enum.CameraType.Custom
-    end
-end
-
-local function moveCameraAlongCurve(vector3Points: { Vector3 })
-    -- Currently not implemented
-end
-
-local function resetCamera()
-    if camera.CameraType ~= Enum.CameraType.Custom then
-         camera.CameraType = Enum.CameraType.Custom
-    end
-end
-
---------------------------------- // POSITION TRACKING FUNCTIONS --------------------------------
--- Clears the position changed connection if it exists
-local function clearPosChangedConnect()
-    if posChangedConnect then
-        posChangedConnect:Disconnect()
-        posChangedConnect = nil
-    end
-end
-
--- Close the message UI when the player moves too far from the message position,
--- or if the player's character is removed (e.g., upon death or respawn)
-local function setupPosTracking()
-    clearPosChangedConnect()
-    local char = localPlayer.Character
-    local humrp = char and char:FindFirstChild("HumanoidRootPart")
-    if not humrp then return end
-
-    msgReceivedPos = humrp.Position
-    local lastCheck = 0
-    posChangedConnect = RunService.Stepped:Connect(function(_, dt)
-        lastCheck = lastCheck + dt
-        if lastCheck < MOVE_DISTANCE_CHECK_INTERVAL then return end -- Check every 1 second (configurable)
-        lastCheck = 0
-        if not char.Parent or not humrp.Parent then
-            CinematicMsgClientModule.hideCinematicMessage()
-            clearPosChangedConnect()
-            return
-        end
-        if (humrp.Position - msgReceivedPos).Magnitude > MOVE_DISTANCE_THRESHOLD then 
-            CinematicMsgClientModule.hideCinematicMessage()
-            clearPosChangedConnect()
-        end
-    end)
-end
-
--------------------------------- // MESSAGE DISPLAY FUNCTIONS --------------------------------
-
--- Tweens the visibility of the shadow frame by changing its position
-local function updateShadowVisibility(isVisible: boolean, isInstant: boolean?)
-    if isInstant then
-        shadowFrame.Position = isVisible and SHADOW_FRAME_VISIBLE_POSITION or SHADOW_FRAME_HIDDEN_POSITION
-        return
-    end       
-    local goal = {
-        Position = isVisible and SHADOW_FRAME_VISIBLE_POSITION or SHADOW_FRAME_HIDDEN_POSITION   
-    }
-    local tween = TweenService:Create(shadowFrame, TweenInfo.new(SHADOW_FRAME_TWEEN_TIME), goal)
-    tween:Play()
-end
-
--- Displays or hides the title text label based on msgTitle
--- Input can be nil or empty string to hide the title & line under it
-local function updateTitle(msgTitle: string?, isInstant: boolean?)
-    if not msgTitle then
-        msgTitle = ""
-    end
-
-    titleTextLabel.Text = msgTitle
-    if isInstant then
-        titleTextLabel.TextTransparency = msgTitle ~= "" and 0 or 1
-        lineUnderTitle.BackgroundTransparency = msgTitle ~= "" and 0 or 1
-        lineUnderTitle.ImageLabel.ImageTransparency = msgTitle ~= "" and 0 or 1
-        lineUnderTitle.ImageLabel2.ImageTransparency = msgTitle ~= "" and 0 or 1
-        lineUnderTitle.UIStroke.Enabled = msgTitle ~= ""
-        return
-    end
-
-    if titleTextLabel.Text ~= "" then
-       showTitleTween:Play()
-    else
-       hideTitleTween:Play()
-    end
-
-    -- Also tween the line under the title to match visibility
-    local titleLineGoal = {BackgroundTransparency = titleTextLabel.Text ~= "" and 0 or 1}
-    local imageGoal = {ImageTransparency = titleTextLabel.Text ~= "" and 0 or 1}
-    local tweenInfo = titleTextLabel.Text ~= "" and showTextTweenInfo or hideTextTweenInfo
-    TweenService:Create(lineUnderTitle, tweenInfo, titleLineGoal):Play()
-    TweenService:Create(lineUnderTitle.ImageLabel, tweenInfo, imageGoal):Play()
-    TweenService:Create(lineUnderTitle.ImageLabel2, tweenInfo, imageGoal):Play()
-end
-
--- Displays the message text with the specified style effect
-local function displayText(text: string, style: string)
-    msgExitButton.Visible = true
-
-    if previousTextLabel then
-        previousTextLabel:Destroy()
-        previousTextLabel = nil
-    end
-
-    -- Text can be nil or empty, in which case we just skip displaying it
-    if text == "" or text == nil then
-        return
-    end
-
-    -- Create and configure new text label
-    local textLabel = textLabelTemplate:Clone()
-    textLabel.Name = "CinematicTextLabel"
-    textLabel.Parent = messageUI
-    previousTextLabel = textLabel
-
-    if style == "Typewriter" then
-        -- Typewriter effect
-        local length = #text
-        textLabel.Text = ""
-        task.spawn(function()
-            task.wait(0.1) -- Small initial delay before starting typewriter effect
-            for i = 1, length do 
-                 if typeWriterSkipRequested then
-                    print("CinematicMsgClientModule | displayText: Typewriter skip requested, displaying full text immediately.")
-                    textLabel.Text = text
-                    break
-                end
-
-                if not textLabel.Parent or messageUI:GetAttribute("CurrentMessage") ~= text then
-                    print("CinematicMsgClientModule | displayText: Text label removed or new message requested, stopping typewriter effect.")
-                    break -- Exit if the text label was removed or a new message is requested
-                end
-
-                textLabel.Text = string.sub(text, 1, i)
-                task.wait(TYPEWRITER_EFFECT_SPEED)
-            end
-            typeWriterSkipRequested = false
-        end)
-    elseif style == "Fade" then
-        -- Fade in effect
-        textLabel.Text = text
-        textLabel.TextTransparency = 1
-        local tween = TweenService:Create(textLabel, showTextTweenInfo, {TextTransparency = 0})
-        tween:Play()
-    else
-        -- Instant display
-        textLabel.Text = text
-    end
-
-    typeWriterSkipRequested = false
-end
-
--------------------------------- // CINEMATIC MESSAGE MODULE FUNCTIONS --------------------------------
-
--- Validates if at least one of msgText, msgCFrame, msgTarget, or vector3Points is provided
-local function shouldDisplayCinematicMessage(msgText: string?, msgCFrame: CFrame?, msgTarget: Instance?, vector3Points: { Vector3 }?)
-    if (msgText == "" or msgText == nil) and msgCFrame == nil and msgTarget == nil and (not vector3Points or #vector3Points < 2) then
-        warn("CinematicMsgClientModule | showCinematicMsg: Missing msgText, msgCFrame, msgTarget, and vector3Points params! You must provide at least one. Returning.")
-        return false
-    end
-    -- Prevent displaying the same message again if it's already shown
-    if msgText ~= nil and messageUI:GetAttribute("CurrentMessage") == msgText then
-        print("CinematicMsgClientModule | showCinematicMsg: Same message already displayed, ignoring.")
-        return false
-    end
-
-    return true
-end
-
--- Displays a cinematic message with optional title, camera position/target, and style
--- @param msgTitle: If nil, title text label will be hidden in the UI on the client, otherwise displayed above the message text
--- @param msgText: The message text to display
--- @param msgCFrame: If provided, client camera will change to this CFrame in the 3D world
--- @param msgTarget: If provided, client camera will follow this Instance in the 3D world (takes priority over msgCFrame)
--- @param vector3Points: A table of Vector3 points that define the curve path for the camera to follow
--- @param style: 'Typewriter' (letters appear one by one), 'Fade' (text slowly fades in), "Instant" (text instantly appears) - Defaults to instant
-function CinematicMsgClientModule.showCinematicMessage(msgTitle: string?, msgText: string?, style: string?, msgCFrame: CFrame?, msgTarget: Instance?, vector3Points: {Vector3}?)
-    local success, result = pcall(function()
-        if not shouldDisplayCinematicMessage(msgText, msgCFrame, msgTarget, vector3Points) then return end
-
-        setupPosTracking() -- Start tracking player position to auto-close message if they move away
-        messageUI:SetAttribute("CurrentMessage", msgText)
-        typeWriterSkipRequested = true
-
-        if not style or style == "" then
-            style = "Instant"
-        end
-        -- Clean up previous text label if it exists to avoid overlap
-        if previousTextLabel then
-            previousTextLabel:Destroy()
-        end
-
-        -- Display title and text
-        updateTitle(msgTitle, style == "Instant")
-        displayText(msgText, style)
-        updateShadowVisibility(true, style == "Instant")
-
-        -- Update camera based on provided parameters
-        if vector3Points and #vector3Points >= 2 then
-            moveCameraAlongCurve(vector3Points)
-        elseif msgCFrame or msgTarget then
-            updateCamera(msgCFrame, msgTarget)
-        end
-    end)
-
-    if not success then
-        warn("CinematicMsgClientModule | showCinematicMsg: Error displaying cinematic message:", result)
-        CinematicMsgClientModule.hideCinematicMessage()
-    end
-end
-
-function CinematicMsgClientModule.showCinematicMessageSequence(msgTitle: string?, msgTable: { MessageEntry }, style: string?)
-	-- Might add this later
-end
-
-function CinematicMsgClientModule.showCinematicCurveMessage(msgTitle: string?, msgText: string?, style: string?, vector3Points: {Vector3})
-    CinematicMsgClientModule.showCinematicMessage(msgTitle, msgText, style, nil, nil, vector3Points)
-end
-
--- Resets camera, hides shadow frame, and clears text labels
-function CinematicMsgClientModule.hideCinematicMessage()
-    local success, result = pcall(function()
-        messageUI:SetAttribute("CurrentMessage", nil)
-        typeWriterSkipRequested = false
-        updateShadowVisibility(false)
-        updateTitle(nil)
-        if previousTextLabel then
-            previousTextLabel:Destroy()
-            previousTextLabel = nil
-        end
-        msgExitButton.Visible = false
-        resetCamera()
-        clearPosChangedConnect()
-    end)
-
-    if not success then
-        warn("CinematicMsgClientModule | hideCinematicMessage: Error hiding cinematic message:", result)
-    end
-end
-
--- Handles mouse click events to skip typewriter effect or proceed to next message
-function CinematicMsgClientModule.onMouseClick()
-    -- If a message is currently being displayed and typewriter effect is active, request to skip it
-   local currentMsg = messageUI:GetAttribute("CurrentMessage")
-   if not previousTextLabel or currentMsg == nil or currentMsg == "" then
-       -- No message currently displayed, ignore click
-       return
-   end
-   -- Will later need to show next message in sequence if implemented
-   if previousTextLabel and previousTextLabel.Text == currentMsg then
-       -- Message already fully displayed, ignore click
-       return
-   end
-   typeWriterSkipRequested = true
-end
-
--------------------------------- // CONNECTION FUNCTIONS -----------------------
--- Monitor changes to the CurrentMessage attribute to reset flags
-local function currentMessageChanged()
-    local currentMsg = messageUI:GetAttribute("CurrentMessage")
-    print("CinematicMsgClientModule | CurrentMessage attribute changed to:", currentMsg)
-    if not currentMsg or currentMsg == "" then
-        -- Message cleared, reset typewriter flags
-        typeWriterSkipRequested = false
-    end
-end
-
--- Clean up connections when the UI is destroyed
-local function uiDestroyed()
-    if msgChangedConnection then
-        msgChangedConnection:Disconnect()
-        msgChangedConnection = nil
-    end
-    clearPosChangedConnect()
-end
-
--- Update the line's UIStroke based on showTitleTween playback state
-local function showTitleTweenStateChanged()
-    if showTitleTween.PlaybackState == Enum.PlaybackState.Completed then
-        lineUnderTitle.UIStroke.Enabled = true
-    elseif showTitleTween.PlaybackState == Enum.PlaybackState.Cancelled then
-        lineUnderTitle.UIStroke.Enabled = false
-    end
-end
-
--- Hide the line's UIStroke when the hide title tween starts playing
-local function hideTitleTweenStateChanged()
-    if hideTitleTween.PlaybackState == Enum.PlaybackState.Playing then
-        lineUnderTitle.UIStroke.Enabled = false
-    end
-end
-
--------------------------------- // CONNECTIONS --------------------------------
-msgChangedConnection = messageUI:GetAttributeChangedSignal("CurrentMessage"):Connect(currentMessageChanged)
-messageUI.Destroying:Connect(uiDestroyed)
-showTitleTween:GetPropertyChangedSignal("PlaybackState"):Connect(showTitleTweenStateChanged)
-hideTitleTween:GetPropertyChangedSignal("PlaybackState"):Connect(hideTitleTweenStateChanged)
-
-return CinematicMsgClientModule]]></ProtectedString>
-					<int64 name="SourceAssetId">-1</int64>
-					<BinaryString name="Tags"></BinaryString>
-					<UniqueId name="UniqueId">2682dfb9766cc07c08dceab800003983</UniqueId>
-				</Properties>
-			</Item>
 			<Item class="Frame" referent="RBXB2F3380DB2C14D4CB19EF6F43097AF20">
 				<Properties>
 					<bool name="Active">false</bool>
@@ -63982,153 +64415,454 @@ return CinematicMsgClientModule]]></ProtectedString>
 					</Item>
 				</Item>
 			</Item>
-		</Item>
-		<Item class="ScreenGui" referent="RBXB1CBBBBB8AF94ABAAF84A6455CECB57F">
-			<Properties>
-				<BinaryString name="AttributesSerialize"></BinaryString>
-				<bool name="AutoLocalize">true</bool>
-				<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
-				<bool name="ClipToDeviceSafeArea">true</bool>
-				<bool name="DefinesCapabilities">false</bool>
-				<int name="DisplayOrder">0</int>
-				<bool name="Enabled">false</bool>
-				<UniqueId name="HistoryId">00000000000000000000000000000000</UniqueId>
-				<string name="Name">ScreenGui</string>
-				<bool name="ResetOnSpawn">true</bool>
-				<Ref name="RootLocalizationTable">null</Ref>
-				<token name="SafeAreaCompatibility">1</token>
-				<token name="ScreenInsets">2</token>
-				<token name="SelectionBehaviorDown">0</token>
-				<token name="SelectionBehaviorLeft">0</token>
-				<token name="SelectionBehaviorRight">0</token>
-				<token name="SelectionBehaviorUp">0</token>
-				<bool name="SelectionGroup">false</bool>
-				<int64 name="SourceAssetId">-1</int64>
-				<BinaryString name="Tags"></BinaryString>
-				<UniqueId name="UniqueId">08b022e657d6669808e4c6be00004c6b</UniqueId>
-				<token name="ZIndexBehavior">1</token>
-			</Properties>
-			<Item class="ImageLabel" referent="RBX94194EDF416B401D8E46113686542AFD">
+			<Item class="LocalScript" referent="RBX5546A24310904D98A72C407AD4DB9206">
 				<Properties>
-					<bool name="Active">false</bool>
-					<Vector2 name="AnchorPoint">
-						<X>0</X>
-						<Y>0</Y>
-					</Vector2>
 					<BinaryString name="AttributesSerialize"></BinaryString>
-					<bool name="AutoLocalize">true</bool>
-					<token name="AutomaticSize">0</token>
-					<Color3 name="BackgroundColor3">
-						<R>1</R>
-						<G>1</G>
-						<B>1</B>
-					</Color3>
-					<float name="BackgroundTransparency">0</float>
-					<Color3 name="BorderColor3">
-						<R>0</R>
-						<G>0</G>
-						<B>0</B>
-					</Color3>
-					<token name="BorderMode">0</token>
-					<int name="BorderSizePixel">0</int>
 					<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
-					<bool name="ClipsDescendants">false</bool>
 					<bool name="DefinesCapabilities">false</bool>
-					<bool name="Draggable">false</bool>
+					<bool name="Disabled">false</bool>
 					<UniqueId name="HistoryId">00000000000000000000000000000000</UniqueId>
-					<Content name="Image"><url>rbxasset://textures/ui/GuiImagePlaceholder.png</url></Content>
-					<Color3 name="ImageColor3">
-						<R>1</R>
-						<G>1</G>
-						<B>1</B>
-					</Color3>
-					<Vector2 name="ImageRectOffset">
-						<X>0</X>
-						<Y>0</Y>
-					</Vector2>
-					<Vector2 name="ImageRectSize">
-						<X>0</X>
-						<Y>0</Y>
-					</Vector2>
-					<float name="ImageTransparency">0</float>
-					<bool name="Interactable">true</bool>
-					<int name="LayoutOrder">0</int>
-					<string name="Name">ImageLabel</string>
-					<Ref name="NextSelectionDown">null</Ref>
-					<Ref name="NextSelectionLeft">null</Ref>
-					<Ref name="NextSelectionRight">null</Ref>
-					<Ref name="NextSelectionUp">null</Ref>
-					<UDim2 name="Position">
-						<XS>0.0419594869</XS>
-						<XO>0</XO>
-						<YS>0.286261082</YS>
-						<YO>0</YO>
-					</UDim2>
-					<token name="ResampleMode">0</token>
-					<Ref name="RootLocalizationTable">null</Ref>
-					<float name="Rotation">0</float>
-					<token name="ScaleType">0</token>
-					<bool name="Selectable">false</bool>
-					<token name="SelectionBehaviorDown">0</token>
-					<token name="SelectionBehaviorLeft">0</token>
-					<token name="SelectionBehaviorRight">0</token>
-					<token name="SelectionBehaviorUp">0</token>
-					<bool name="SelectionGroup">false</bool>
-					<Ref name="SelectionImageObject">null</Ref>
-					<int name="SelectionOrder">0</int>
-					<UDim2 name="Size">
-						<XS>0</XS>
-						<XO>196</XO>
-						<YS>0</YS>
-						<YO>186</YO>
-					</UDim2>
-					<token name="SizeConstraint">0</token>
-					<Rect2D name="SliceCenter">
-						<min>
-							<X>0</X>
-							<Y>0</Y>
-						</min>
-						<max>
-							<X>0</X>
-							<Y>0</Y>
-						</max>
-					</Rect2D>
-					<float name="SliceScale">1</float>
+					<Content name="LinkedSource"><null></null></Content>
+					<string name="Name">CinematicMessageScript</string>
+					<token name="RunContext">0</token>
+					<string name="ScriptGuid">{5FB996BC-A19F-4F47-AFD6-89DBFB17FA5B}</string>
+					<ProtectedString name="Source"><![CDATA[-- This script initializes the cinematic message UI, and initializes events to receive message requests from the server
+
+--- // SERVICES
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+--- // OBJECTS
+-- Modules
+local CinematicMsgClientModule = require(script.Parent.CinematicMsgModule)
+-- Player
+local localPlayer = Players.LocalPlayer
+local mouse = localPlayer:GetMouse()
+
+-- UI Elements
+local messageUI = script.Parent
+local mainFrame = messageUI.MainFrame
+local titleTextLabel: TextLabel = mainFrame.TitleText
+local textLabelTemplate: TextLabel = mainFrame.TextTemplate
+local titleLine: ImageLabel = mainFrame.LineUnderTitle
+local msgExitButton: TextButton = mainFrame.ExitButton
+local shadowFrame: Frame = messageUI.Shadow
+
+-- Remote Events
+local shadowMsgEvents = ReplicatedStorage.RemoteEvents.CinematicMsgEvents
+local msgEvent = shadowMsgEvents.CinematicMsg
+local msgSequenceEvent = shadowMsgEvents.CinematicMsgSequence
+
+--- // MAIN
+-- Initial UI setup - hide elements until needed, ensuring smooth appearance when first used
+textLabelTemplate.Text = "" -- Hide the template label
+titleTextLabel.Text = ""
+titleLine.BackgroundTransparency = 1
+titleLine.UIStroke.Enabled = false
+titleLine.ImageLabel.ImageTransparency = 1
+titleLine.ImageLabel2.ImageTransparency = 1
+shadowFrame.Position = UDim2.fromScale(0, 1) -- Start hidden
+msgExitButton.Visible = false
+messageUI.Enabled = true -- Ensure the UI is enabled now that setup is done
+
+-- Connect mouse and button events to module functions
+mouse.Button1Down:Connect(CinematicMsgClientModule.onMouseClick)
+msgExitButton.MouseButton1Click:Connect(CinematicMsgClientModule.hideCinematicMessage)
+
+-- Connect RemoteEvents to module functions
+msgEvent.OnClientEvent:Connect(CinematicMsgClientModule.showCinematicMessage)
+msgSequenceEvent.OnClientEvent:Connect(CinematicMsgClientModule.showCinematicMessageSequence)]]></ProtectedString>
 					<int64 name="SourceAssetId">-1</int64>
 					<BinaryString name="Tags"></BinaryString>
-					<UDim2 name="TileSize">
-						<XS>1</XS>
-						<XO>0</XO>
-						<YS>1</YS>
-						<YO>0</YO>
-					</UDim2>
-					<UniqueId name="UniqueId">08b022e657d6669808e4c6be00004c8c</UniqueId>
-					<bool name="Visible">true</bool>
-					<int name="ZIndex">1</int>
+					<UniqueId name="UniqueId">1d35af1e2c8ca1e908e618c8000038bd</UniqueId>
 				</Properties>
-				<Item class="LocalScript" referent="RBX857F558D99C8428FA48FCF5E4938D2C4">
-					<Properties>
-						<BinaryString name="AttributesSerialize"></BinaryString>
-						<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
-						<bool name="DefinesCapabilities">false</bool>
-						<bool name="Disabled">false</bool>
-						<UniqueId name="HistoryId">00000000000000000000000000000000</UniqueId>
-						<Content name="LinkedSource"><null></null></Content>
-						<string name="Name">LocalScript</string>
-						<token name="RunContext">0</token>
-						<string name="ScriptGuid">{392FA1E7-45F8-464C-BE72-CE3729918EAC}</string>
-						<ProtectedString name="Source"><![CDATA[-- Apply player thumbnail as the portrait decal texture
-local imageType = Enum.ThumbnailType.HeadShot
-local imageSize = Enum.ThumbnailSize.Size420x420
-local content, isReady: boolean = game.Players:GetUserThumbnailAsync(2280323197, imageType, imageSize)
+			</Item>
+			<Item class="ModuleScript" referent="RBXE6A5D75A32084A0E808559B3F35179A5">
+				<Properties>
+					<BinaryString name="AttributesSerialize"></BinaryString>
+					<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
+					<bool name="DefinesCapabilities">false</bool>
+					<UniqueId name="HistoryId">00000000000000000000000000000000</UniqueId>
+					<Content name="LinkedSource"><null></null></Content>
+					<string name="Name">CinematicMsgModule</string>
+					<string name="ScriptGuid">{AF012D62-6E55-455E-ADF8-282F0024EB94}</string>
+					<ProtectedString name="Source"><![CDATA[-- This module script handles actual cinematic message functionality for the client
+
+local CinematicMsgClientModule = {}
+
+--- // SERVICES
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local SoundService = game:GetService("SoundService")
+local TweenService = game:GetService("TweenService")
+
+--- // OBJECTS
+-- Player
+local localPlayer = Players.LocalPlayer
+local camera = workspace.CurrentCamera
+-- UI Elements
+local messageUI = script.Parent
+local mainFrame = messageUI.MainFrame
+local titleTextLabel: TextLabel = mainFrame.TitleText
+local lineUnderTitle: ImageLabel = mainFrame.LineUnderTitle
+local textLabelTemplate: TextLabel = mainFrame.TextTemplate
+local msgExitButton = mainFrame.ExitButton
+local shadowFrame: Frame = messageUI.Shadow
+
+--local typeWriterSound = SoundService.UI.TypewriterDialogueSound -- I am yet to find a good sound effect
+
+--- // CONFIG
+local SHADOW_FRAME_TWEEN_TIME = 0.6
+local TEXT_TWEEN_TIME = 2
+local SHADOW_FRAME_HIDDEN_POSITION = UDim2.fromScale(0, 1)
+local SHADOW_FRAME_VISIBLE_POSITION = UDim2.fromScale(0, 0.63)
+local TYPEWRITER_EFFECT_SPEED = 0.02 -- Time in seconds between each letter for typewriter effect
+local MOVE_DISTANCE_THRESHOLD = 2 -- Distance in studs before the message UI closes
+local MOVE_DISTANCE_CHECK_INTERVAL = 0.3 -- How often to check player distance in seconds
+
+--- // VARIABLES
+local previousTextLabel: TextLabel = nil -- To keep track of the previous text label for cleanup
+local currentCameraTween: Tween = nil -- To keep track of the current camera tween for cleanup do
+local typeWriterSkipRequested = false -- Flag to indicate if the user has requested to skip the typewriter effect
+local msgReceivedPos = nil -- Position where the message was received, used for distance tracking
+local posChangedConnect = nil -- Connection for position changed event
+local msgChangedConnection = nil
+type MessageEntry = {
+    message: string,
+    cframe: CFrame?,
+    target: Instance?
+}	
+
+local showTextTweenInfo = TweenInfo.new(TEXT_TWEEN_TIME)
+local hideTextTweenInfo = TweenInfo.new(TEXT_TWEEN_TIME / 4) -- Hide faster than show
+local showTitleTween: Tween = TweenService:Create(titleTextLabel, showTextTweenInfo, {TextTransparency = 0})
+local hideTitleTween: Tween = TweenService:Create(titleTextLabel, hideTextTweenInfo, {TextTransparency = 1})
 
 
-script.Parent.Image = content]]></ProtectedString>
-						<int64 name="SourceAssetId">-1</int64>
-						<BinaryString name="Tags"></BinaryString>
-						<UniqueId name="UniqueId">08b022e657d6669808e4c6be00004d22</UniqueId>
-					</Properties>
-				</Item>
+-------------------------------- // CAMERA FUNCTIONS --------------------------------
+
+local function updateCamera(msgCFrame: CFrame?, msgTarget: Instance?)
+    if currentCameraTween then
+        currentCameraTween:Cancel()
+        currentCameraTween = nil
+    end
+
+    if msgTarget and msgTarget:IsA("Instance") then
+        camera.CameraSubject = msgTarget
+        camera.CameraType = Enum.CameraType.Attach
+    elseif msgCFrame and typeof(msgCFrame) == "CFrame" then
+        local currentCameraCFrame = camera.CFrame
+        camera.CameraType = Enum.CameraType.Scriptable
+        camera.CFrame = currentCameraCFrame -- Prevents sudden jump to new CFrame
+        local camTweenLength = math.clamp((currentCameraCFrame.Position - msgCFrame.Position).Magnitude / 50, 0.5, 3) -- Duration based on distance, clamped between 0.5 and 3 seconds to avoid too fast/slow tweens
+        currentCameraTween = TweenService:Create(camera, TweenInfo.new(camTweenLength, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {CFrame = msgCFrame})
+        currentCameraTween:Play()
+    elseif camera.CameraType ~= Enum.CameraType.Custom then
+        -- Reset to default camera behavior if no valid CFrame or target is provided
+        camera.CameraType = Enum.CameraType.Custom
+    end
+end
+
+local function moveCameraAlongCurve(vector3Points: { Vector3 })
+    -- Currently not implemented
+end
+
+local function resetCamera()
+    if camera.CameraType ~= Enum.CameraType.Custom then
+         camera.CameraType = Enum.CameraType.Custom
+    end
+end
+
+--------------------------------- // POSITION TRACKING FUNCTIONS --------------------------------
+-- Clears the position changed connection if it exists
+local function clearPosChangedConnect()
+    if posChangedConnect then
+        posChangedConnect:Disconnect()
+        posChangedConnect = nil
+    end
+end
+
+-- Close the message UI when the player moves too far from the message position,
+-- or if the player's character is removed (e.g., upon death or respawn)
+local function setupPosTracking()
+    clearPosChangedConnect()
+    local char = localPlayer.Character
+    local humrp = char and char:FindFirstChild("HumanoidRootPart")
+    if not humrp then return end
+
+    msgReceivedPos = humrp.Position
+    local lastCheck = 0
+    posChangedConnect = RunService.Stepped:Connect(function(_, dt)
+        lastCheck = lastCheck + dt
+        if lastCheck < MOVE_DISTANCE_CHECK_INTERVAL then return end -- Check every 1 second (configurable)
+        lastCheck = 0
+        if not char.Parent or not humrp.Parent then
+            CinematicMsgClientModule.hideCinematicMessage()
+            clearPosChangedConnect()
+            return
+        end
+        if (humrp.Position - msgReceivedPos).Magnitude > MOVE_DISTANCE_THRESHOLD then 
+            CinematicMsgClientModule.hideCinematicMessage()
+            clearPosChangedConnect()
+        end
+    end)
+end
+
+-------------------------------- // MESSAGE DISPLAY FUNCTIONS --------------------------------
+
+-- Tweens the visibility of the shadow frame by changing its position
+local function updateShadowVisibility(isVisible: boolean, isInstant: boolean?)
+    if isInstant then
+        shadowFrame.Position = isVisible and SHADOW_FRAME_VISIBLE_POSITION or SHADOW_FRAME_HIDDEN_POSITION
+        return
+    end       
+    local goal = {
+        Position = isVisible and SHADOW_FRAME_VISIBLE_POSITION or SHADOW_FRAME_HIDDEN_POSITION   
+    }
+    local tween = TweenService:Create(shadowFrame, TweenInfo.new(SHADOW_FRAME_TWEEN_TIME), goal)
+    tween:Play()
+end
+
+-- Displays or hides the title text label based on msgTitle
+-- Input can be nil or empty string to hide the title & line under it
+local function updateTitle(msgTitle: string?, isInstant: boolean?)
+    if not msgTitle then
+        msgTitle = ""
+    end
+
+    titleTextLabel.Text = msgTitle
+    if isInstant then
+        titleTextLabel.TextTransparency = msgTitle ~= "" and 0 or 1
+        lineUnderTitle.BackgroundTransparency = msgTitle ~= "" and 0 or 1
+        lineUnderTitle.ImageLabel.ImageTransparency = msgTitle ~= "" and 0 or 1
+        lineUnderTitle.ImageLabel2.ImageTransparency = msgTitle ~= "" and 0 or 1
+        lineUnderTitle.UIStroke.Enabled = msgTitle ~= ""
+        return
+    end
+
+    if titleTextLabel.Text ~= "" then
+       showTitleTween:Play()
+    else
+       hideTitleTween:Play()
+    end
+
+    -- Also tween the line under the title to match visibility
+    local titleLineGoal = {BackgroundTransparency = titleTextLabel.Text ~= "" and 0 or 1}
+    local imageGoal = {ImageTransparency = titleTextLabel.Text ~= "" and 0 or 1}
+    local tweenInfo = titleTextLabel.Text ~= "" and showTextTweenInfo or hideTextTweenInfo
+    TweenService:Create(lineUnderTitle, tweenInfo, titleLineGoal):Play()
+    TweenService:Create(lineUnderTitle.ImageLabel, tweenInfo, imageGoal):Play()
+    TweenService:Create(lineUnderTitle.ImageLabel2, tweenInfo, imageGoal):Play()
+end
+
+-- Displays the message text with the specified style effect
+local function displayText(text: string, style: string)
+    msgExitButton.Visible = true
+
+    if previousTextLabel then
+        previousTextLabel:Destroy()
+        previousTextLabel = nil
+    end
+
+    -- Text can be nil or empty, in which case we just skip displaying it
+    if text == "" or text == nil then
+        return
+    end
+
+    -- Create and configure new text label
+    local textLabel = textLabelTemplate:Clone()
+    textLabel.Name = "CinematicTextLabel"
+    textLabel.Parent = messageUI
+    previousTextLabel = textLabel
+
+    if style == "Typewriter" then
+        -- Typewriter effect
+        local length = #text
+        textLabel.Text = ""
+        task.spawn(function()
+            task.wait(0.1) -- Small initial delay before starting typewriter effect
+            for i = 1, length do 
+                 if typeWriterSkipRequested then
+                    print("CinematicMsgClientModule | displayText: Typewriter skip requested, displaying full text immediately.")
+                    textLabel.Text = text
+                    break
+                end
+
+                if not textLabel.Parent or messageUI:GetAttribute("CurrentMessage") ~= text then
+                    print("CinematicMsgClientModule | displayText: Text label removed or new message requested, stopping typewriter effect.")
+                    break -- Exit if the text label was removed or a new message is requested
+                end
+
+                textLabel.Text = string.sub(text, 1, i)
+                task.wait(TYPEWRITER_EFFECT_SPEED)
+            end
+            typeWriterSkipRequested = false
+        end)
+    elseif style == "Fade" then
+        -- Fade in effect
+        textLabel.Text = text
+        textLabel.TextTransparency = 1
+        local tween = TweenService:Create(textLabel, showTextTweenInfo, {TextTransparency = 0})
+        tween:Play()
+    else
+        -- Instant display
+        textLabel.Text = text
+    end
+
+    typeWriterSkipRequested = false
+end
+
+-------------------------------- // CINEMATIC MESSAGE MODULE FUNCTIONS --------------------------------
+
+-- Validates if at least one of msgText, msgCFrame, msgTarget, or vector3Points is provided
+local function shouldDisplayCinematicMessage(msgText: string?, msgCFrame: CFrame?, msgTarget: Instance?, vector3Points: { Vector3 }?)
+    if (msgText == "" or msgText == nil) and msgCFrame == nil and msgTarget == nil and (not vector3Points or #vector3Points < 2) then
+        warn("CinematicMsgClientModule | showCinematicMsg: Missing msgText, msgCFrame, msgTarget, and vector3Points params! You must provide at least one. Returning.")
+        return false
+    end
+    -- Prevent displaying the same message again if it's already shown
+    if msgText ~= nil and messageUI:GetAttribute("CurrentMessage") == msgText then
+        print("CinematicMsgClientModule | showCinematicMsg: Same message already displayed, ignoring.")
+        return false
+    end
+
+    return true
+end
+
+-- Displays a cinematic message with optional title, camera position/target, and style
+-- @param msgTitle: If nil, title text label will be hidden in the UI on the client, otherwise displayed above the message text
+-- @param msgText: The message text to display
+-- @param msgCFrame: If provided, client camera will change to this CFrame in the 3D world
+-- @param msgTarget: If provided, client camera will follow this Instance in the 3D world (takes priority over msgCFrame)
+-- @param vector3Points: A table of Vector3 points that define the curve path for the camera to follow
+-- @param style: 'Typewriter' (letters appear one by one), 'Fade' (text slowly fades in), "Instant" (text instantly appears) - Defaults to instant
+function CinematicMsgClientModule.showCinematicMessage(msgTitle: string?, msgText: string?, style: string?, msgCFrame: CFrame?, msgTarget: Instance?, vector3Points: {Vector3}?)
+    local success, result = pcall(function()
+        if not shouldDisplayCinematicMessage(msgText, msgCFrame, msgTarget, vector3Points) then return end
+
+        setupPosTracking() -- Start tracking player position to auto-close message if they move away
+        messageUI:SetAttribute("CurrentMessage", msgText)
+        typeWriterSkipRequested = true
+
+        if not style or style == "" then
+            style = "Instant"
+        end
+        -- Clean up previous text label if it exists to avoid overlap
+        if previousTextLabel then
+            previousTextLabel:Destroy()
+        end
+
+        -- Display title and text
+        updateTitle(msgTitle, style == "Instant")
+        displayText(msgText, style)
+        updateShadowVisibility(true, style == "Instant")
+
+        -- Update camera based on provided parameters
+        if vector3Points and #vector3Points >= 2 then
+            moveCameraAlongCurve(vector3Points)
+        elseif msgCFrame or msgTarget then
+            updateCamera(msgCFrame, msgTarget)
+        end
+    end)
+
+    if not success then
+        warn("CinematicMsgClientModule | showCinematicMsg: Error displaying cinematic message:", result)
+        CinematicMsgClientModule.hideCinematicMessage()
+    end
+end
+
+function CinematicMsgClientModule.showCinematicMessageSequence(msgTitle: string?, msgTable: { MessageEntry }, style: string?)
+	-- Might add this later
+end
+
+function CinematicMsgClientModule.showCinematicCurveMessage(msgTitle: string?, msgText: string?, style: string?, vector3Points: {Vector3})
+    CinematicMsgClientModule.showCinematicMessage(msgTitle, msgText, style, nil, nil, vector3Points)
+end
+
+-- Resets camera, hides shadow frame, and clears text labels
+function CinematicMsgClientModule.hideCinematicMessage()
+    local success, result = pcall(function()
+        messageUI:SetAttribute("CurrentMessage", nil)
+        typeWriterSkipRequested = false
+        updateShadowVisibility(false)
+        updateTitle(nil)
+        if previousTextLabel then
+            previousTextLabel:Destroy()
+            previousTextLabel = nil
+        end
+        msgExitButton.Visible = false
+        resetCamera()
+        clearPosChangedConnect()
+    end)
+
+    if not success then
+        warn("CinematicMsgClientModule | hideCinematicMessage: Error hiding cinematic message:", result)
+    end
+end
+
+-- Handles mouse click events to skip typewriter effect or proceed to next message
+function CinematicMsgClientModule.onMouseClick()
+    -- If a message is currently being displayed and typewriter effect is active, request to skip it
+   local currentMsg = messageUI:GetAttribute("CurrentMessage")
+   if not previousTextLabel or currentMsg == nil or currentMsg == "" then
+       -- No message currently displayed, ignore click
+       return
+   end
+   -- Will later need to show next message in sequence if implemented
+   if previousTextLabel and previousTextLabel.Text == currentMsg then
+       -- Message already fully displayed, ignore click
+       return
+   end
+   typeWriterSkipRequested = true
+end
+
+-------------------------------- // CONNECTION FUNCTIONS -----------------------
+-- Monitor changes to the CurrentMessage attribute to reset flags
+local function currentMessageChanged()
+    local currentMsg = messageUI:GetAttribute("CurrentMessage")
+    print("CinematicMsgClientModule | CurrentMessage attribute changed to:", currentMsg)
+    if not currentMsg or currentMsg == "" then
+        -- Message cleared, reset typewriter flags
+        typeWriterSkipRequested = false
+    end
+end
+
+-- Clean up connections when the UI is destroyed
+local function uiDestroyed()
+    if msgChangedConnection then
+        msgChangedConnection:Disconnect()
+        msgChangedConnection = nil
+    end
+    clearPosChangedConnect()
+end
+
+-- Update the line's UIStroke based on showTitleTween playback state
+local function showTitleTweenStateChanged()
+    if showTitleTween.PlaybackState == Enum.PlaybackState.Completed then
+        lineUnderTitle.UIStroke.Enabled = true
+    elseif showTitleTween.PlaybackState == Enum.PlaybackState.Cancelled then
+        lineUnderTitle.UIStroke.Enabled = false
+    end
+end
+
+-- Hide the line's UIStroke when the hide title tween starts playing
+local function hideTitleTweenStateChanged()
+    if hideTitleTween.PlaybackState == Enum.PlaybackState.Playing then
+        lineUnderTitle.UIStroke.Enabled = false
+    end
+end
+
+-------------------------------- // CONNECTIONS --------------------------------
+msgChangedConnection = messageUI:GetAttributeChangedSignal("CurrentMessage"):Connect(currentMessageChanged)
+messageUI.Destroying:Connect(uiDestroyed)
+showTitleTween:GetPropertyChangedSignal("PlaybackState"):Connect(showTitleTweenStateChanged)
+hideTitleTween:GetPropertyChangedSignal("PlaybackState"):Connect(hideTitleTweenStateChanged)
+
+return CinematicMsgClientModule]]></ProtectedString>
+					<int64 name="SourceAssetId">-1</int64>
+					<BinaryString name="Tags"></BinaryString>
+					<UniqueId name="UniqueId">1d35af1e2c8ca1e908e618c8000038bf</UniqueId>
+				</Properties>
 			</Item>
 		</Item>
 	</Item>
@@ -64386,7 +65120,7 @@ script.Parent.Image = content]]></ProtectedString>
 					<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
 					<bool name="DefinesCapabilities">false</bool>
 					<UniqueId name="HistoryId">00000000000000000000000000000000</UniqueId>
-					<string name="Name">ShadowMsgEvents</string>
+					<string name="Name">CinematicMsgEvents</string>
 					<int64 name="SourceAssetId">-1</int64>
 					<BinaryString name="Tags"></BinaryString>
 					<UniqueId name="UniqueId">1930a1d8fa28276808d3971e00005aea</UniqueId>
@@ -64397,7 +65131,7 @@ script.Parent.Image = content]]></ProtectedString>
 						<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
 						<bool name="DefinesCapabilities">false</bool>
 						<UniqueId name="HistoryId">00000000000000000000000000000000</UniqueId>
-						<string name="Name">ShadowMsg</string>
+						<string name="Name">CinematicMsg</string>
 						<int64 name="SourceAssetId">-1</int64>
 						<BinaryString name="Tags"></BinaryString>
 						<UniqueId name="UniqueId">1930a1d8fa28276808d3971e00004a01</UniqueId>
@@ -64409,7 +65143,7 @@ script.Parent.Image = content]]></ProtectedString>
 						<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
 						<bool name="DefinesCapabilities">false</bool>
 						<UniqueId name="HistoryId">1930a1d8fa28276808d3971e00004a01</UniqueId>
-						<string name="Name">ShadowMsgSequence</string>
+						<string name="Name">CinematicMsgSequence</string>
 						<int64 name="SourceAssetId">-1</int64>
 						<BinaryString name="Tags"></BinaryString>
 						<UniqueId name="UniqueId">1930a1d8fa28276808d3971e00005aeb</UniqueId>
@@ -64508,7 +65242,17 @@ return MessageModule
 					<Content name="LinkedSource"><null></null></Content>
 					<string name="Name">CinematicMessageService</string>
 					<string name="ScriptGuid">{C5D7CB6E-7038-4AEC-8E62-8075F4DF1274}</string>
-					<ProtectedString name="Source"><![CDATA[-- This module fires events to the client, allowing the client to see cinematic messages. It also performs a variety of input validation to ensure that message events are fired correctly
+					<ProtectedString name="Source"><![CDATA[-- ABOUT
+-- This module fires events to the client, allowing them to see cinematic messages. It also performs a variety of input validation to ensure that message events are fired correctly
+-- MessageSequence & MessageCurve functionality are not implemented on the client as they are not currently needed, but may be added later
+
+-- REQUIRED INSTANCES
+-- ReplicatedStorage: RSModules.CinematicMessageService, RemoteEvents.CinematicMsgEvents
+-- StarterGui: CinematicMessageUI
+
+-- USAGE
+-- Server: Reference CinematicMessageService module on the server, then call the functions within
+-- Client: Reference ShadowMsgModule under CinematicMessageUI, then call its message functions directly
 
 local CinematicMessageService = {}
 
@@ -64517,9 +65261,9 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 --- // OBJECTS
 -- RemoteEvents
-local cinematicMsgEvents = ReplicatedStorage.RemoteEvents.ShadowMsgEvents
-local msgEvent = cinematicMsgEvents.ShadowMsg
-local msgSequenceEvent = cinematicMsgEvents.ShadowMsgSequence
+local cinematicMsgEvents = ReplicatedStorage.RemoteEvents.CinematicMsgEvents
+local msgEvent = cinematicMsgEvents.CinematicMsg
+local msgSequenceEvent = cinematicMsgEvents.CinematicMsgSequence
 
 type MessageEntry = {
     message: string?,
@@ -64652,7 +65396,7 @@ local Credits = {}
 
 local creditsIds = nil
 
-local constantinCredits = "Lead developer & founder."
+local constantinCredits = "Lead developer & founder. Built, programmed, and modeled the majority of the game."
 
 local creditsData = {
 	[1] = {
